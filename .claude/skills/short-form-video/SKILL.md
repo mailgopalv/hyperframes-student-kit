@@ -1,25 +1,23 @@
 ---
 name: short-form-video
-description: Build and iterate short-form vertical (9:16) videos in Hyperframes — TikTok/Reels/Shorts style. Use when Nate says "short-form video", "vertical video", "TikTok/Reels/Shorts", "make a short", "talking-head + motion graphics", or when the target is a 1080x1920 composition with face video + synced scene overlays + karaoke captions. Encodes the full May Shorts 19 playbook: face-mode choreography, audio-synced scene timing, karaoke captions, and the 10-rule quality checklist.
+description: Maintain the existing May Shorts teaching compositions using their legacy face-mode, scene-overlay, and karaoke-caption patterns. Use only when working on those examples or explicitly requesting this legacy scaffold. For new reels, Shorts, or short advertisements, use short-form-edit.
 ---
 
 # Short-Form Vertical Video (Hyperframes)
 
-Short-form = 1080x1920 vertical, 10–30s, talking-head face + motion-graphic scene overlays + karaoke captions. Everything in this skill is distilled from the May Shorts 19 iteration autopsy (v1 → v4) and should be applied on every new short.
+Short-form = 1080x1920 vertical, 10–30s, talking-head face + motion-graphic scene overlays + karaoke captions. Everything in this skill is distilled from the May Shorts 19 iteration autopsy (v1 → v4) and is preserved for maintenance of those examples. Use `short-form-edit` for new recordings.
 
 **Always invoke `/hyperframes` first.** This skill sits on top of it — it does not replace the framework rules (`data-*` attributes, `window.__timelines`, composition structure). Those are non-negotiable regardless of the format.
 
 ## When this skill fires
 
-- "Make a short-form video", "TikTok post", "Reels", "Shorts", "vertical video"
-- Any build starting from a talking-head recording + script/transcript intended for social
-- Retiming, recutting, or re-syncing an existing short
-- Adding karaoke captions synced to a voiceover
+- Maintaining the existing May Shorts examples.
+- Explicitly requesting their legacy four-layer scaffold.
 
 ## The playbook (high-level)
 
 1. **Audio is source of truth.** Edit audio FIRST (cut retakes, pauses). Save as `<name>-edit.mp4`. Measure exact duration with `ffprobe` — this is the composition's `data-duration`.
-2. **Transcribe the edited audio** with `npx hyperframes transcribe <edit>.mp4 --model small.en --json`, or if retiming an existing build with a `shift()` function in captions, keep the existing captions and just shift scene starts.
+2. **Transcribe the edited audio** with the root `scripts/transcribe-elevenlabs.mjs` helper (ElevenLabs Scribe), a student-selected alternative normalized per `docs/TOOLS-AND-API-KEYS.md`, or if retiming an existing build with a `shift()` function in captions, keep the existing captions and just shift scene starts.
 3. **Author scene boundaries in edited-time** — NEVER mix original-time and edited-time anchors in the same file. See "Audio-sync protocol" below.
 4. **Build the composition scaffold** (4 layers: ambient-bg, seam-treatment, captions, face) — see "Composition scaffold" below.
 5. **Author scenes with LOCAL offsets** relative to each scene's `data-start`. Each scene is its own sub-composition under `compositions/scene<N>-<label>.html`.

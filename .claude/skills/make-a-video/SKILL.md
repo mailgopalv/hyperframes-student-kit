@@ -16,7 +16,7 @@ Two phases, eight sequential gates. Every gate produces a concrete artifact the 
 
 **Hand off when:**
 - The user pastes a URL and wants a video from that site → invoke `/website-to-hyperframes`
-- The user explicitly wants a 9:16 vertical talking-head with face-cam + scene overlays → run Gates 1–4 here, then invoke `/short-form-video` from Gate 5 onward
+- The user explicitly wants a 9:16 vertical talking-head with face-cam + scene overlays → run Gates 1–4 here, then invoke `/short-form-edit` from Gate 5 onward
 - The user asks for framework rules, not a video → invoke `/hyperframes`
 
 ## The two phases
@@ -37,7 +37,7 @@ Ask one question at a time via `AskUserQuestion`, multiple-choice where possible
 5. Frame rate? (30 default · 60 for crisp UI · 24 cinematic)
 6. Platform / delivery constraints? (file size · deadline · where it'll play)
 
-**Gate:** all six captured. If the answer is 9:16 + face-cam, plan to hand off to `/short-form-video` at Gate 5.
+**Gate:** all six captured. If the answer is 9:16 + face-cam, plan to hand off to `/short-form-edit` at Gate 5.
 
 Full question bank: `Read: references/interview-questions.md`
 
@@ -101,7 +101,7 @@ Full style flow + MOTION_PHILOSOPHY defaults: `Read: references/style-intake.md`
 
 ### Handoff check first
 
-If the brief describes a 9:16 vertical talking-head with face-cam + scene overlays, invoke `/short-form-video` NOW and hand off the brief. Its 4-layer scaffold is purpose-built for that format.
+If the brief describes a 9:16 vertical talking-head with face-cam + scene overlays, invoke `/short-form-edit` NOW and hand off the brief. Its transcript-driven workflow covers hooks, cuts, captions, footage, and sound.
 
 Otherwise continue:
 
@@ -171,7 +171,7 @@ Full boilerplate + captions pattern + ambient-bg pattern: `Read: references/comp
 - **Kinetic-type openers:** per-word stagger 0.06–0.10s.
 - **Captions** as body-level siblings of the root composition in `index.html`, each with `data-track-index ≥ 20`. Never inside scene timelines (MOTION_PHILOSOPHY §3.13).
 - **Catalog blocks** installed via `npx hyperframes add <name>`. Immediately **scope the block's CSS** to `[data-composition-id="..."]` — catalog blocks ship with `html, body { ... }` rules that bleed into the parent document when loaded as sub-compositions.
-- **Vertical + face-cam:** wrap native 1920×1080 face in a transform (`translate` + `scale`) for bottom-half or full-screen mode. (If you end up here instead of `/short-form-video`, strongly consider the handoff.)
+- **Vertical + face-cam:** wrap native 1920×1080 face in a transform (`translate` + `scale`) for bottom-half or full-screen mode. (If you end up here instead of `/short-form-edit`, strongly consider the handoff.)
 - **Apply ONLY what the user supplied.** Their palette, their fonts, their logo. Don't inject anything else. If they chose MOTION_PHILOSOPHY defaults, pull the palette + font pair from `references/style-intake.md`.
 
 ### Determinism
@@ -266,5 +266,5 @@ External (workspace-level):
 - `/hyperframes-cli` — init · lint · preview · render · transcribe · tts
 - `/hyperframes-registry` — installing catalog blocks
 - `/gsap` — GSAP animation reference
-- `/short-form-video` — hand off at Gate 5 for 9:16 talking-head format
+- `/short-form-edit` — hand off at Gate 5 for 9:16 talking-head format
 - `/website-to-hyperframes` — hand off at Gate 1 if the starting input is a URL
