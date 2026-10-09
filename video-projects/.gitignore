@@ -31,3 +31,11 @@
 *.[tT][iI][fF]
 *.[tT][iI][fF][fF]
 *.[sS][vV][gG]
+
+# Generated scratch / caches
+*.[rR][aA][wW]
+*.npy
+__pycache__/
+*.pyc
+.waveform-cache/
+.thumbnails/
