@@ -1,0 +1,6 @@
+file 'seg-00-vo-a.wav'
+file 'seg-01-c1.wav'
+file 'seg-02-c2.wav'
+file 'seg-03-c3.wav'
+file 'seg-04-c4.wav'
+file 'seg-05-vo-b.wav'

@@ -1,0 +1,109 @@
+{
+ "id": "short2",
+ "src": "../ai-mcp-handson/renders/0927-tight-16x9.mp4",
+ "vo": "../ai-mcp-handson/assets/mcp-handson-short2.m4a",
+ "crops": {
+  "TR": [
+   1140,
+   1140,
+   1240,
+   200
+  ],
+  "CT": [
+   1200,
+   1200,
+   660,
+   180
+  ],
+  "IN": [
+   1260,
+   1260,
+   520,
+   200
+  ],
+  "CODE": [
+   1200,
+   1200,
+   660,
+   60
+  ],
+  "CHAT": [
+   1260,
+   1260,
+   1216,
+   180
+  ]
+ },
+ "segments": [
+  {
+   "lab": "vo-a",
+   "video": 1853.5,
+   "crop": "TR",
+   "vo": [
+    0.9,
+    8.7
+   ]
+  },
+  {
+   "lab": "c1",
+   "clip": [
+    1861.3,
+    1873.4
+   ],
+   "crop": "TR"
+  },
+  {
+   "lab": "c2a",
+   "clip": [
+    1899.65,
+    1902.933
+   ],
+   "crop": "CODE"
+  },
+  {
+   "lab": "c2b",
+   "clip": [
+    1902.933,
+    1907.55
+   ],
+   "crop": "TR",
+   "cont": true
+  },
+  {
+   "lab": "c3",
+   "clip": [
+    1916.14,
+    1925.95
+   ],
+   "crop": "TR",
+   "refineStart": false
+  },
+  {
+   "lab": "c4",
+   "clip": [
+    1932.88,
+    1946.45
+   ],
+   "crop": "TR"
+  },
+  {
+   "lab": "vo-b",
+   "freeze": 1934,
+   "crop": "TR",
+   "vo": [
+    13.3,
+    26.4
+   ]
+  }
+ ],
+ "captionFixes": [
+  [
+   "mcp sent tools list",
+   "MCP send tools/list"
+  ],
+  [
+   "mcp send tools list",
+   "MCP send tools/list"
+  ]
+ ]
+}

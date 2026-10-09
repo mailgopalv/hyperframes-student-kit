@@ -1,0 +1,200 @@
+[
+  {
+    "text": "It",
+    "start": 0,
+    "end": 0.17,
+    "id": "w0"
+  },
+  {
+    "text": "makes",
+    "start": 0.17,
+    "end": 0.58,
+    "id": "w1"
+  },
+  {
+    "text": "a",
+    "start": 0.65,
+    "end": 0.68,
+    "id": "w2"
+  },
+  {
+    "text": "call",
+    "start": 0.68,
+    "end": 1.02,
+    "id": "w3"
+  },
+  {
+    "text": "to",
+    "start": 1.02,
+    "end": 1.12,
+    "id": "w4"
+  },
+  {
+    "text": "MCP",
+    "start": 1.18,
+    "end": 1.44,
+    "id": "w5"
+  },
+  {
+    "text": "server,",
+    "start": 1.58,
+    "end": 2.07,
+    "id": "w6"
+  },
+  {
+    "text": "MCP",
+    "start": 2.09,
+    "end": 2.72,
+    "id": "w7"
+  },
+  {
+    "text": "nicely",
+    "start": 3.21,
+    "end": 3.62,
+    "id": "w8"
+  },
+  {
+    "text": "returns",
+    "start": 3.62,
+    "end": 4.05,
+    "id": "w9"
+  },
+  {
+    "text": "like",
+    "start": 4.13,
+    "end": 4.37,
+    "id": "w10"
+  },
+  {
+    "text": "the",
+    "start": 4.57,
+    "end": 4.77,
+    "id": "w11"
+  },
+  {
+    "text": "results",
+    "start": 4.79,
+    "end": 5.16,
+    "id": "w12"
+  },
+  {
+    "text": "and",
+    "start": 5.79,
+    "end": 6.11,
+    "id": "w13"
+  },
+  {
+    "text": "that",
+    "start": 6.12,
+    "end": 6.3,
+    "id": "w14"
+  },
+  {
+    "text": "result",
+    "start": 6.3,
+    "end": 6.65,
+    "id": "w15"
+  },
+  {
+    "text": "is",
+    "start": 6.66,
+    "end": 6.84,
+    "id": "w16"
+  },
+  {
+    "text": "returned",
+    "start": 6.84,
+    "end": 7.64,
+    "id": "w17"
+  },
+  {
+    "text": "to",
+    "start": 7.64,
+    "end": 7.84,
+    "id": "w18"
+  },
+  {
+    "text": "LLM",
+    "start": 7.84,
+    "end": 8.13,
+    "id": "w19"
+  },
+  {
+    "text": "and",
+    "start": 8.2,
+    "end": 8.44,
+    "id": "w20"
+  },
+  {
+    "text": "LLM",
+    "start": 8.44,
+    "end": 8.72,
+    "id": "w21"
+  },
+  {
+    "text": "just",
+    "start": 8.73,
+    "end": 9.07,
+    "id": "w22"
+  },
+  {
+    "text": "creates",
+    "start": 9.14,
+    "end": 9.56,
+    "id": "w23"
+  },
+  {
+    "text": "a",
+    "start": 9.56,
+    "end": 9.91,
+    "id": "w24"
+  },
+  {
+    "text": "friendly",
+    "start": 10.05,
+    "end": 10.74,
+    "id": "w25"
+  },
+  {
+    "text": "message",
+    "start": 10.74,
+    "end": 11.44,
+    "id": "w26"
+  },
+  {
+    "text": "and",
+    "start": 11.44,
+    "end": 11.73,
+    "id": "w27"
+  },
+  {
+    "text": "sends",
+    "start": 11.84,
+    "end": 12,
+    "id": "w28"
+  },
+  {
+    "text": "it",
+    "start": 12.22,
+    "end": 12.44,
+    "id": "w29"
+  },
+  {
+    "text": "to",
+    "start": 12.63,
+    "end": 12.64,
+    "id": "w30"
+  },
+  {
+    "text": "the",
+    "start": 12.64,
+    "end": 12.92,
+    "id": "w31"
+  },
+  {
+    "text": "user.",
+    "start": 12.96,
+    "end": 13.44,
+    "id": "w32"
+  }
+]

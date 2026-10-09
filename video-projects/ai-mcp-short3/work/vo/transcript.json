@@ -1,0 +1,290 @@
+[
+  {
+    "text": "1",
+    "start": 0.02,
+    "end": 0.5,
+    "id": "w0"
+  },
+  {
+    "text": "command",
+    "start": 1.28,
+    "end": 1.62,
+    "id": "w1"
+  },
+  {
+    "text": "npx",
+    "start": 1.7,
+    "end": 2.13,
+    "id": "w2"
+  },
+  {
+    "text": "at",
+    "start": 2.13,
+    "end": 2.48,
+    "id": "w3"
+  },
+  {
+    "text": "model",
+    "start": 2.96,
+    "end": 3.32,
+    "id": "w4"
+  },
+  {
+    "text": "context",
+    "start": 3.32,
+    "end": 4.47,
+    "id": "w5"
+  },
+  {
+    "text": "protocols",
+    "start": 4.55,
+    "end": 5.89,
+    "id": "w6"
+  },
+  {
+    "text": "slash",
+    "start": 6.1,
+    "end": 6.72,
+    "id": "w7"
+  },
+  {
+    "text": "inspector",
+    "start": 6.85,
+    "end": 8.32,
+    "id": "w8"
+  },
+  {
+    "text": "python.exe",
+    "start": 8.32,
+    "end": 10.09,
+    "id": "w9"
+  },
+  {
+    "text": "server.py",
+    "start": 10.09,
+    "end": 12.24,
+    "id": "w10"
+  },
+  {
+    "text": "Honestly",
+    "start": 12.26,
+    "end": 12.93,
+    "id": "w11"
+  },
+  {
+    "text": "test",
+    "start": 12.93,
+    "end": 13.27,
+    "id": "w12"
+  },
+  {
+    "text": "your",
+    "start": 13.52,
+    "end": 13.61,
+    "id": "w13"
+  },
+  {
+    "text": "tools",
+    "start": 13.61,
+    "end": 14.04,
+    "id": "w14"
+  },
+  {
+    "text": "here",
+    "start": 14.04,
+    "end": 14.37,
+    "id": "w15"
+  },
+  {
+    "text": "first.",
+    "start": 14.37,
+    "end": 15.1,
+    "id": "w16"
+  },
+  {
+    "text": "It",
+    "start": 15.12,
+    "end": 15.24,
+    "id": "w17"
+  },
+  {
+    "text": "will",
+    "start": 15.24,
+    "end": 15.53,
+    "id": "w18"
+  },
+  {
+    "text": "save",
+    "start": 15.53,
+    "end": 15.81,
+    "id": "w19"
+  },
+  {
+    "text": "you",
+    "start": 15.82,
+    "end": 16.03,
+    "id": "w20"
+  },
+  {
+    "text": "so",
+    "start": 16.03,
+    "end": 16.17,
+    "id": "w21"
+  },
+  {
+    "text": "much",
+    "start": 16.38,
+    "end": 16.46,
+    "id": "w22"
+  },
+  {
+    "text": "head",
+    "start": 16.46,
+    "end": 16.71,
+    "id": "w23"
+  },
+  {
+    "text": "scratching",
+    "start": 16.79,
+    "end": 17.23,
+    "id": "w24"
+  },
+  {
+    "text": "once",
+    "start": 17.23,
+    "end": 17.76,
+    "id": "w25"
+  },
+  {
+    "text": "the",
+    "start": 17.91,
+    "end": 17.96,
+    "id": "w26"
+  },
+  {
+    "text": "agents",
+    "start": 18.06,
+    "end": 18.4,
+    "id": "w27"
+  },
+  {
+    "text": "involved.",
+    "start": 18.4,
+    "end": 19.15,
+    "id": "w28"
+  },
+  {
+    "text": "I",
+    "start": 19.26,
+    "end": 19.34,
+    "id": "w29"
+  },
+  {
+    "text": "walked",
+    "start": 19.34,
+    "end": 19.95,
+    "id": "w30"
+  },
+  {
+    "text": "through",
+    "start": 20.52,
+    "end": 20.69,
+    "id": "w31"
+  },
+  {
+    "text": "the",
+    "start": 20.69,
+    "end": 21,
+    "id": "w32"
+  },
+  {
+    "text": "full",
+    "start": 21,
+    "end": 21.37,
+    "id": "w33"
+  },
+  {
+    "text": "setup",
+    "start": 21.37,
+    "end": 21.93,
+    "id": "w34"
+  },
+  {
+    "text": "in",
+    "start": 22.06,
+    "end": 22.1,
+    "id": "w35"
+  },
+  {
+    "text": "my",
+    "start": 22.19,
+    "end": 22.33,
+    "id": "w36"
+  },
+  {
+    "text": "full",
+    "start": 22.33,
+    "end": 22.66,
+    "id": "w37"
+  },
+  {
+    "text": "video.",
+    "start": 22.73,
+    "end": 23.32,
+    "id": "w38"
+  },
+  {
+    "text": "Go",
+    "start": 23.34,
+    "end": 23.73,
+    "id": "w39"
+  },
+  {
+    "text": "give",
+    "start": 23.75,
+    "end": 24.55,
+    "id": "w40"
+  },
+  {
+    "text": "it",
+    "start": 24.61,
+    "end": 24.93,
+    "id": "w41"
+  },
+  {
+    "text": "a",
+    "start": 25.02,
+    "end": 25.17,
+    "id": "w42"
+  },
+  {
+    "text": "watch",
+    "start": 25.17,
+    "end": 25.45,
+    "id": "w43"
+  },
+  {
+    "text": "its",
+    "start": 26.28,
+    "end": 26.74,
+    "id": "w44"
+  },
+  {
+    "text": "linked",
+    "start": 26.83,
+    "end": 28.07,
+    "id": "w45"
+  },
+  {
+    "text": "right",
+    "start": 28.07,
+    "end": 29.11,
+    "id": "w46"
+  },
+  {
+    "text": "below.",
+    "start": 29.11,
+    "end": 30.2,
+    "id": "w47"
+  }
+]

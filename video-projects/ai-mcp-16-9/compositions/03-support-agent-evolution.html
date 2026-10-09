@@ -1,0 +1,315 @@
+<template id="agent-evolution-template">
+  <div data-hf-id="hf-9i0w" data-composition-id="agent-evolution" data-start="0" data-width="1920" data-height="1080" data-duration="248.2">
+
+    <!-- Section title card -->
+    <div data-hf-id="hf-sklm" class="title-card" id="title-card">
+      <div data-hf-id="hf-3q1w" class="tc-kicker">SECTION 02</div>
+      <h1 data-hf-id="hf-prxy" class="tc-title chrome">Before MCP: building a support agent</h1>
+    </div>
+
+    <div data-hf-id="hf-03yn" class="ae-wrap">
+      <div data-hf-id="hf-mtv4" class="ae-kicker" id="ae-kicker">THE RUNNING EXAMPLE</div>
+      <h2 data-hf-id="hf-duh6" class="ae-heading chrome" id="hdr-v1" style="opacity:0">Support Agent — v1</h2>
+      <h2 data-hf-id="hf-icjw" class="ae-heading chrome" id="hdr-v2" style="opacity:0">Support Agent — v2</h2>
+      <h2 data-hf-id="hf-t6r6" class="ae-heading chrome" id="hdr-v3" style="opacity:0">Support Agent — v3</h2>
+
+      <svg data-hf-id="hf-nd8d" class="ae-lines" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+        <path data-hf-id="hf-ibsl" id="line-user-agent" d="M260,540 L820,400" fill="none" stroke="#37bdf8" stroke-width="2.5" opacity="0" />
+        <path data-hf-id="hf-r6la" id="line-agent-llm" d="M820,400 L820,660" fill="none" stroke="#37bdf8" stroke-width="2.5" opacity="0" />
+        <path data-hf-id="hf-j2hc" id="line-agent-order" d="M820,400 L1480,260" fill="none" stroke="#37bdf8" stroke-width="2.5" opacity="0" />
+        <path data-hf-id="hf-5uu0" id="line-agent-product" d="M820,400 L1480,470" fill="none" stroke="#37bdf8" stroke-width="2.5" opacity="0" />
+        <path data-hf-id="hf-e918" id="line-agent-payment" d="M820,400 L1480,680" fill="none" stroke="#37bdf8" stroke-width="2.5" opacity="0" />
+      </svg>
+
+      <div data-hf-id="hf-b4gs" class="node pulse" id="pulse"></div>
+
+      <div data-hf-id="hf-y8wm" class="node box user" id="node-user"><div data-hf-id="hf-by2h" class="box-title">User</div></div>
+      <div data-hf-id="hf-qaqy" class="node box core" id="node-agent"><div data-hf-id="hf-dees" class="box-title">Support Agent</div></div>
+      <div data-hf-id="hf-u5pc" class="node box core" id="node-llm"><div data-hf-id="hf-xsap" class="box-title">LLM</div></div>
+      <div data-hf-id="hf-o6um" class="node box api" id="node-order"><div data-hf-id="hf-a0wh" class="box-title">Order Management API</div></div>
+      <div data-hf-id="hf-k90b" class="node box api" id="node-product"><div data-hf-id="hf-2kq4" class="box-title">Product Management API</div></div>
+      <div data-hf-id="hf-umf4" class="node box api" id="node-payment"><div data-hf-id="hf-sp74" class="box-title">Payment &amp; Refund API</div></div>
+
+      <div data-hf-id="hf-e1ia" class="panel" id="panel">
+        <div data-hf-id="hf-p50i" class="bubble q" id="b-q1">"Where is my order?"</div>
+        <div data-hf-id="hf-6iq9" class="bubble fail" id="b-f1">✕ I don't have that information yet.</div>
+        <div data-hf-id="hf-yz1l" class="bubble q" id="b-q2">"Where is my order now?"</div>
+        <div data-hf-id="hf-slow" class="bubble ok" id="b-a2">✓ Your order is being packed for delivery.</div>
+        <div data-hf-id="hf-ozm3" class="bubble q" id="b-q3">"Can I find a product in blue color?"</div>
+        <div data-hf-id="hf-t09p" class="bubble fail" id="b-f2">✕ Sorry, I'm unable to answer that.</div>
+        <div data-hf-id="hf-9oti" class="bubble q" id="b-q4">"Can I get this in blue?"</div>
+        <div data-hf-id="hf-54te" class="bubble ok" id="b-a3">✓ Yes — here's the blue version.</div>
+        <div data-hf-id="hf-ziwj" class="bubble q" id="b-q5">"Can I get a refund?"</div>
+        <div data-hf-id="hf-vgv2" class="bubble fail" id="b-f3">✕ Sorry, I'm unable to answer that.</div>
+        <div data-hf-id="hf-eu8y" class="bubble q" id="b-q6">"Can I get a refund now?"</div>
+        <div data-hf-id="hf-zyb8" class="bubble ok" id="b-a4">✓ Sure — refund processed.</div>
+      </div>
+
+      <div data-hf-id="hf-sl6r" class="snippet" id="snip-order">{ "tool": "order_status", "input": { "order_id": "..." } }</div>
+      <div data-hf-id="hf-c6i0" class="snippet" id="snip-product">{ "tool": "product_search", "input": { "color": "blue" } }</div>
+      <div data-hf-id="hf-ydpi" class="snippet" id="snip-payment">{ "tool": "refund", "input": { "order_id": "...", "amount": "..." } }</div>
+    </div>
+
+    <style>
+      [data-composition-id="agent-evolution"] { position: absolute; inset: 0; font-family: "Montserrat", sans-serif; overflow: hidden; }
+
+      [data-composition-id="agent-evolution"] .title-card {
+        position: absolute; inset: 0; z-index: 40;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+        background: #07121c;
+      }
+      [data-composition-id="agent-evolution"] .tc-kicker {
+        font-family: "JetBrains Mono", monospace; font-size: 24px; letter-spacing: 0.2em; color: #37bdf8;
+      }
+      [data-composition-id="agent-evolution"] .tc-title { font-size: 68px; font-weight: 900; text-align: center; max-width: 1300px; }
+      [data-composition-id="agent-evolution"] .chrome {
+        background: linear-gradient(180deg, #ffffff 0%, #999999 60%, #cccccc 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        text-shadow: 0 0 20px rgba(255,255,255,0.55), 0 0 40px rgba(255,255,255,0.28);
+      }
+
+      [data-composition-id="agent-evolution"] .ae-wrap { position: absolute; inset: 0; }
+      [data-composition-id="agent-evolution"] .ae-kicker {
+        position: absolute; top: 72px; left: 140px;
+        font-family: "JetBrains Mono", monospace; font-size: 20px; letter-spacing: 0.18em; color: #37bdf8; opacity: 0.9;
+      }
+      [data-composition-id="agent-evolution"] .ae-heading {
+        position: absolute; top: 104px; left: 140px; font-size: 52px; font-weight: 900; margin: 0;
+      }
+
+      [data-composition-id="agent-evolution"] .ae-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+      [data-composition-id="agent-evolution"] .node.box {
+        position: absolute; box-sizing: border-box; border-radius: 14px;
+        display: flex; align-items: center; justify-content: center; text-align: center;
+        padding: 10px 16px; opacity: 0;
+      }
+      [data-composition-id="agent-evolution"] .box-title { font-size: 20px; font-weight: 700; color: #ffffff; }
+      [data-composition-id="agent-evolution"] .node.user {
+        left: 160px; top: 495px; width: 200px; height: 90px;
+        background: rgba(143,162,184,0.08); border: 1px solid rgba(143,162,184,0.35);
+      }
+      [data-composition-id="agent-evolution"] .node.core {
+        width: 220px; height: 100px;
+        background: linear-gradient(180deg, #123a52 0%, #0c2638 100%);
+        border: 1px solid rgba(55,189,248,0.45); box-shadow: 0 0 20px rgba(55,189,248,0.15);
+      }
+      [data-composition-id="agent-evolution"] #node-agent { left: 710px; top: 350px; }
+      [data-composition-id="agent-evolution"] #node-llm { left: 710px; top: 610px; }
+      [data-composition-id="agent-evolution"] .node.api {
+        width: 230px; height: 90px;
+        background: rgba(55,189,248,0.07); border: 1px solid rgba(55,189,248,0.4);
+        box-shadow: 0 0 20px rgba(55,189,248,0.15);
+      }
+      [data-composition-id="agent-evolution"] #node-order { left: 1365px; top: 215px; }
+      [data-composition-id="agent-evolution"] #node-product { left: 1365px; top: 425px; }
+      [data-composition-id="agent-evolution"] #node-payment { left: 1365px; top: 635px; }
+
+      [data-composition-id="agent-evolution"] .pulse {
+        position: absolute; left: 0; top: 0; width: 18px; height: 18px; border-radius: 50%;
+        background: #37bdf8; opacity: 0; z-index: 20;
+      }
+
+      [data-composition-id="agent-evolution"] .panel {
+        position: absolute; left: 60px; top: 780px; width: 480px; height: 130px;
+      }
+      [data-composition-id="agent-evolution"] .bubble {
+        position: absolute; inset: 0; opacity: 0; transform: translateY(10px);
+        padding: 22px 26px; border-radius: 14px; font-size: 24px; font-weight: 600; line-height: 1.35;
+        box-sizing: border-box;
+      }
+      [data-composition-id="agent-evolution"] .bubble.q {
+        background: rgba(143,162,184,0.08); border: 1px solid rgba(143,162,184,0.3); color: #ffffff; font-style: italic;
+      }
+      [data-composition-id="agent-evolution"] .bubble.ok {
+        background: rgba(55,189,248,0.1); border: 1px solid rgba(55,189,248,0.5); color: #ffffff;
+      }
+      [data-composition-id="agent-evolution"] .bubble.fail {
+        background: rgba(225,11,31,0.1); border: 1px solid rgba(225,11,31,0.5); color: #ffffff;
+      }
+
+      [data-composition-id="agent-evolution"] .snippet {
+        position: absolute; left: 1360px; top: 780px; width: 480px;
+        font-family: "JetBrains Mono", monospace; font-size: 16px; color: #f5a623;
+        background: rgba(245,166,35,0.06); border: 1px solid rgba(245,166,35,0.35);
+        border-radius: 10px; padding: 16px 18px; opacity: 0; transform: translateY(8px);
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const D = 248.2;
+        const sel = (s) => '[data-composition-id="agent-evolution"] ' + s;
+        const N = {
+          user: [260, 540], agent: [820, 400], llm: [820, 660],
+          order: [1480, 260], product: [1480, 470], payment: [1480, 680],
+        };
+        const TEAL = '#37bdf8', RED = '#e10b1f', AMBER = '#f5a623';
+
+        // Precompute connector lengths for dash-draw (deterministic DOM read).
+        const lineIds = ['line-user-agent', 'line-agent-llm', 'line-agent-order', 'line-agent-product', 'line-agent-payment'];
+        const lens = {};
+        lineIds.forEach(function (id) {
+          const el = document.querySelector(sel('#' + id));
+          const len = el.getTotalLength();
+          lens[id] = len;
+          el.style.strokeDasharray = len;
+          el.style.strokeDashoffset = len;
+        });
+
+        const tl = gsap.timeline({ paused: true });
+
+        function drawLine(id, t, dur) {
+          tl.to(sel('#' + id), { opacity: 1, duration: 0.1 }, t);
+          tl.to(sel('#' + id), { strokeDashoffset: 0, duration: dur || 0.5, ease: 'power2.out' }, t);
+        }
+
+        function hop(t, from, to, color, dur) {
+          dur = dur || 0.5;
+          tl.set(sel('#pulse'), { x: N[from][0] - 9, y: N[from][1] - 9, opacity: 1, backgroundColor: color, boxShadow: '0 0 16px ' + color }, t);
+          tl.to(sel('#pulse'), { x: N[to][0] - 9, y: N[to][1] - 9, duration: dur, ease: 'power1.inOut' }, t);
+          tl.to(sel('#node-' + to), { boxShadow: '0 0 34px ' + color, duration: 0.2, ease: 'power2.out' }, t + dur);
+          tl.to(sel('#node-' + to), { boxShadow: '0 0 20px rgba(55,189,248,0.15)', duration: 0.4, ease: 'power2.in' }, t + dur + 0.22);
+          tl.to(sel('#pulse'), { opacity: 0, duration: 0.25 }, t + dur + 0.3);
+        }
+
+        function show(id, t) { tl.to(sel('#' + id), { opacity: 1, y: 0, duration: 0.32, ease: 'power2.out' }, t); }
+        function hide(id, t) { tl.to(sel('#' + id), { opacity: 0, y: -8, duration: 0.26, ease: 'power2.in' }, t); }
+
+        function revealAPI(key, lineId, t) {
+          const nodeSel = sel('#node-' + key);
+          tl.fromTo(nodeSel, { opacity: 0, x: 40, scale: 0.85 }, { opacity: 1, x: 0, scale: 1, duration: 0.6, ease: 'back.out(1.4)' }, t);
+          tl.fromTo(nodeSel, { borderColor: AMBER, boxShadow: '0 0 32px rgba(245,166,35,0.6)' }, { borderColor: 'rgba(55,189,248,0.4)', boxShadow: '0 0 20px rgba(55,189,248,0.15)', duration: 1.0, ease: 'power2.out' }, t + 0.3);
+          drawLine(lineId, t + 0.15, 0.6);
+        }
+
+        // --- Title card ---
+        tl.from(sel('.tc-kicker'), { opacity: 0, y: -14, duration: 0.5, ease: 'power2.out' }, 0.2);
+        tl.from(sel('.tc-title'), { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, 0.35);
+        tl.to(sel('.title-card'), { y: -60, filter: 'blur(24px)', opacity: 0, duration: 0.55, ease: 'power2.in' }, 4.0);
+        tl.set(sel('.title-card'), { display: 'none' }, 4.6);
+
+        // --- Diagram construction (v1: agent + LLM, no API yet) ---
+        tl.from(sel('#ae-kicker'), { opacity: 0, y: -10, duration: 0.4, ease: 'power2.out' }, 4.2);
+        tl.to(sel('#hdr-v1'), { opacity: 1, duration: 0.4, ease: 'power2.out' }, 4.2);
+        tl.fromTo(sel('#node-agent'), { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.4)' }, 4.5);
+        tl.fromTo(sel('#node-llm'), { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.4)' }, 4.8);
+        drawLine('line-agent-llm', 5.0, 0.5);
+        tl.fromTo(sel('#node-user'), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out' }, 5.3);
+        drawLine('line-user-agent', 5.6, 0.6);
+
+        // Establishing pulse — generic wiring, no dialogue yet.
+        hop(8.0, 'user', 'agent', TEAL, 0.9);
+        hop(10.0, 'agent', 'llm', TEAL, 0.7);
+
+        // Concrete failing example — no order API yet.
+        show('b-q1', 12.0);
+        hop(12.6, 'user', 'agent', TEAL, 0.7);
+        hop(13.6, 'agent', 'llm', TEAL, 0.6);
+        tl.to(sel('#node-llm'), { boxShadow: '0 0 34px ' + RED, duration: 0.3 }, 15.8);
+        tl.to(sel('#node-llm'), { boxShadow: '0 0 20px rgba(55,189,248,0.15)', duration: 0.5 }, 16.4);
+        hop(16.6, 'llm', 'agent', RED, 0.6);
+        hop(17.4, 'agent', 'user', RED, 0.7);
+        hide('b-q1', 19.6);
+        show('b-f1', 20.0);
+
+        // --- Add Order Management API ---
+        hide('b-f1', 32.4);
+        revealAPI('order', 'line-agent-order', 33.0);
+        show('snip-order', 38.5);
+        hide('snip-order', 44.5);
+
+        // --- Success flow: order status, spread across the narrated walk-through ---
+        show('b-q2', 64.0);
+        hop(64.6, 'user', 'agent', TEAL, 0.8);
+        hop(73.6, 'agent', 'llm', TEAL, 0.7);
+        hop(84.9, 'llm', 'agent', TEAL, 0.7);
+        tl.to(sel('#node-order'), { boxShadow: '0 0 34px ' + AMBER, duration: 0.25 }, 91.8);
+        hop(92.0, 'agent', 'order', AMBER, 0.7);
+        hop(95.6, 'order', 'agent', TEAL, 0.7);
+        hop(101.3, 'agent', 'llm', TEAL, 0.6);
+        hop(102.7, 'llm', 'agent', TEAL, 0.6);
+        hop(103.5, 'agent', 'user', TEAL, 0.7);
+        hide('b-q2', 104.6);
+        show('b-a2', 105.0);
+
+        // --- Failing example #2: product query, still only order API ---
+        hide('b-a2', 115.3);
+        show('b-q3', 115.5);
+        hop(116.0, 'user', 'agent', TEAL, 0.7);
+        hop(117.0, 'agent', 'llm', TEAL, 0.6);
+        tl.to(sel('#node-llm'), { boxShadow: '0 0 34px ' + RED, duration: 0.3 }, 119.6);
+        tl.to(sel('#node-llm'), { boxShadow: '0 0 20px rgba(55,189,248,0.15)', duration: 0.5 }, 120.2);
+        hop(120.4, 'llm', 'agent', RED, 0.6);
+        hop(121.2, 'agent', 'user', RED, 0.7);
+        hide('b-q3', 123.6);
+        show('b-f2', 124.0);
+
+        // --- Add Product Management API (now v2) ---
+        hide('b-f2', 145.6);
+        tl.to(sel('#hdr-v1'), { opacity: 0, duration: 0.3 }, 146.0);
+        tl.to(sel('#hdr-v2'), { opacity: 1, duration: 0.4 }, 146.2);
+        revealAPI('product', 'line-agent-product', 146.5);
+        show('snip-product', 151.0);
+        hide('snip-product', 157.0);
+
+        // --- Success flow: product search ---
+        show('b-q4', 177.2);
+        hop(177.8, 'user', 'agent', TEAL, 0.6);
+        hop(180.0, 'agent', 'llm', TEAL, 0.6);
+        hop(183.0, 'llm', 'agent', TEAL, 0.6);
+        tl.to(sel('#node-product'), { boxShadow: '0 0 34px ' + AMBER, duration: 0.25 }, 185.8);
+        hop(186.0, 'agent', 'product', AMBER, 0.6);
+        hop(189.0, 'product', 'agent', TEAL, 0.6);
+        hop(192.0, 'agent', 'llm', TEAL, 0.5);
+        hop(193.6, 'llm', 'agent', TEAL, 0.5);
+        hop(194.4, 'agent', 'user', TEAL, 0.6);
+        hide('b-q4', 196.6);
+        show('b-a3', 197.0);
+
+        // --- Failing example #3: refund, still no payment API ---
+        hide('b-a3', 202.6);
+        show('b-q5', 203.0);
+        hop(203.5, 'user', 'agent', TEAL, 0.6);
+        hop(204.6, 'agent', 'llm', TEAL, 0.5);
+        tl.to(sel('#node-llm'), { boxShadow: '0 0 34px ' + RED, duration: 0.3 }, 206.6);
+        tl.to(sel('#node-llm'), { boxShadow: '0 0 20px rgba(55,189,248,0.15)', duration: 0.5 }, 207.2);
+        hop(207.4, 'llm', 'agent', RED, 0.5);
+        hop(208.1, 'agent', 'user', RED, 0.6);
+        hide('b-q5', 210.6);
+        show('b-f3', 211.0);
+
+        // --- Add Payment & Refund API (now v3) ---
+        hide('b-f3', 217.0);
+        tl.to(sel('#hdr-v2'), { opacity: 0, duration: 0.3 }, 217.3);
+        tl.to(sel('#hdr-v3'), { opacity: 1, duration: 0.4 }, 217.5);
+        revealAPI('payment', 'line-agent-payment', 217.8);
+        show('snip-payment', 221.0);
+        hide('snip-payment', 228.0);
+
+        // --- Final success: full round trip closes the loop ---
+        show('b-q6', 237.8);
+        hop(238.2, 'user', 'agent', TEAL, 0.4);
+        hop(238.7, 'agent', 'llm', TEAL, 0.35);
+        hop(239.1, 'llm', 'agent', TEAL, 0.35);
+        tl.to(sel('#node-payment'), { boxShadow: '0 0 34px ' + AMBER, duration: 0.2 }, 239.4);
+        hop(239.5, 'agent', 'payment', AMBER, 0.4);
+        hop(239.95, 'payment', 'agent', TEAL, 0.4);
+        hop(240.4, 'agent', 'llm', TEAL, 0.3);
+        hop(240.75, 'llm', 'agent', TEAL, 0.3);
+        hop(241.1, 'agent', 'user', TEAL, 0.4);
+        hide('b-q6', 240.9);
+        show('b-a4', 241.4);
+
+        // Camera settles back to reveal the complete, working v3 system.
+        tl.to(sel('.ae-wrap'), { scale: 0.97, transformOrigin: '50% 50%', duration: 1.2, ease: 'power2.inOut' }, 244.0);
+        tl.to(sel('.ae-wrap'), { y: -4, duration: 3, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 245.0);
+
+        tl.set({}, {}, D);
+        window.__timelines = window.__timelines || {};
+        window.__timelines['agent-evolution'] = tl;
+      })();
+    </script>
+  </div>
+</template>

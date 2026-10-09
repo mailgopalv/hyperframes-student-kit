@@ -1,0 +1,326 @@
+{
+ "title": "Agent with Sub-Agents: Shorts",
+ "total": 248.0,
+ "chapters": [
+  {
+   "id": "ch0",
+   "title": "Short 1: Stop building one giant AI agent",
+   "start": 0.0,
+   "duration": 55.0,
+   "cues": [
+    {
+     "id": "ch0.1",
+     "start": 0.4,
+     "dur": 4.4,
+     "text": "Your AI agent is doing way too much. Here's the fix.",
+     "note": "Hook: \"1 AGENT, 7 JOBS\" slams in over the overloaded red agent box."
+    },
+    {
+     "id": "ch0.2",
+     "start": 5.3,
+     "dur": 5.2,
+     "text": "The problem, the fix, and the one line of code that does it.",
+     "note": "Three pills: Problem \u00b7 Fix \u00b7 Code."
+    },
+    {
+     "id": "ch0.3",
+     "start": 11.0,
+     "dur": 10.4,
+     "text": "Picture an online store assistant. One agent saves the customer's details, lists products, adds to the cart, removes items, confirms the cart, and places the order.",
+     "note": "Tool chips fly out of the single agent, one per tool named."
+    },
+    {
+     "id": "ch0.4",
+     "start": 21.9,
+     "dur": 2.8,
+     "text": "That's seven tools and one giant instruction.",
+     "note": "\"7 tools \u00b7 1 giant instruction\" badge; the box turns red."
+    },
+    {
+     "id": "ch0.5",
+     "start": 25.2,
+     "dur": 6.0,
+     "text": "As it grows, it starts picking the wrong tool, and it's really hard to test.",
+     "note": "A wrong tool chip flashes; the box shakes with an OVERLOADED tag."
+    },
+    {
+     "id": "ch0.6",
+     "start": 31.7,
+     "dur": 7.6,
+     "text": "The fix: split the work. One root agent, like a front desk, and three sub-agents: catalog, cart and order.",
+     "note": "The same box turns blue and rises as ROOT; three sub-agents drop in below."
+    },
+    {
+     "id": "ch0.7",
+     "start": 39.8,
+     "dur": 4.0,
+     "text": "Each tool moves to the agent that's responsible for it.",
+     "note": "The tool chips fly to their owners."
+    },
+    {
+     "id": "ch0.8",
+     "start": 44.3,
+     "dur": 5.2,
+     "text": "In Google ADK, that's one line: sub_agents equals a list of your agents.",
+     "note": "Code card: sub_agents=[catalog_agent, cart_agent, order_agent]."
+    },
+    {
+     "id": "ch0.9",
+     "start": 50.0,
+     "dur": 4.0,
+     "text": "Want the full build? Watch the full video, linked below.",
+     "note": "End card: \"Full video \u2193\" with the main video's title."
+    }
+   ]
+  },
+  {
+   "id": "ch1",
+   "title": "Short 2: How AI agents hand off a conversation",
+   "start": 55.0,
+   "duration": 48.5,
+   "cues": [
+    {
+     "id": "ch1.1",
+     "start": 0.4,
+     "dur": 4.0,
+     "text": "How does one AI agent hand a customer to another?",
+     "note": "Hook: a white pulse jumps between two agent boxes."
+    },
+    {
+     "id": "ch1.2",
+     "start": 4.9,
+     "dur": 5.6,
+     "text": "It comes down to three things: descriptions, one built-in tool, and a shared session.",
+     "note": "Three numbered cards stack in."
+    },
+    {
+     "id": "ch1.3",
+     "start": 11.0,
+     "dur": 6.4,
+     "text": "First, every agent has a description. The LLM reads them to decide who should answer next.",
+     "note": "Card 1: description quotes appear under each agent; the LLM scans them and picks one."
+    },
+    {
+     "id": "ch1.4",
+     "start": 17.9,
+     "dur": 6.4,
+     "text": "Second, as soon as you add sub-agents, Google ADK gives your agents a tool called transfer_to_agent.",
+     "note": "Card 2: the transfer_to_agent(...) chip."
+    },
+    {
+     "id": "ch1.5",
+     "start": 24.8,
+     "dur": 8.4,
+     "text": "Calling it hands control to another agent: down to a sub-agent, sideways to a sibling, or back up to the parent.",
+     "note": "The pulse travels down, sideways, then back up the tree with labels."
+    },
+    {
+     "id": "ch1.6",
+     "start": 33.7,
+     "dur": 3.6,
+     "text": "Only one agent is in control at a time.",
+     "note": "IN CONTROL tag; the other agents dim."
+    },
+    {
+     "id": "ch1.7",
+     "start": 37.8,
+     "dur": 6.4,
+     "text": "Third, they all share one session. Same history, same state. Nothing gets lost when control moves.",
+     "note": "Card 3: one session slab under all four agents."
+    },
+    {
+     "id": "ch1.8",
+     "start": 44.7,
+     "dur": 2.4,
+     "text": "Watch the full video, linked below.",
+     "note": "End card: \"Full video \u2193\"."
+    }
+   ]
+  },
+  {
+   "id": "ch2",
+   "title": "Short 3: The parameter your AI never sees",
+   "start": 103.5,
+   "duration": 52.0,
+   "cues": [
+    {
+     "id": "ch2.1",
+     "start": 0.4,
+     "dur": 4.8,
+     "text": "There's a parameter in your ADK tools that the AI never sees.",
+     "note": "Hook: the function signature with tool_context blurred, then revealed."
+    },
+    {
+     "id": "ch2.2",
+     "start": 5.7,
+     "dur": 4.8,
+     "text": "What it is, why it's there, and the one mistake to avoid.",
+     "note": "Three pills: What \u00b7 Why \u00b7 The mistake."
+    },
+    {
+     "id": "ch2.3",
+     "start": 11.0,
+     "dur": 6.8,
+     "text": "It's called tool_context. When the LLM calls save customer details, it only sees name, email and phone.",
+     "note": "\"What the LLM sees\" card: name, email, phone."
+    },
+    {
+     "id": "ch2.4",
+     "start": 18.3,
+     "dur": 8.8,
+     "text": "ADK hides tool_context from the model, then passes it in when the tool runs. It spots it by its type hint, ToolContext.",
+     "note": "\"What your function gets\" card: tool_context added by ADK."
+    },
+    {
+     "id": "ch2.5",
+     "start": 27.6,
+     "dur": 9.6,
+     "text": "Through it, your tool reaches the session. Read state like a dictionary: state dot get. Write it the same way: state, key, equals value.",
+     "note": "READ / WRITE code lines."
+    },
+    {
+     "id": "ch2.6",
+     "start": 37.7,
+     "dur": 2.8,
+     "text": "ADK saves every write to the session.",
+     "note": "The write flows into an amber session.state box."
+    },
+    {
+     "id": "ch2.7",
+     "start": 41.0,
+     "dur": 5.2,
+     "text": "The mistake? Changing a dictionary in place isn't saved. Always assign it back.",
+     "note": "Red \u2715 on cart[\"P-101\"] = 1, green \u2713 on tool_context.state[\"cart\"] = cart."
+    },
+    {
+     "id": "ch2.8",
+     "start": 46.7,
+     "dur": 4.0,
+     "text": "The full walkthrough is in my full video, linked below.",
+     "note": "End card: \"Full video \u2193\"."
+    }
+   ]
+  },
+  {
+   "id": "ch3",
+   "title": "Short 4: Watch the state grow across 4 AI agents",
+   "start": 155.5,
+   "duration": 50.0,
+   "cues": [
+    {
+     "id": "ch3.1",
+     "start": 0.4,
+     "dur": 4.8,
+     "text": "Four AI agents, one shopping trip, and one notebook they all share.",
+     "note": "Hook: four agent boxes around one amber notebook."
+    },
+    {
+     "id": "ch3.2",
+     "start": 5.7,
+     "dur": 4.4,
+     "text": "Let's watch the session state grow, one agent at a time.",
+     "note": "An empty state panel: { }."
+    },
+    {
+     "id": "ch3.3",
+     "start": 10.6,
+     "dur": 9.6,
+     "text": "Asha shares her name, email and phone. The root agent saves three keys, then hands her to the catalog agent, which adds a cart.",
+     "note": "user_name, user_email, user_phone appear; pulse to catalog; the cart key appears."
+    },
+    {
+     "id": "ch3.4",
+     "start": 20.7,
+     "dur": 7.2,
+     "text": "The cart agent edits it, then sends her back to the catalog for a charger, and back again.",
+     "note": "The cart value updates; the pulse goes back and forth."
+    },
+    {
+     "id": "ch3.5",
+     "start": 28.4,
+     "dur": 4.8,
+     "text": "When she's happy, it saves the total and marks the cart confirmed.",
+     "note": "cart_total and cart_confirmed appear."
+    },
+    {
+     "id": "ch3.6",
+     "start": 33.7,
+     "dur": 9.2,
+     "text": "The order agent already knows her email and phone, because it reads them from state, and it adds the order ID and status.",
+     "note": "The email and phone rows glow blue (read); order_id and order_status appear."
+    },
+    {
+     "id": "ch3.7",
+     "start": 43.4,
+     "dur": 5.2,
+     "text": "Eight keys, four agents, one shared session. Watch the full video, linked below.",
+     "note": "All 8 keys lit, tagged by agent; end card \"Full video \u2193\"."
+    }
+   ]
+  },
+  {
+   "id": "ch4",
+   "title": "Short 5: Run a multi-agent app in four commands",
+   "start": 205.5,
+   "duration": 42.5,
+   "cues": [
+    {
+     "id": "ch4.1",
+     "start": 0.4,
+     "dur": 3.2,
+     "text": "Run a multi-agent AI app in four commands.",
+     "note": "Hook: a big \"4\" next to a terminal."
+    },
+    {
+     "id": "ch4.2",
+     "start": 4.1,
+     "dur": 3.2,
+     "text": "Set up, install, add your key, and run.",
+     "note": "Four step pills."
+    },
+    {
+     "id": "ch4.3",
+     "start": 7.8,
+     "dur": 6.8,
+     "text": "One: python dash m venv dot venv. That's a virtual environment, so this project's packages stay separate.",
+     "note": "Step 1: python -m venv .venv; a .venv folder appears."
+    },
+    {
+     "id": "ch4.4",
+     "start": 15.1,
+     "dur": 8.0,
+     "text": "Activate it: dot venv, Scripts, activate on Windows, or source dot venv slash bin slash activate on Mac and Linux.",
+     "note": "The Windows and Mac/Linux activate commands; the prompt shows (.venv)."
+    },
+    {
+     "id": "ch4.5",
+     "start": 23.6,
+     "dur": 3.2,
+     "text": "Two: pip install dash r requirements dot txt.",
+     "note": "Step 2: pip install -r requirements.txt."
+    },
+    {
+     "id": "ch4.6",
+     "start": 27.3,
+     "dur": 4.4,
+     "text": "Three: put your Gemini API key in a dot env file.",
+     "note": "Step 3: .env with GOOGLE_API_KEY=\u2026"
+    },
+    {
+     "id": "ch4.7",
+     "start": 32.2,
+     "dur": 4.4,
+     "text": "Four: adk web. Open localhost 8000, and watch the State tab.",
+     "note": "Step 4: adk web; the State tab with the final state."
+    },
+    {
+     "id": "ch4.8",
+     "start": 37.1,
+     "dur": 4.0,
+     "text": "The full step-by-step is in my full video, linked below.",
+     "note": "End card: \"Full video \u2193\"."
+    }
+   ]
+  }
+ ]
+}

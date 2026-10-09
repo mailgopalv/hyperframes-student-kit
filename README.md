@@ -206,8 +206,31 @@ Not a Claude Code user? The skills are just markdown — open them up and read a
 | Lint errors about overlapping clips | Two clips on the same `data-track-index` overlap in time — assign different track indices or adjust `data-start` / `data-duration` |
 | Lint errors about `missing_gsap_script` | Every sub-composition HTML needs its own `<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>` before its IIFE — GSAP doesn't inherit from the parent |
 | Video frozen in a render, audio continues | A `<video>` element was animated directly (don't animate `width`/`height`/`top`/`left` on a `<video>`). Wrap it in a `<div>` and animate the wrapper. |
+| `transcribe` fails, doctor shows `✗ whisper-cpp` | No `cmake`/C compiler to auto-build on Windows/Linux. See [Transcription setup](#transcription-setup-whisper-cpp-no-c-toolchain-needed) below — install a prebuilt binary instead. |
 
 More: `npx hyperframes docs <topic>` (topics: `data-attributes`, `gsap`, `rendering`, `examples`, `troubleshooting`, `compositions`).
+
+## Transcription setup (whisper-cpp, no C++ toolchain needed)
+
+`npx hyperframes transcribe <file> --model small.en --json` needs `whisper-cpp` on the machine. On macOS with Homebrew, `hyperframes` installs it automatically. On Windows (or Linux) without `cmake` + a C compiler, its auto-build fails and `npx hyperframes doctor` reports `✗ whisper-cpp — Build with cmake`.
+
+You don't need to build from source — a prebuilt binary works fine:
+
+1. Download a prebuilt release from [ggml-org/whisper.cpp releases](https://github.com/ggml-org/whisper.cpp/releases) — `whisper-bin-x64.zip` for Windows x64 — and unzip it. It contains `whisper-cli.exe` plus the DLLs it needs.
+2. Download a model, e.g. `ggml-small.en.bin` from `https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin`.
+3. Put the binary somewhere permanent and the model where the CLI's own cache expects it:
+   ```bash
+   mkdir -p ~/.cache/hyperframes/whisper/bin ~/.cache/hyperframes/whisper/models
+   cp <extracted>/whisper-cli.exe <extracted>/*.dll ~/.cache/hyperframes/whisper/bin/
+   cp ggml-small.en.bin ~/.cache/hyperframes/whisper/models/
+   ```
+4. Point the CLI at the binary — `HYPERFRAMES_WHISPER_PATH` is the first place `hyperframes` looks (before system `PATH`, before its own build-from-source attempt):
+   ```powershell
+   [Environment]::SetEnvironmentVariable("HYPERFRAMES_WHISPER_PATH", "$env:USERPROFILE\.cache\hyperframes\whisper\bin\whisper-cli.exe", "User")
+   ```
+   Open a new terminal for the env var to take effect, then confirm with `npx hyperframes doctor` — it should report `✓ whisper-cpp`.
+
+From here, `npx hyperframes transcribe <file> --model small.en --json` works directly — no manual `whisper-cli.exe` invocations needed.
 
 ## Credits and license
 

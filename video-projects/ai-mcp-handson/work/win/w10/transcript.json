@@ -1,0 +1,278 @@
+[
+  {
+    "text": "much",
+    "start": 0.01,
+    "end": 0.26,
+    "id": "w0"
+  },
+  {
+    "text": "descriptive",
+    "start": 0.26,
+    "end": 0.98,
+    "id": "w1"
+  },
+  {
+    "text": "as",
+    "start": 1.09,
+    "end": 1.12,
+    "id": "w2"
+  },
+  {
+    "text": "possible.",
+    "start": 1.12,
+    "end": 1.8,
+    "id": "w3"
+  },
+  {
+    "text": "As",
+    "start": 1.8,
+    "end": 1.86,
+    "id": "w4"
+  },
+  {
+    "text": "you",
+    "start": 1.86,
+    "end": 1.96,
+    "id": "w5"
+  },
+  {
+    "text": "can",
+    "start": 1.96,
+    "end": 2.05,
+    "id": "w6"
+  },
+  {
+    "text": "see,",
+    "start": 2.12,
+    "end": 2.24,
+    "id": "w7"
+  },
+  {
+    "text": "it",
+    "start": 2.24,
+    "end": 2.39,
+    "id": "w8"
+  },
+  {
+    "text": "is",
+    "start": 2.42,
+    "end": 2.56,
+    "id": "w9"
+  },
+  {
+    "text": "very",
+    "start": 2.56,
+    "end": 2.88,
+    "id": "w10"
+  },
+  {
+    "text": "simple",
+    "start": 2.88,
+    "end": 3.37,
+    "id": "w11"
+  },
+  {
+    "text": "here.",
+    "start": 3.37,
+    "end": 3.96,
+    "id": "w12"
+  },
+  {
+    "text": "But",
+    "start": 3.96,
+    "end": 4.06,
+    "id": "w13"
+  },
+  {
+    "text": "the",
+    "start": 4.21,
+    "end": 4.4,
+    "id": "w14"
+  },
+  {
+    "text": "more",
+    "start": 4.4,
+    "end": 4.76,
+    "id": "w15"
+  },
+  {
+    "text": "information",
+    "start": 4.76,
+    "end": 5.36,
+    "id": "w16"
+  },
+  {
+    "text": "you",
+    "start": 5.36,
+    "end": 5.74,
+    "id": "w17"
+  },
+  {
+    "text": "give",
+    "start": 5.84,
+    "end": 6.33,
+    "id": "w18"
+  },
+  {
+    "text": "on",
+    "start": 6.45,
+    "end": 6.61,
+    "id": "w19"
+  },
+  {
+    "text": "what",
+    "start": 6.61,
+    "end": 7.18,
+    "id": "w20"
+  },
+  {
+    "text": "the",
+    "start": 7.18,
+    "end": 7.6,
+    "id": "w21"
+  },
+  {
+    "text": "tool",
+    "start": 7.6,
+    "end": 8.05,
+    "id": "w22"
+  },
+  {
+    "text": "does,",
+    "start": 8.19,
+    "end": 8.75,
+    "id": "w23"
+  },
+  {
+    "text": "the",
+    "start": 9.18,
+    "end": 9.35,
+    "id": "w24"
+  },
+  {
+    "text": "more",
+    "start": 9.57,
+    "end": 9.98,
+    "id": "w25"
+  },
+  {
+    "text": "helpful",
+    "start": 9.98,
+    "end": 10.9,
+    "id": "w26"
+  },
+  {
+    "text": "it",
+    "start": 11.09,
+    "end": 11.23,
+    "id": "w27"
+  },
+  {
+    "text": "is",
+    "start": 11.23,
+    "end": 11.47,
+    "id": "w28"
+  },
+  {
+    "text": "for",
+    "start": 11.54,
+    "end": 11.94,
+    "id": "w29"
+  },
+  {
+    "text": "the",
+    "start": 11.94,
+    "end": 12.36,
+    "id": "w30"
+  },
+  {
+    "text": "agent.",
+    "start": 12.36,
+    "end": 13.52,
+    "id": "w31"
+  },
+  {
+    "text": "Okay,",
+    "start": 13.53,
+    "end": 13.8,
+    "id": "w32"
+  },
+  {
+    "text": "so",
+    "start": 13.8,
+    "end": 13.89,
+    "id": "w33"
+  },
+  {
+    "text": "I",
+    "start": 13.89,
+    "end": 13.93,
+    "id": "w34"
+  },
+  {
+    "text": "have",
+    "start": 13.93,
+    "end": 14.16,
+    "id": "w35"
+  },
+  {
+    "text": "defined",
+    "start": 14.16,
+    "end": 14.6,
+    "id": "w36"
+  },
+  {
+    "text": "one",
+    "start": 14.6,
+    "end": 14.96,
+    "id": "w37"
+  },
+  {
+    "text": "tool",
+    "start": 15.08,
+    "end": 15.47,
+    "id": "w38"
+  },
+  {
+    "text": "here.",
+    "start": 15.47,
+    "end": 16.36,
+    "id": "w39"
+  },
+  {
+    "text": "So",
+    "start": 16.36,
+    "end": 16.48,
+    "id": "w40"
+  },
+  {
+    "text": "this",
+    "start": 16.54,
+    "end": 16.86,
+    "id": "w41"
+  },
+  {
+    "text": "is",
+    "start": 16.87,
+    "end": 17.04,
+    "id": "w42"
+  },
+  {
+    "text": "my",
+    "start": 17.04,
+    "end": 17.21,
+    "id": "w43"
+  },
+  {
+    "text": "MCP",
+    "start": 17.21,
+    "end": 17.46,
+    "id": "w44"
+  },
+  {
+    "text": "server.",
+    "start": 17.46,
+    "end": 18,
+    "id": "w45"
+  }
+]

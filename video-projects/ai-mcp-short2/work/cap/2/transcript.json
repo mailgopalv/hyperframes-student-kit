@@ -1,0 +1,44 @@
+[
+  {
+    "text": "The",
+    "start": 0,
+    "end": 0.26,
+    "id": "w0"
+  },
+  {
+    "text": "LLM",
+    "start": 0.4,
+    "end": 0.62,
+    "id": "w1"
+  },
+  {
+    "text": "reads",
+    "start": 0.62,
+    "end": 0.92,
+    "id": "w2"
+  },
+  {
+    "text": "all",
+    "start": 0.92,
+    "end": 1.5,
+    "id": "w3"
+  },
+  {
+    "text": "the",
+    "start": 1.5,
+    "end": 1.76,
+    "id": "w4"
+  },
+  {
+    "text": "available",
+    "start": 1.76,
+    "end": 2.71,
+    "id": "w5"
+  },
+  {
+    "text": "tools.",
+    "start": 2.71,
+    "end": 3.28,
+    "id": "w6"
+  }
+]

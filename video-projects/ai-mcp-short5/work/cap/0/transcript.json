@@ -1,0 +1,104 @@
+[
+  {
+    "text": "My",
+    "start": 0.06,
+    "end": 0.18,
+    "id": "w0"
+  },
+  {
+    "text": "support",
+    "start": 0.18,
+    "end": 0.81,
+    "id": "w1"
+  },
+  {
+    "text": "agent",
+    "start": 0.81,
+    "end": 1.11,
+    "id": "w2"
+  },
+  {
+    "text": "only",
+    "start": 1.4,
+    "end": 1.62,
+    "id": "w3"
+  },
+  {
+    "text": "knew",
+    "start": 1.62,
+    "end": 1.98,
+    "id": "w4"
+  },
+  {
+    "text": "about",
+    "start": 1.98,
+    "end": 2.33,
+    "id": "w5"
+  },
+  {
+    "text": "orders,",
+    "start": 2.42,
+    "end": 3.47,
+    "id": "w6"
+  },
+  {
+    "text": "so",
+    "start": 3.47,
+    "end": 3.86,
+    "id": "w7"
+  },
+  {
+    "text": "I",
+    "start": 3.86,
+    "end": 3.94,
+    "id": "w8"
+  },
+  {
+    "text": "plugged",
+    "start": 3.94,
+    "end": 4.75,
+    "id": "w9"
+  },
+  {
+    "text": "in",
+    "start": 4.75,
+    "end": 5,
+    "id": "w10"
+  },
+  {
+    "text": "a",
+    "start": 5,
+    "end": 5.04,
+    "id": "w11"
+  },
+  {
+    "text": "free",
+    "start": 5.04,
+    "end": 5.09,
+    "id": "w12"
+  },
+  {
+    "text": "web",
+    "start": 5.27,
+    "end": 5.32,
+    "id": "w13"
+  },
+  {
+    "text": "search",
+    "start": 5.32,
+    "end": 5.58,
+    "id": "w14"
+  },
+  {
+    "text": "mcp",
+    "start": 5.58,
+    "end": 6.04,
+    "id": "w15"
+  },
+  {
+    "text": "server.",
+    "start": 6.04,
+    "end": 7.02,
+    "id": "w16"
+  }
+]

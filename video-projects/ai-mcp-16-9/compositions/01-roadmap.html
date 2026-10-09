@@ -1,0 +1,80 @@
+<template id="roadmap-template">
+  <div data-hf-id="hf-by0t" data-composition-id="roadmap" data-start="0" data-width="1920" data-height="1080" data-duration="40.0">
+    <div data-hf-id="hf-ugjk" class="rm-wrap">
+      <div data-hf-id="hf-qg6q" class="rm-kicker" id="rm-kicker">WHERE WE'RE HEADED</div>
+      <h1 data-hf-id="hf-tfr3" class="rm-title chrome" id="rm-title">Five ideas, one running example</h1>
+      <div data-hf-id="hf-qag4" class="rm-list">
+        <div data-hf-id="hf-cj11" class="rm-row" id="rm-row-0"><span data-hf-id="hf-0zcq" class="rm-num">01</span><span data-hf-id="hf-9acg" class="rm-label">Before MCP</span><span data-hf-id="hf-5z2u" class="rm-desc">How agents get built the hard way, one API at a time</span></div>
+        <div data-hf-id="hf-9jrg" class="rm-row" id="rm-row-1"><span data-hf-id="hf-1dnr" class="rm-num">02</span><span data-hf-id="hf-86vo" class="rm-label">The drawbacks</span><span data-hf-id="hf-72hj" class="rm-desc">What breaks as soon as it has to scale</span></div>
+        <div data-hf-id="hf-kf93" class="rm-row" id="rm-row-2"><span data-hf-id="hf-1rys" class="rm-num">03</span><span data-hf-id="hf-7gbr" class="rm-label">What MCP is</span><span data-hf-id="hf-87be" class="rm-desc">A common language between agents and tools</span></div>
+        <div data-hf-id="hf-gh52" class="rm-row" id="rm-row-3"><span data-hf-id="hf-269t" class="rm-num">04</span><span data-hf-id="hf-evio" class="rm-label">Why it helps</span><span data-hf-id="hf-g6nc" class="rm-desc">The benefits engineers actually feel</span></div>
+        <div data-hf-id="hf-p50x" class="rm-row" id="rm-row-4"><span data-hf-id="hf-2kku" class="rm-num">05</span><span data-hf-id="hf-ys9t" class="rm-label">The name</span><span data-hf-id="hf-uhg1" class="rm-desc">Model. Context. Protocol. Word by word</span></div>
+      </div>
+    </div>
+
+    <style>
+      [data-composition-id="roadmap"] { position: absolute; inset: 0; font-family: "Montserrat", sans-serif; }
+      [data-composition-id="roadmap"] .rm-wrap {
+        position: absolute; inset: 0;
+        display: flex; flex-direction: column; justify-content: center;
+        padding: 120px 220px; box-sizing: border-box; gap: 28px;
+      }
+      [data-composition-id="roadmap"] .rm-kicker {
+        font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 500;
+        letter-spacing: 0.18em; color: #37bdf8; opacity: 0.9;
+      }
+      [data-composition-id="roadmap"] .chrome {
+        background: linear-gradient(180deg, #ffffff 0%, #999999 60%, #cccccc 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        text-shadow: 0 0 20px rgba(255,255,255,0.55), 0 0 40px rgba(255,255,255,0.28);
+      }
+      [data-composition-id="roadmap"] .rm-title {
+        font-size: 84px; font-weight: 900; margin: 0 0 20px 0; letter-spacing: -0.01em;
+      }
+      [data-composition-id="roadmap"] .rm-list {
+        display: flex; flex-direction: column; gap: 22px;
+      }
+      [data-composition-id="roadmap"] .rm-row {
+        display: flex; align-items: baseline; gap: 28px;
+        opacity: 0; padding: 14px 26px; border-radius: 14px;
+        background: rgba(55, 189, 248, 0.05);
+        border: 1px solid rgba(55, 189, 248, 0.14);
+      }
+      [data-composition-id="roadmap"] .rm-num {
+        font-family: "JetBrains Mono", monospace; font-size: 24px; color: #1c6f96; font-weight: 700; width: 46px;
+      }
+      [data-composition-id="roadmap"] .rm-label {
+        font-size: 34px; font-weight: 700; color: #ffffff; width: 320px;
+      }
+      [data-composition-id="roadmap"] .rm-desc {
+        font-size: 22px; font-weight: 400; color: #8fa2b8;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const scope = '[data-composition-id="roadmap"] ';
+        const tl = gsap.timeline({ paused: true });
+        const DURATION = 40.0;
+
+        tl.from(scope + "#rm-kicker", { opacity: 0, y: -14, duration: 0.5, ease: "power2.out" }, 0.2);
+        tl.from(scope + "#rm-title", { opacity: 0, y: 24, scale: 0.97, duration: 0.7, ease: "power3.out" }, 0.4);
+
+        // Rows land in sync with narration calling out each topic.
+        const rowTimes = [5.0, 10.6, 16.7, 20.6, 24.2];
+        rowTimes.forEach(function (t, i) {
+          tl.to(scope + "#rm-row-" + i, { opacity: 1, duration: 0.5, ease: "power2.out" }, t);
+          tl.fromTo(scope + "#rm-row-" + i, { x: -30 }, { x: 0, duration: 0.6, ease: "back.out(1.4)" }, t);
+        });
+
+        // Ambient breathing hold on the fully-assembled list.
+        tl.to(scope + ".rm-list", { y: -6, duration: 4, ease: "sine.inOut", yoyo: true, repeat: 3 }, 26);
+
+        tl.set({}, {}, DURATION);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["roadmap"] = tl;
+      })();
+    </script>
+  </div>
+</template>

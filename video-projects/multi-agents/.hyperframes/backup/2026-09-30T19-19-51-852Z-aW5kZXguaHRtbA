@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Agent with Sub-Agents — Google ADK</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=block" rel="stylesheet">
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px; height: 1080px; overflow: hidden;
+        background: #07121c; font-family: "Montserrat", sans-serif; color: #ffffff;
+      }
+      .whip {
+        position: absolute; top: 50%; left: 0; width: 46%; height: 10px;
+        background: linear-gradient(90deg, transparent, #ffffff, transparent);
+        filter: blur(8px); transform: translateY(-50%); opacity: 0; z-index: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Chapter slots come from scripts/cues.py (narration timing). Total 818s = 13:38. -->
+    <div data-hf-id="hf-gskp" id="root" data-composition-id="multi-agents" data-start="0" data-width="1920" data-height="1080">
+
+      <!-- Grid / crosshairs / particles / grain / vignette under every chapter -->
+      <div data-hf-id="hf-5rid" id="ambient-bg" data-composition-id="ambient-bg" data-composition-src="compositions/ambient-bg.html" data-start="0" data-duration="818" data-track-index="0"></div>
+
+      <!-- Chapters, sequential on one track -->
+      <div data-hf-id="hf-nbid" id="c-ch0" data-composition-id="ch0" data-composition-src="compositions/ch0-title.html" data-start="0" data-duration="27" data-track-index="1"></div>
+      <div data-hf-id="hf-p9gq" id="c-ch1" data-composition-id="ch1" data-composition-src="compositions/ch1-agent.html" data-start="27" data-duration="51.5" data-track-index="1"></div>
+      <div data-hf-id="hf-kxpl" id="c-ch2" data-composition-id="ch2" data-composition-src="compositions/ch2-session.html" data-start="78.5" data-duration="67" data-track-index="1"></div>
+      <div data-hf-id="hf-kyh2" id="c-ch3" data-composition-id="ch3" data-composition-src="compositions/ch3-problem.html" data-start="145.5" data-duration="35.5" data-track-index="1"></div>
+      <!-- ch3 → ch4 is a match cut (same box, same layout): no whip -->
+      <div data-hf-id="hf-r5lv" id="c-ch4" data-composition-id="ch4" data-composition-src="compositions/ch4-subagents.html" data-start="181" data-duration="68.5" data-track-index="1"></div>
+      <div data-hf-id="hf-27pn" id="c-ch5" data-composition-id="ch5" data-composition-src="compositions/ch5-control.html" data-start="249.5" data-duration="52" data-track-index="1"></div>
+      <div data-hf-id="hf-t1el" id="c-ch6" data-composition-id="ch6" data-composition-src="compositions/ch6-journey.html" data-start="301.5" data-duration="113.5" data-track-index="1"></div>
+      <div data-hf-id="hf-g2m3" id="c-ch7" data-composition-id="ch7" data-composition-src="compositions/ch7-code.html" data-start="415" data-duration="369" data-track-index="1"></div>
+      <div data-hf-id="hf-tak7" id="c-ch8" data-composition-id="ch8" data-composition-src="compositions/ch8-recap.html" data-start="784" data-duration="34" data-track-index="1"></div>
+
+      <!-- Whip-streaks over every chapter seam (Law #5) -->
+      <div id="whip-0" class="whip clip" data-start="26.80" data-duration="0.4" data-track-index="2"></div>
+      <div id="whip-1" class="whip clip" data-start="78.30" data-duration="0.4" data-track-index="2"></div>
+      <div id="whip-2" class="whip clip" data-start="145.30" data-duration="0.4" data-track-index="2"></div>
+      <div id="whip-3" class="whip clip" data-start="249.30" data-duration="0.4" data-track-index="2"></div>
+      <div id="whip-4" class="whip clip" data-start="301.30" data-duration="0.4" data-track-index="2"></div>
+      <div id="whip-5" class="whip clip" data-start="414.80" data-duration="0.4" data-track-index="2"></div>
+      <div id="whip-6" class="whip clip" data-start="783.80" data-duration="0.4" data-track-index="2"></div>
+    </div>
+
+    <script>
+      (function () {
+        const tl = gsap.timeline({ paused: true });
+        document.querySelectorAll(".whip").forEach(function (el) {
+          const start = parseFloat(el.getAttribute("data-start"));
+          tl.fromTo(el,
+            { opacity: 0, xPercent: -100, scaleX: 0.5 },
+            { opacity: 1, xPercent: 250, scaleX: 1.5, duration: 0.4, ease: "power3.in" },
+            start);
+          tl.set(el, { opacity: 0 }, start + 0.4);
+        });
+        tl.set({}, {}, 818);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["multi-agents"] = tl;
+      })();
+    </script>
+  </body>
+</html>

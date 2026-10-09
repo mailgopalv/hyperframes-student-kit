@@ -1,0 +1,79 @@
+{
+ "beats": [
+  {
+   "t": 0.15,
+   "h": "One line decides <em class=\"cyan\">who can connect</em>"
+  },
+  {
+   "t": "seg:c1",
+   "h": "<em class=\"cyan\">stdio</em> = same machine"
+  },
+  {
+   "t": "seg:c2",
+   "h": "Like a <em class=\"cyan\">walkie-talkie</em>"
+  },
+  {
+   "t": "seg:c3",
+   "h": "Want <em class=\"amber\">anyone</em> to connect?"
+  },
+  {
+   "t": "seg:c4",
+   "h": "<em class=\"amber\">streamable-http</em> = remote"
+  },
+  {
+   "t": "seg:vo-b",
+   "h": "Same server. <em class=\"cyan\">One line.</em>"
+  },
+  {
+   "t": "word:full@44-0.3",
+   "h": "Both versions <em class=\"cyan\">linked below</em>",
+   "sub": "▶ youtu.be/oicQkCXg8Vo"
+  }
+ ],
+ "chips": [
+  {
+   "text": "ecommerce_mcp_server/server.py",
+   "a": 0.5,
+   "b": "end"
+  }
+ ],
+ "boxes": [
+  {
+   "c": "cyan",
+   "box": [
+    90,
+    455,
+    340,
+    50
+   ],
+   "a": "word:line",
+   "b": "seg:c4"
+  },
+  {
+   "c": "amber",
+   "box": [
+    95,
+    455,
+    740,
+    50
+   ],
+   "a": "seg:c4+0.2",
+   "b": "end"
+  }
+ ],
+ "stamps": [
+  {
+   "c": "cyan",
+   "text": "LOCAL",
+   "t": "word:stdio",
+   "b": "seg:c3"
+  },
+  {
+   "c": "amber",
+   "text": "REMOTE",
+   "t": "word:deploy",
+   "b": "seg:vo-b+3",
+   "rot": 3
+  }
+ ]
+}

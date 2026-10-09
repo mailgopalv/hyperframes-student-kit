@@ -1,0 +1,68 @@
+[
+  {
+    "text": "my",
+    "start": 0,
+    "end": 0.99,
+    "id": "w0"
+  },
+  {
+    "text": "description",
+    "start": 1,
+    "end": 1.73,
+    "id": "w1"
+  },
+  {
+    "text": "here",
+    "start": 1.73,
+    "end": 1.85,
+    "id": "w2"
+  },
+  {
+    "text": "helps",
+    "start": 2.34,
+    "end": 2.45,
+    "id": "w3"
+  },
+  {
+    "text": "me",
+    "start": 2.45,
+    "end": 2.62,
+    "id": "w4"
+  },
+  {
+    "text": "like",
+    "start": 2.63,
+    "end": 2.92,
+    "id": "w5"
+  },
+  {
+    "text": "what",
+    "start": 3.01,
+    "end": 4,
+    "id": "w6"
+  },
+  {
+    "text": "is",
+    "start": 4.02,
+    "end": 4.08,
+    "id": "w7"
+  },
+  {
+    "text": "the",
+    "start": 4.16,
+    "end": 4.3,
+    "id": "w8"
+  },
+  {
+    "text": "example",
+    "start": 4.3,
+    "end": 4.74,
+    "id": "w9"
+  },
+  {
+    "text": "of",
+    "start": 4.74,
+    "end": 4.86,
+    "id": "w10"
+  }
+]

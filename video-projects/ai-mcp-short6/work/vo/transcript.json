@@ -1,0 +1,254 @@
+[
+  {
+    "text": "Every",
+    "start": 0.02,
+    "end": 0.89,
+    "id": "w0"
+  },
+  {
+    "text": "MCP",
+    "start": 0.89,
+    "end": 1.42,
+    "id": "w1"
+  },
+  {
+    "text": "server",
+    "start": 2.09,
+    "end": 2.49,
+    "id": "w2"
+  },
+  {
+    "text": "has",
+    "start": 2.52,
+    "end": 2.92,
+    "id": "w3"
+  },
+  {
+    "text": "one",
+    "start": 3.04,
+    "end": 3.55,
+    "id": "w4"
+  },
+  {
+    "text": "line",
+    "start": 3.55,
+    "end": 4.26,
+    "id": "w5"
+  },
+  {
+    "text": "that",
+    "start": 4.26,
+    "end": 4.97,
+    "id": "w6"
+  },
+  {
+    "text": "decides",
+    "start": 4.97,
+    "end": 6.22,
+    "id": "w7"
+  },
+  {
+    "text": "who",
+    "start": 6.22,
+    "end": 6.57,
+    "id": "w8"
+  },
+  {
+    "text": "can",
+    "start": 6.73,
+    "end": 7.28,
+    "id": "w9"
+  },
+  {
+    "text": "talk",
+    "start": 7.28,
+    "end": 7.99,
+    "id": "w10"
+  },
+  {
+    "text": "to",
+    "start": 7.99,
+    "end": 8.34,
+    "id": "w11"
+  },
+  {
+    "text": "it.",
+    "start": 8.34,
+    "end": 9.32,
+    "id": "w12"
+  },
+  {
+    "text": "Same",
+    "start": 9.34,
+    "end": 9.64,
+    "id": "w13"
+  },
+  {
+    "text": "server,",
+    "start": 9.64,
+    "end": 10.26,
+    "id": "w14"
+  },
+  {
+    "text": "one",
+    "start": 10.26,
+    "end": 10.5,
+    "id": "w15"
+  },
+  {
+    "text": "line",
+    "start": 10.5,
+    "end": 10.82,
+    "id": "w16"
+  },
+  {
+    "text": "changed",
+    "start": 10.82,
+    "end": 11.41,
+    "id": "w17"
+  },
+  {
+    "text": "and",
+    "start": 11.41,
+    "end": 11.52,
+    "id": "w18"
+  },
+  {
+    "text": "now",
+    "start": 11.61,
+    "end": 11.84,
+    "id": "w19"
+  },
+  {
+    "text": "anyone",
+    "start": 11.84,
+    "end": 12.24,
+    "id": "w20"
+  },
+  {
+    "text": "can",
+    "start": 12.36,
+    "end": 12.56,
+    "id": "w21"
+  },
+  {
+    "text": "connect",
+    "start": 12.56,
+    "end": 12.96,
+    "id": "w22"
+  },
+  {
+    "text": "to",
+    "start": 13.17,
+    "end": 13.27,
+    "id": "w23"
+  },
+  {
+    "text": "it.",
+    "start": 13.27,
+    "end": 13.72,
+    "id": "w24"
+  },
+  {
+    "text": "I",
+    "start": 13.74,
+    "end": 13.8,
+    "id": "w25"
+  },
+  {
+    "text": "show",
+    "start": 13.8,
+    "end": 14.14,
+    "id": "w26"
+  },
+  {
+    "text": "both",
+    "start": 14.14,
+    "end": 14.48,
+    "id": "w27"
+  },
+  {
+    "text": "versions",
+    "start": 14.48,
+    "end": 15.17,
+    "id": "w28"
+  },
+  {
+    "text": "in",
+    "start": 15.17,
+    "end": 15.34,
+    "id": "w29"
+  },
+  {
+    "text": "the",
+    "start": 15.34,
+    "end": 15.6,
+    "id": "w30"
+  },
+  {
+    "text": "full",
+    "start": 15.81,
+    "end": 15.93,
+    "id": "w31"
+  },
+  {
+    "text": "video.",
+    "start": 16.01,
+    "end": 16.64,
+    "id": "w32"
+  },
+  {
+    "text": "Go",
+    "start": 16.7,
+    "end": 16.8,
+    "id": "w33"
+  },
+  {
+    "text": "check",
+    "start": 16.8,
+    "end": 17.11,
+    "id": "w34"
+  },
+  {
+    "text": "it",
+    "start": 17.11,
+    "end": 17.23,
+    "id": "w35"
+  },
+  {
+    "text": "out,",
+    "start": 17.23,
+    "end": 17.53,
+    "id": "w36"
+  },
+  {
+    "text": "the",
+    "start": 17.53,
+    "end": 17.71,
+    "id": "w37"
+  },
+  {
+    "text": "link",
+    "start": 17.71,
+    "end": 17.96,
+    "id": "w38"
+  },
+  {
+    "text": "is",
+    "start": 17.96,
+    "end": 18.08,
+    "id": "w39"
+  },
+  {
+    "text": "right",
+    "start": 18.08,
+    "end": 18.39,
+    "id": "w40"
+  },
+  {
+    "text": "below.",
+    "start": 18.39,
+    "end": 18.69,
+    "id": "w41"
+  }
+]

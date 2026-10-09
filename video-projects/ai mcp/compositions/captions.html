@@ -1,0 +1,212 @@
+<template id="captions-template">
+  <div data-hf-id="hf-r35r" data-composition-id="captions" data-start="0" data-width="1080" data-height="1920" data-duration="72.57">
+    <div data-hf-id="hf-lvls" class="cap-stage" id="cap-stage"></div>
+
+    <style>
+      [data-composition-id="captions"] {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+      [data-composition-id="captions"] .cap-stage {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 220px;
+        height: 0;
+        pointer-events: none;
+      }
+      [data-composition-id="captions"] .cap-line-wrap {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        padding: 0 60px;
+        opacity: 0;
+        visibility: hidden;
+      }
+      [data-composition-id="captions"] .cap-line {
+        display: inline-block;
+        max-width: 940px;
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        font-size: 54px;
+        line-height: 1.14;
+        letter-spacing: -0.01em;
+        color: #ffffff;
+        text-shadow:
+          -3px -3px 0 #07121c, 3px -3px 0 #07121c,
+          -3px 3px 0 #07121c, 3px 3px 0 #07121c,
+          -4px 0 0 #07121c, 4px 0 0 #07121c,
+          0 -4px 0 #07121c, 0 4px 0 #07121c,
+          0 6px 14px rgba(0, 0, 0, 0.55);
+        white-space: normal;
+      }
+      [data-composition-id="captions"] .cap-word {
+        display: inline-block;
+        transform-origin: center center;
+        will-change: transform, color;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        // Word-level transcript from assets/transcript.json (whisper small.en).
+        // No audio edit inside spoken content — the only cut was trailing dead
+        // air after the last word, so edited-time === original-time. No shift().
+        // BPE sub-word fragments (e.g. "unsc"+"al"+"able", "L"+"MS") are merged
+        // into single caption words below.
+        const SEGMENTS = [
+          { words: [ { word: "How", start: 0.03, end: 0.43 }, { word: "did", start: 0.43, end: 0.86 }, { word: "AI", start: 0.86, end: 1.59 }, { word: "completely", start: 1.59, end: 2.57 }, { word: "transform", start: 2.57, end: 3.85 }, { word: "call", start: 3.85, end: 4.44 }, { word: "centers?", start: 4.44, end: 5.52 } ] },
+          { words: [ { word: "It", start: 5.52, end: 5.63 }, { word: "happens", start: 5.63, end: 6.03 }, { word: "in", start: 6.03, end: 6.16 }, { word: "three", start: 6.16, end: 6.44 }, { word: "steps", start: 6.44, end: 6.94 } ] },
+          { words: [ { word: "and", start: 6.94, end: 7.04 }, { word: "step", start: 7.04, end: 7.32 }, { word: "three", start: 7.32, end: 7.67 }, { word: "is", start: 7.67, end: 7.81 }, { word: "where", start: 7.81, end: 8.16 }, { word: "all", start: 8.16, end: 8.37 } ] },
+          { words: [ { word: "software", start: 8.37, end: 9.20 }, { word: "engineering", start: 9.20, end: 9.74 }, { word: "is", start: 9.74, end: 9.84 }, { word: "heading", start: 9.84, end: 10.33 }, { word: "next.", start: 10.33, end: 10.90 } ] },
+
+          { words: [ { word: "Stage", start: 10.90, end: 11.35 }, { word: "one:", start: 11.35, end: 11.60 }, { word: "pure", start: 11.60, end: 11.98 }, { word: "human", start: 11.98, end: 12.46 }, { word: "ops.", start: 12.46, end: 12.75 } ] },
+          { words: [ { word: "A", start: 12.75, end: 12.84 }, { word: "customer", start: 12.84, end: 13.78 }, { word: "calls,", start: 13.78, end: 14.10 }, { word: "a", start: 14.10, end: 14.18 }, { word: "human", start: 14.18, end: 14.67 }, { word: "answers,", start: 14.67, end: 15.38 } ] },
+          { words: [ { word: "manually", start: 15.38, end: 16.13 }, { word: "looks", start: 16.13, end: 16.34 }, { word: "into", start: 16.34, end: 16.50 }, { word: "the", start: 16.50, end: 16.64 }, { word: "database", start: 16.64, end: 17.19 } ] },
+          { words: [ { word: "and", start: 17.19, end: 17.39 }, { word: "helps", start: 17.39, end: 17.73 }, { word: "them", start: 17.73, end: 18.00 }, { word: "out", start: 18.00, end: 18.23 }, { word: "personally,", start: 18.23, end: 18.89 } ] },
+          { words: [ { word: "but", start: 18.89, end: 19.08 }, { word: "totally", start: 19.08, end: 19.59 }, { word: "unscalable.", start: 19.59, end: 20.48 } ] },
+
+          { words: [ { word: "Stage", start: 21.50, end: 22.09 }, { word: "two:", start: 22.09, end: 22.24 }, { word: "standard", start: 22.24, end: 23.06 }, { word: "LLMs.", start: 23.06, end: 23.36 } ] },
+          { words: [ { word: "Now", start: 23.36, end: 23.67 }, { word: "an", start: 23.67, end: 23.87 }, { word: "AI", start: 23.87, end: 24.40 }, { word: "answers", start: 24.40, end: 24.79 }, { word: "instantly,", start: 24.79, end: 25.74 } ] },
+          { words: [ { word: "24/7!", start: 25.74, end: 26.77 }, { word: "Great,", start: 26.77, end: 27.44 }, { word: "right?", start: 27.44, end: 27.69 } ] },
+          { words: [ { word: "Except", start: 27.69, end: 28.40 }, { word: "it", start: 28.40, end: 28.54 }, { word: "has", start: 28.54, end: 28.68 }, { word: "zero", start: 28.68, end: 28.98 }, { word: "clue", start: 28.98, end: 29.24 } ] },
+          { words: [ { word: "who", start: 29.27, end: 29.62 }, { word: "you", start: 29.62, end: 30.00 }, { word: "are,", start: 30.00, end: 30.40 }, { word: "what", start: 30.40, end: 30.71 }, { word: "account", start: 30.71, end: 31.40 } ] },
+          { words: [ { word: "you", start: 31.40, end: 31.49 }, { word: "hold,", start: 31.49, end: 31.72 }, { word: "or", start: 31.72, end: 31.88 }, { word: "what", start: 31.88, end: 32.18 }, { word: "your", start: 32.18, end: 32.53 }, { word: "issue", start: 32.53, end: 32.90 }, { word: "is.", start: 32.90, end: 33.08 } ] },
+          { words: [ { word: "Completely", start: 33.08, end: 33.79 }, { word: "generic", start: 33.79, end: 34.24 }, { word: "answers", start: 34.24, end: 34.64 }, { word: "only.", start: 34.64, end: 35.04 } ] },
+
+          { words: [ { word: "Stage", start: 35.34, end: 35.85 }, { word: "three:", start: 35.85, end: 36.80 }, { word: "custom", start: 36.80, end: 36.97 }, { word: "API", start: 36.97, end: 37.28 }, { word: "wiring.", start: 37.28, end: 37.93 } ] },
+          { words: [ { word: "We", start: 37.93, end: 38.14 }, { word: "plugged", start: 38.14, end: 38.84 }, { word: "our", start: 38.84, end: 39.00 }, { word: "API", start: 39.00, end: 39.44 }, { word: "straight", start: 39.44, end: 40.09 } ] },
+          { words: [ { word: "into", start: 40.09, end: 40.26 }, { word: "the", start: 40.26, end: 40.39 }, { word: "LLM.", start: 40.39, end: 40.50 }, { word: "Now", start: 40.50, end: 40.94 }, { word: "it", start: 40.94, end: 41.08 }, { word: "can", start: 41.08, end: 41.30 }, { word: "read", start: 41.30, end: 41.60 } ] },
+          { words: [ { word: "your", start: 41.60, end: 41.90 }, { word: "own", start: 41.90, end: 42.12 }, { word: "history!", start: 42.12, end: 42.65 } ] },
+          { words: [ { word: "But", start: 42.65, end: 42.87 }, { word: "it's", start: 42.87, end: 43.26 }, { word: "tightly", start: 43.26, end: 43.72 }, { word: "coupled.", start: 43.72, end: 44.28 } ] },
+          { words: [ { word: "Change", start: 44.28, end: 44.87 }, { word: "your", start: 44.87, end: 45.28 }, { word: "endpoint", start: 45.28, end: 45.75 } ] },
+          { words: [ { word: "or", start: 45.75, end: 46.00 }, { word: "swap", start: 46.00, end: 46.29 }, { word: "our", start: 46.29, end: 46.51 }, { word: "system,", start: 46.51, end: 46.95 } ] },
+          { words: [ { word: "and", start: 46.95, end: 47.17 }, { word: "the", start: 47.17, end: 47.41 }, { word: "integration", start: 47.41, end: 48.25 }, { word: "shatters.", start: 48.25, end: 48.80 } ] },
+
+          { words: [ { word: "That's", start: 49.20, end: 49.40 }, { word: "why", start: 49.40, end: 49.74 }, { word: "MCP", start: 49.74, end: 51.45 } ] },
+          { words: [ { word: "Model", start: 51.45, end: 51.68 }, { word: "Context", start: 51.68, end: 52.30 }, { word: "Protocol", start: 52.30, end: 52.45 } ] },
+          { words: [ { word: "is", start: 52.45, end: 52.91 }, { word: "taking", start: 52.91, end: 53.22 }, { word: "over.", start: 53.22, end: 53.84 } ] },
+          { words: [ { word: "Instead", start: 53.84, end: 53.93 }, { word: "of", start: 53.93, end: 54.22 }, { word: "hard", start: 54.22, end: 54.72 }, { word: "coding", start: 54.72, end: 55.22 } ] },
+          { words: [ { word: "fragile", start: 55.22, end: 55.45 }, { word: "API's,", start: 55.45, end: 55.72 }, { word: "MCP", start: 55.72, end: 56.15 } ] },
+          { words: [ { word: "acts", start: 56.15, end: 57.13 }, { word: "like", start: 57.40, end: 57.44 }, { word: "a", start: 57.44, end: 57.47 } ] },
+          { words: [ { word: "universal", start: 58.24, end: 58.50 }, { word: "USB", start: 58.50, end: 58.85 }, { word: "port.", start: 58.85, end: 59.11 } ] },
+          { words: [ { word: "The", start: 59.11, end: 59.60 }, { word: "AI", start: 59.60, end: 59.64 }, { word: "gets", start: 59.64, end: 60.08 }, { word: "total", start: 60.08, end: 60.73 } ] },
+          { words: [ { word: "freedom", start: 60.73, end: 60.94 }, { word: "to", start: 60.94, end: 61.30 }, { word: "fetch", start: 61.30, end: 61.72 }, { word: "live", start: 61.72, end: 62.24 } ] },
+          { words: [ { word: "contacts", start: 62.24, end: 62.60 }, { word: "safely,", start: 62.60, end: 63.24 } ] },
+          { words: [ { word: "without", start: 63.24, end: 63.88 }, { word: "brittle", start: 63.88, end: 64.76 }, { word: "custom", start: 64.76, end: 64.80 } ] },
+          { words: [ { word: "glue", start: 64.80, end: 65.15 }, { word: "code.", start: 65.15, end: 65.42 } ] },
+
+          { words: [ { word: "Are", start: 65.42, end: 65.70 }, { word: "you", start: 65.70, end: 65.96 }, { word: "using", start: 65.96, end: 66.42 }, { word: "MCP", start: 66.42, end: 66.69 } ] },
+          { words: [ { word: "in", start: 66.69, end: 66.87 }, { word: "your", start: 66.87, end: 67.23 }, { word: "stack", start: 67.23, end: 67.69 }, { word: "yet?", start: 67.69, end: 68.05 } ] },
+          { words: [ { word: "Drop", start: 68.05, end: 68.46 }, { word: "a", start: 68.46, end: 69.00 }, { word: "comment", start: 69.00, end: 70.06 } ] },
+          { words: [ { word: "below", start: 70.06, end: 70.69 }, { word: "and", start: 70.69, end: 71.22 }, { word: "let", start: 71.22, end: 71.45 }, { word: "me", start: 71.45, end: 71.69 }, { word: "know.", start: 71.69, end: 72.24 } ] },
+        ];
+
+        const COMP_DURATION = 72.57;
+        const DIM = "rgba(255,255,255,0.65)";
+        const ACTIVE = "#37bdf8";
+        const SPOKEN = "#ffffff";
+        const ACTIVE_SCALE = 1.14;
+
+        const stage = document.querySelector('[data-composition-id="captions"] #cap-stage');
+        if (!stage) return;
+
+        SEGMENTS.forEach(function (seg, segIdx) {
+          const wrap = document.createElement("div");
+          wrap.className = "cap-line-wrap";
+          wrap.id = "cap-seg-" + segIdx;
+
+          const line = document.createElement("div");
+          line.className = "cap-line";
+
+          seg.words.forEach(function (w, wIdx) {
+            const span = document.createElement("span");
+            span.className = "cap-word";
+            span.id = "cap-w-" + segIdx + "-" + wIdx;
+            span.textContent = w.word;
+            line.appendChild(span);
+            if (wIdx < seg.words.length - 1) {
+              line.appendChild(document.createTextNode(" "));
+            }
+          });
+
+          wrap.appendChild(line);
+          stage.appendChild(wrap);
+        });
+
+        const tl = gsap.timeline({ paused: true });
+        const FADE_IN = 0.18;
+        const FADE_OUT = 0.18;
+        const PRE_ROLL = 0.12;
+        const POST_HOLD = 0.12;
+
+        // Gap-aware timing: this transcript is almost continuous speech (no
+        // gaps > 0.45s anywhere), so fixed pre-roll/post-hold margins on
+        // adjacent segments guaranteed overlap (two caption lines visible at
+        // once, garbling together). Instead, split whatever real gap exists
+        // between each pair of segments 50/50 and cap every margin to fit
+        // inside its half — when the gap is ~0, margins collapse toward 0 and
+        // the switch becomes a fast direct cut instead of overlapping.
+        const raw = SEGMENTS.map(function (seg) {
+          return { segStart: seg.words[0].start, segEnd: seg.words[seg.words.length - 1].end };
+        });
+
+        const timing = raw.map(function (r, i) {
+          const gapBefore = i > 0 ? Math.max(r.segStart - raw[i - 1].segEnd, 0) : PRE_ROLL * 2;
+          const gapAfter = i < raw.length - 1 ? Math.max(raw[i + 1].segStart - r.segEnd, 0) : 2.0;
+          const halfBefore = gapBefore * 0.5;
+          const halfAfter = gapAfter * 0.5;
+
+          const fadeInDur = Math.max(Math.min(FADE_IN, halfBefore * 0.6), 0.03);
+          const preRoll = Math.max(Math.min(PRE_ROLL, halfBefore * 0.4), 0);
+          const fadeOutDur = Math.max(Math.min(FADE_OUT, halfAfter * 0.6), 0.03);
+          const postHold = Math.max(Math.min(POST_HOLD, halfAfter * 0.4), 0);
+
+          const fadeInAt = Math.max(r.segStart - preRoll, 0);
+          const fadeOutAt = r.segEnd + postHold;
+          const hideAt = fadeOutAt + fadeOutDur;
+
+          return { fadeInAt: fadeInAt, fadeInDur: fadeInDur, fadeOutAt: fadeOutAt, fadeOutDur: fadeOutDur, hideAt: hideAt };
+        });
+
+        SEGMENTS.forEach(function (seg, segIdx) {
+          const wrapSel = '[data-composition-id="captions"] #cap-seg-' + segIdx;
+          const t = timing[segIdx];
+
+          seg.words.forEach(function (w, wIdx) {
+            const wordSel = '[data-composition-id="captions"] #cap-w-' + segIdx + "-" + wIdx;
+            tl.set(wordSel, { color: DIM, scale: 1.0 }, t.fadeInAt);
+          });
+
+          tl.set(wrapSel, { visibility: "visible" }, t.fadeInAt);
+          tl.fromTo(
+            wrapSel,
+            { opacity: 0, y: 8 },
+            { opacity: 1, y: 0, duration: t.fadeInDur, ease: "power2.out" },
+            t.fadeInAt,
+          );
+
+          seg.words.forEach(function (w, wIdx) {
+            const wordSel = '[data-composition-id="captions"] #cap-w-' + segIdx + "-" + wIdx;
+            tl.to(wordSel, { color: ACTIVE, scale: ACTIVE_SCALE, duration: 0.08, ease: "back.out(3)" }, w.start);
+            tl.to(wordSel, { color: SPOKEN, scale: 1.0, duration: 0.12, ease: "power2.out" }, w.end);
+          });
+
+          tl.to(wrapSel, { opacity: 0, duration: t.fadeOutDur, ease: "power2.in" }, t.fadeOutAt);
+          tl.set(wrapSel, { visibility: "hidden" }, t.hideAt);
+        });
+
+        tl.set({}, {}, COMP_DURATION);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["captions"] = tl;
+      })();
+    </script>
+  </div>
+</template>

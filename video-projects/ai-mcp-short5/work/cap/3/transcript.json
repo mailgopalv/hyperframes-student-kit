@@ -1,0 +1,248 @@
+[
+  {
+    "text": "It",
+    "start": 0.01,
+    "end": 0.16,
+    "id": "w0"
+  },
+  {
+    "text": "is",
+    "start": 0.16,
+    "end": 0.32,
+    "id": "w1"
+  },
+  {
+    "text": "doing",
+    "start": 0.46,
+    "end": 0.73,
+    "id": "w2"
+  },
+  {
+    "text": "a",
+    "start": 0.73,
+    "end": 0.81,
+    "id": "w3"
+  },
+  {
+    "text": "quick",
+    "start": 0.81,
+    "end": 1.17,
+    "id": "w4"
+  },
+  {
+    "text": "search",
+    "start": 1.23,
+    "end": 1.71,
+    "id": "w5"
+  },
+  {
+    "text": "on",
+    "start": 1.71,
+    "end": 1.86,
+    "id": "w6"
+  },
+  {
+    "text": "the",
+    "start": 1.88,
+    "end": 2.1,
+    "id": "w7"
+  },
+  {
+    "text": "internet",
+    "start": 2.11,
+    "end": 2.69,
+    "id": "w8"
+  },
+  {
+    "text": "and",
+    "start": 2.82,
+    "end": 2.84,
+    "id": "w9"
+  },
+  {
+    "text": "it",
+    "start": 2.84,
+    "end": 3.05,
+    "id": "w10"
+  },
+  {
+    "text": "is",
+    "start": 3.23,
+    "end": 3.25,
+    "id": "w11"
+  },
+  {
+    "text": "bringing",
+    "start": 3.26,
+    "end": 4.11,
+    "id": "w12"
+  },
+  {
+    "text": "back",
+    "start": 4.11,
+    "end": 4.44,
+    "id": "w13"
+  },
+  {
+    "text": "the",
+    "start": 4.58,
+    "end": 4.64,
+    "id": "w14"
+  },
+  {
+    "text": "weather",
+    "start": 4.64,
+    "end": 4.84,
+    "id": "w15"
+  },
+  {
+    "text": "forecast",
+    "start": 4.84,
+    "end": 5.55,
+    "id": "w16"
+  },
+  {
+    "text": "in",
+    "start": 5.57,
+    "end": 5.68,
+    "id": "w17"
+  },
+  {
+    "text": "tomorrow",
+    "start": 6.01,
+    "end": 6.18,
+    "id": "w18"
+  },
+  {
+    "text": "and",
+    "start": 6.18,
+    "end": 6.36,
+    "id": "w19"
+  },
+  {
+    "text": "Nottingham,",
+    "start": 6.36,
+    "end": 7.07,
+    "id": "w20"
+  },
+  {
+    "text": "you",
+    "start": 7.11,
+    "end": 7.29,
+    "id": "w21"
+  },
+  {
+    "text": "are",
+    "start": 7.29,
+    "end": 7.45,
+    "id": "w22"
+  },
+  {
+    "text": "expecting",
+    "start": 7.47,
+    "end": 8.03,
+    "id": "w23"
+  },
+  {
+    "text": "high",
+    "start": 8.03,
+    "end": 8.25,
+    "id": "w24"
+  },
+  {
+    "text": "of",
+    "start": 8.25,
+    "end": 8.45,
+    "id": "w25"
+  },
+  {
+    "text": "18",
+    "start": 8.45,
+    "end": 8.57,
+    "id": "w26"
+  },
+  {
+    "text": "degrees",
+    "start": 8.8,
+    "end": 9.2,
+    "id": "w27"
+  },
+  {
+    "text": "with",
+    "start": 9.29,
+    "end": 9.46,
+    "id": "w28"
+  },
+  {
+    "text": "partial",
+    "start": 9.46,
+    "end": 9.9,
+    "id": "w29"
+  },
+  {
+    "text": "sunshine",
+    "start": 9.9,
+    "end": 10.42,
+    "id": "w30"
+  },
+  {
+    "text": "and",
+    "start": 10.57,
+    "end": 10.92,
+    "id": "w31"
+  },
+  {
+    "text": "a",
+    "start": 10.95,
+    "end": 11,
+    "id": "w32"
+  },
+  {
+    "text": "low",
+    "start": 11,
+    "end": 11.26,
+    "id": "w33"
+  },
+  {
+    "text": "of",
+    "start": 11.37,
+    "end": 11.43,
+    "id": "w34"
+  },
+  {
+    "text": "around",
+    "start": 11.43,
+    "end": 11.84,
+    "id": "w35"
+  },
+  {
+    "text": "10",
+    "start": 12,
+    "end": 12.49,
+    "id": "w36"
+  },
+  {
+    "text": "degrees,",
+    "start": 12.49,
+    "end": 13.28,
+    "id": "w37"
+  },
+  {
+    "text": "which",
+    "start": 13.28,
+    "end": 13.61,
+    "id": "w38"
+  },
+  {
+    "text": "is",
+    "start": 13.73,
+    "end": 13.89,
+    "id": "w39"
+  },
+  {
+    "text": "awesome.",
+    "start": 14.15,
+    "end": 14.56,
+    "id": "w40"
+  }
+]

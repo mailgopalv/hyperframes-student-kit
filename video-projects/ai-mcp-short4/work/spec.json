@@ -1,0 +1,128 @@
+{
+ "id": "short4",
+ "src": "../ai-mcp-handson/renders/0927-tight-16x9.mp4",
+ "vo": "../ai-mcp-handson/assets/mcp-handson-short4.m4a",
+ "crops": {
+  "TR": [
+   1140,
+   1140,
+   1240,
+   200
+  ],
+  "CT": [
+   1200,
+   1200,
+   660,
+   180
+  ],
+  "IN": [
+   1260,
+   1260,
+   520,
+   200
+  ],
+  "CODE": [
+   1200,
+   1200,
+   660,
+   60
+  ],
+  "CHAT": [
+   1260,
+   1260,
+   1216,
+   180
+  ]
+ },
+ "segments": [
+  {
+   "lab": "vo-a",
+   "video": 699.5,
+   "crop": "CODE",
+   "vo": [
+    2.7,
+    6.66
+   ]
+  },
+  {
+   "lab": "c1",
+   "clip": [
+    687.1,
+    706.4
+   ],
+   "crop": "CODE",
+   "refineStart": false
+  },
+  {
+   "lab": "c2a",
+   "clip": [
+    946.06,
+    947.867
+   ],
+   "crop": "IN"
+  },
+  {
+   "lab": "c2b",
+   "clip": [
+    947.867,
+    952.8
+   ],
+   "crop": "CODE",
+   "cont": true
+  },
+  {
+   "lab": "c2c",
+   "clip": [
+    952.8,
+    954.3
+   ],
+   "crop": "IN",
+   "cont": true
+  },
+  {
+   "lab": "c2d",
+   "clip": [
+    954.3,
+    956.433
+   ],
+   "crop": "CODE",
+   "cont": true
+  },
+  {
+   "lab": "c2e",
+   "clip": [
+    956.433,
+    957.8
+   ],
+   "crop": "IN",
+   "cont": true,
+   "refine": false
+  },
+  {
+   "lab": "vo-b",
+   "freeze": 958.4,
+   "crop": "IN",
+   "vo": [
+    10.62,
+    20.35
+   ]
+  }
+ ],
+ "dropLead": {
+  "c1": 1
+ },
+ "captionFixes": [
+  [
+   "and also lucky",
+   "And also luckily"
+  ],
+  [
+   "it sees this",
+   "It sees this."
+  ],
+  [
+   "every time you're defining",
+   "And every time you're defining"
+  ]
+ ]
+}

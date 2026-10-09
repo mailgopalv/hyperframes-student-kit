@@ -1,0 +1,80 @@
+[
+  {
+    "text": "Every",
+    "start": 0.06,
+    "end": 0.56,
+    "id": "w0"
+  },
+  {
+    "text": "MCP",
+    "start": 0.56,
+    "end": 0.89,
+    "id": "w1"
+  },
+  {
+    "text": "server",
+    "start": 0.89,
+    "end": 1.56,
+    "id": "w2"
+  },
+  {
+    "text": "has",
+    "start": 1.56,
+    "end": 1.9,
+    "id": "w3"
+  },
+  {
+    "text": "one",
+    "start": 1.9,
+    "end": 2.24,
+    "id": "w4"
+  },
+  {
+    "text": "line",
+    "start": 2.24,
+    "end": 2.72,
+    "id": "w5"
+  },
+  {
+    "text": "that",
+    "start": 2.72,
+    "end": 2.97,
+    "id": "w6"
+  },
+  {
+    "text": "decides",
+    "start": 2.97,
+    "end": 3.39,
+    "id": "w7"
+  },
+  {
+    "text": "who",
+    "start": 3.4,
+    "end": 3.6,
+    "id": "w8"
+  },
+  {
+    "text": "can",
+    "start": 3.6,
+    "end": 3.79,
+    "id": "w9"
+  },
+  {
+    "text": "talk",
+    "start": 3.79,
+    "end": 4.02,
+    "id": "w10"
+  },
+  {
+    "text": "to",
+    "start": 4.14,
+    "end": 4.16,
+    "id": "w11"
+  },
+  {
+    "text": "it.",
+    "start": 4.16,
+    "end": 4.32,
+    "id": "w12"
+  }
+]

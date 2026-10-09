@@ -1,0 +1,48 @@
+<template id="mcp-transition-template">
+  <div data-hf-id="hf-e6h4" data-composition-id="mcp-transition" data-start="0" data-width="1920" data-height="1080" data-duration="8.5">
+    <div data-hf-id="hf-l3e8" class="mt-wrap">
+      <div data-hf-id="hf-f7js" class="mt-kicker" id="mt-kicker">SECTION 03</div>
+      <h1 data-hf-id="hf-ut5n" class="mt-title chrome" id="mt-title">So — what is MCP?</h1>
+      <div data-hf-id="hf-ackt" class="mt-sub" id="mt-sub">Building the same support agent, the MCP way</div>
+    </div>
+
+    <style>
+      [data-composition-id="mcp-transition"] {
+        position: absolute; inset: 0; background: #07121c;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        font-family: "Montserrat", sans-serif;
+      }
+      [data-composition-id="mcp-transition"] .mt-wrap { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+      [data-composition-id="mcp-transition"] .mt-kicker {
+        font-family: "JetBrains Mono", monospace; font-size: 24px; letter-spacing: 0.22em; color: #37bdf8;
+      }
+      [data-composition-id="mcp-transition"] .chrome {
+        background: linear-gradient(180deg, #ffffff 0%, #999999 60%, #cccccc 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        text-shadow: 0 0 24px rgba(255,255,255,0.6), 0 0 48px rgba(255,255,255,0.3);
+      }
+      [data-composition-id="mcp-transition"] .mt-title { font-size: 92px; font-weight: 900; margin: 0; }
+      [data-composition-id="mcp-transition"] .mt-sub { font-size: 28px; color: #8fa2b8; font-weight: 500; }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const D = 8.5;
+        const sel = (s) => '[data-composition-id="mcp-transition"] ' + s;
+        const tl = gsap.timeline({ paused: true });
+
+        tl.from(sel('#mt-kicker'), { opacity: 0, y: -16, duration: 0.5, ease: 'power2.out' }, 0.2);
+        tl.from(sel('#mt-title'), { opacity: 0, scale: 0.92, y: 20, duration: 0.8, ease: 'power3.out' }, 0.4);
+        tl.from(sel('#mt-sub'), { opacity: 0, y: 14, duration: 0.6, ease: 'power2.out' }, 1.0);
+
+        // Hold — hero-shot stillness with a slow shimmer breathe.
+        tl.to(sel('.mt-title'), { textShadow: '0 0 34px rgba(255,255,255,0.75), 0 0 60px rgba(255,255,255,0.4)', duration: 2.4, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 2.0);
+
+        tl.set({}, {}, D);
+        window.__timelines = window.__timelines || {};
+        window.__timelines['mcp-transition'] = tl;
+      })();
+    </script>
+  </div>
+</template>

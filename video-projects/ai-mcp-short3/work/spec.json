@@ -1,0 +1,112 @@
+{
+ "id": "short3",
+ "src": "../ai-mcp-handson/renders/0927-tight-16x9.mp4",
+ "vo": "../ai-mcp-handson/assets/mcp-handson-short3.m4a",
+ "crops": {
+  "TR": [
+   1140,
+   1140,
+   1240,
+   200
+  ],
+  "CT": [
+   1200,
+   1200,
+   660,
+   180
+  ],
+  "IN": [
+   1260,
+   1260,
+   520,
+   200
+  ],
+  "CODE": [
+   1200,
+   1200,
+   660,
+   60
+  ],
+  "CHAT": [
+   1260,
+   1260,
+   1216,
+   180
+  ]
+ },
+ "segments": [
+  {
+   "lab": "c1",
+   "clip": [
+    826.95,
+    839.05
+   ],
+   "crop": "CT"
+  },
+  {
+   "lab": "vo-a",
+   "video": 862,
+   "crop": "CT",
+   "vo": [
+    1.22,
+    10.15
+   ]
+  },
+  {
+   "lab": "c2a",
+   "clip": [
+    936.63,
+    939.467
+   ],
+   "crop": "CODE"
+  },
+  {
+   "lab": "c2b",
+   "clip": [
+    939.467,
+    945.95
+   ],
+   "crop": "IN",
+   "cont": true
+  },
+  {
+   "lab": "c3",
+   "clip": [
+    959.67,
+    966.85
+   ],
+   "crop": "IN"
+  },
+  {
+   "lab": "c4",
+   "clip": [
+    983.6,
+    992.35
+   ],
+   "crop": "IN"
+  },
+  {
+   "lab": "vo-b",
+   "video": 992.2,
+   "crop": "IN",
+   "vo": [
+    12.2,
+    25.8
+   ]
+  }
+ ],
+ "captionFixes": [
+  [
+   "at model context protocols slash inspector",
+   "@modelcontextprotocol/ inspector"
+  ],
+  [
+   "at model context protocol slash inspector",
+   "@modelcontextprotocol/ inspector"
+  ],
+  [
+   "server.py so",
+   "server.py"
+  ]
+ ]
+}

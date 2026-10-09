@@ -1,0 +1,219 @@
+<template id="ch4-template">
+  <div data-hf-id="hf-hreb" data-composition-id="ch4" data-start="0" data-width="1920" data-height="1080" data-duration="66.605">
+
+    <!-- Headings: starts on ch3's heading (match cut), swaps to ch4's -->
+    <div data-hf-id="hf-dmck" class="kicker red" id="k-old">CHAPTER 3 · THE PROBLEM</div>
+    <h2 data-hf-id="hf-2mxj" class="heading chrome" id="h-old">One agent that does everything</h2>
+    <div data-hf-id="hf-ajdu" class="kicker" id="k-new">CHAPTER 4 · SUB-AGENTS</div>
+    <h2 data-hf-id="hf-uahz" class="heading chrome" id="h-new">Split the work: a root + sub-agents</h2>
+
+    <svg data-hf-id="hf-2myg" class="lines" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <path data-hf-id="hf-siiz" id="ln-a" d="M960,350 V455 H480 V535" />
+      <path data-hf-id="hf-uda8" id="ln-b" d="M960,350 V535" />
+      <path data-hf-id="hf-2b9w" id="ln-c" d="M960,350 V455 H1440 V535" />
+    </svg>
+
+    <div data-hf-id="hf-62sv" class="agent root" id="root">
+      <div data-hf-id="hf-tsgn" class="badge" id="badge">OVERLOADED</div>
+      <div data-hf-id="hf-0vyc" class="tag" id="root-tag">ROOT AGENT</div>
+      <div data-hf-id="hf-x7uz" class="a-name">ecommerce_agent</div>
+      <div data-hf-id="hf-amix" class="a-sub" id="sub-old">7 tools · 1 giant instruction</div>
+      <div data-hf-id="hf-jkj7" class="a-sub alt" id="sub-new">the front desk</div>
+      <div data-hf-id="hf-0ljv" class="plus" id="plus-root">+3 keys</div>
+    </div>
+    <div data-hf-id="hf-bgf0" class="agent sub" id="a-cat" style="left:480px"><div data-hf-id="hf-rjn4" class="a-name">catalog_agent</div><div data-hf-id="hf-bgkx" class="a-sub">browse &amp; pick</div><div data-hf-id="hf-dyfq" class="plus" id="plus-cat">+1 key</div></div>
+    <div data-hf-id="hf-moa7" class="agent sub" id="a-cart" style="left:960px"><div data-hf-id="hf-gyez" class="a-name">cart_agent</div><div data-hf-id="hf-gk1u" class="a-sub">review &amp; confirm</div><div data-hf-id="hf-3h94" class="plus" id="plus-cart">+2 keys</div></div>
+    <div data-hf-id="hf-fhiu" class="agent sub" id="a-ord" style="left:1440px"><div data-hf-id="hf-6wwr" class="a-name">order_agent</div><div data-hf-id="hf-vvq4" class="a-sub">checkout</div><div data-hf-id="hf-o9b3" class="plus" id="plus-ord">+2 keys</div></div>
+
+    <div data-hf-id="hf-z4cq" class="chip" id="c1" style="left:520px;top:330px">save_customer_details()</div>
+    <div data-hf-id="hf-7qok" class="chip" id="c2" style="left:960px;top:300px">list_products()</div>
+    <div data-hf-id="hf-c0ch" class="chip" id="c3" style="left:1400px;top:330px">add_to_cart()</div>
+    <div data-hf-id="hf-eix4" class="chip" id="c4" style="left:400px;top:540px">view_cart()</div>
+    <div data-hf-id="hf-z033" class="chip" id="c5" style="left:1520px;top:540px">remove_from_cart()</div>
+    <div data-hf-id="hf-rxyy" class="chip" id="c6" style="left:620px;top:750px">confirm_cart()</div>
+    <div data-hf-id="hf-zsxa" class="chip" id="c7" style="left:1300px;top:750px">place_order()</div>
+
+    <!-- Bottom slot: code line → role cards → the full state -->
+    <div data-hf-id="hf-o09y" class="code-chip" id="code-chip"><span data-hf-id="hf-v4s6" class="kw">sub_agents</span>=[catalog_agent, cart_agent, order_agent]</div>
+
+    <div data-hf-id="hf-0auf" class="role" id="role-root"><div data-hf-id="hf-vqxg" class="r-left"><div data-hf-id="hf-bgfc" class="r-name">ecommerce_agent</div><div data-hf-id="hf-retf" class="r-job">Greets the customer and collects their details</div></div><div data-hf-id="hf-4xu3" class="r-right"><div data-hf-id="hf-wl8e" class="r-w">WRITES TO STATE</div><div data-hf-id="hf-rgbw" class="keys"><span data-hf-id="hf-zkq0">user_name</span><span data-hf-id="hf-am01">user_email</span><span data-hf-id="hf-sq6p">user_phone</span></div></div></div>
+    <div data-hf-id="hf-59px" class="role" id="role-cat"><div data-hf-id="hf-pr1o" class="r-left"><div data-hf-id="hf-6ayz" class="r-name">catalog_agent</div><div data-hf-id="hf-p10j" class="r-job">Shows the products and adds the picks to the cart</div></div><div data-hf-id="hf-dlm3" class="r-right"><div data-hf-id="hf-kns2" class="r-w">WRITES TO STATE</div><div data-hf-id="hf-7imc" class="keys"><span data-hf-id="hf-25wz">cart</span></div></div></div>
+    <div data-hf-id="hf-9fo5" class="role" id="role-cart"><div data-hf-id="hf-ok4l" class="r-left"><div data-hf-id="hf-og0i" class="r-name">cart_agent</div><div data-hf-id="hf-e7u9" class="r-job">Lets the customer edit the cart, then confirms it</div></div><div data-hf-id="hf-d7b2" class="r-right"><div data-hf-id="hf-l233" class="r-w">WRITES TO STATE</div><div data-hf-id="hf-6bp9" class="keys"><span data-hf-id="hf-gmti">cart_total</span><span data-hf-id="hf-7jpp">cart_confirmed</span></div></div></div>
+    <div data-hf-id="hf-8cf4" class="role" id="role-ord"><div data-hf-id="hf-oyfm" class="r-left"><div data-hf-id="hf-utyw" class="r-name">order_agent</div><div data-hf-id="hf-emfs" class="r-job">Confirms the details and places the order</div></div><div data-hf-id="hf-ct01" class="r-right"><div data-hf-id="hf-lge4" class="r-w">WRITES TO STATE</div><div data-hf-id="hf-6q0a" class="keys"><span data-hf-id="hf-zsqx">order_id</span><span data-hf-id="hf-0x5a">order_status</span></div></div></div>
+
+    <div data-hf-id="hf-x5nd" class="role all" id="role-all">
+      <div data-hf-id="hf-qkr6" class="r-name st">session.state</div>
+      <div data-hf-id="hf-cbcw" class="keys wrap"><span data-hf-id="hf-8vc0">user_name</span><span data-hf-id="hf-y60l">user_email</span><span data-hf-id="hf-9wxx">user_phone</span><span data-hf-id="hf-ct03">cart</span><span data-hf-id="hf-1qiy">cart_total</span><span data-hf-id="hf-j3k1">cart_confirmed</span><span data-hf-id="hf-o1tp">order_id</span><span data-hf-id="hf-2uoi">order_status</span></div>
+    </div>
+
+    <style>
+      [data-composition-id="ch4"] { position: absolute; inset: 0; overflow: hidden; font-family: "Montserrat", sans-serif; }
+      [data-composition-id="ch4"] .chrome {
+        background: linear-gradient(180deg, #ffffff 0%, #999999 60%, #cccccc 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        text-shadow: 0 0 20px rgba(255,255,255,0.55), 0 0 40px rgba(255,255,255,0.28);
+      }
+      [data-composition-id="ch4"] .kicker { position: absolute; top: 72px; left: 140px; font-family: "JetBrains Mono", monospace; font-size: 22px; letter-spacing: 0.2em; color: #37bdf8; }
+      [data-composition-id="ch4"] .kicker.red { color: #e10b1f; }
+      [data-composition-id="ch4"] .heading { position: absolute; top: 106px; left: 140px; margin: 0; font-size: 60px; font-weight: 900; letter-spacing: -0.02em; }
+      [data-composition-id="ch4"] #k-new, [data-composition-id="ch4"] #h-new { opacity: 0; }
+
+      [data-composition-id="ch4"] .lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+      [data-composition-id="ch4"] .lines path { fill: none; stroke: #37bdf8; stroke-width: 3; opacity: 0.7; }
+
+      [data-composition-id="ch4"] .agent {
+        position: absolute; box-sizing: border-box; border-radius: 18px; text-align: center;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+        background: linear-gradient(180deg, #123a52 0%, #0c2638 100%);
+        border: 2px solid rgba(55,189,248,0.6); box-shadow: 0 0 28px rgba(55,189,248,0.22);
+      }
+      [data-composition-id="ch4"] .root { left: 960px; top: 540px; width: 460px; height: 150px;
+        border-color: #e10b1f; box-shadow: 0 0 50px rgba(225,11,31,0.55); background: linear-gradient(180deg, #3a1219 0%, #230b10 100%); }
+      [data-composition-id="ch4"] .sub { top: 595px; width: 330px; height: 120px; }
+      [data-composition-id="ch4"] .a-name { font-family: "JetBrains Mono", monospace; font-size: 34px; font-weight: 700; color: #ffffff; }
+      [data-composition-id="ch4"] .sub .a-name { font-size: 30px; }
+      [data-composition-id="ch4"] .a-sub { font-size: 24px; color: #b9c6d4; }
+      [data-composition-id="ch4"] .a-sub.alt { position: absolute; bottom: 22px; left: 0; right: 0; opacity: 0; }
+      [data-composition-id="ch4"] .badge {
+        position: absolute; top: -22px; right: -30px;
+        font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 700; letter-spacing: 0.12em;
+        color: #ffffff; background: #e10b1f; padding: 5px 14px; border-radius: 6px; box-shadow: 0 0 24px rgba(225,11,31,0.6);
+      }
+      [data-composition-id="ch4"] .tag {
+        position: absolute; top: -20px; left: 50%; transform: translateX(-50%); opacity: 0; white-space: nowrap;
+        font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 700; letter-spacing: 0.16em;
+        color: #07121c; background: #37bdf8; padding: 4px 14px; border-radius: 6px;
+      }
+      [data-composition-id="ch4"] .plus {
+        position: absolute; top: -18px; right: -22px; opacity: 0; white-space: nowrap;
+        font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 700;
+        color: #07121c; background: #f5a623; padding: 4px 12px; border-radius: 14px; box-shadow: 0 0 20px rgba(245,166,35,0.6);
+      }
+      [data-composition-id="ch4"] .chip {
+        position: absolute; white-space: nowrap;
+        font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 500; color: #d9f2fe;
+        padding: 10px 18px; border-radius: 10px; background: rgba(225,11,31,0.1); border: 1.5px solid rgba(225,11,31,0.7);
+      }
+      [data-composition-id="ch4"] .code-chip {
+        position: absolute; left: 960px; top: 957px; white-space: nowrap;
+        font-family: "JetBrains Mono", monospace; font-size: 30px; color: #ffffff;
+        padding: 16px 28px; border-radius: 12px;
+        background: rgba(55,189,248,0.1); border: 1.5px solid rgba(55,189,248,0.7); box-shadow: 0 0 30px rgba(55,189,248,0.2);
+      }
+      [data-composition-id="ch4"] .code-chip .kw { color: #37bdf8; font-weight: 700; }
+
+      [data-composition-id="ch4"] .role {
+        position: absolute; left: 210px; width: 1500px; top: 892px; height: 130px; box-sizing: border-box; padding: 0 36px;
+        display: flex; align-items: center; justify-content: space-between; gap: 30px; border-radius: 18px; opacity: 0;
+        background: linear-gradient(90deg, rgba(18,58,82,0.9) 0%, rgba(12,38,56,0.9) 100%);
+        border: 1.5px solid rgba(55,189,248,0.6); box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.12);
+      }
+      [data-composition-id="ch4"] .r-left { display: flex; flex-direction: column; gap: 6px; }
+      [data-composition-id="ch4"] .r-name { font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 700; color: #37bdf8; }
+      [data-composition-id="ch4"] .r-job { font-size: 28px; font-weight: 600; color: #ffffff; }
+      [data-composition-id="ch4"] .r-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+      [data-composition-id="ch4"] .r-w { font-family: "JetBrains Mono", monospace; font-size: 18px; letter-spacing: 0.16em; color: #f5a623; }
+      [data-composition-id="ch4"] .keys { display: flex; gap: 10px; }
+      [data-composition-id="ch4"] .keys span {
+        font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 500; color: #ffffff; white-space: nowrap;
+        padding: 6px 14px; border-radius: 8px; background: rgba(245,166,35,0.14); border: 1.5px solid #f5a623;
+      }
+      [data-composition-id="ch4"] .role.all { border-color: #f5a623; box-shadow: 0 0 40px rgba(245,166,35,0.25), inset 0 1px 0 rgba(255,255,255,0.12); justify-content: flex-start; }
+      [data-composition-id="ch4"] .r-name.st { color: #f5a623; flex: none; }
+      [data-composition-id="ch4"] .keys.wrap { flex-wrap: wrap; gap: 10px; }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const S = '[data-composition-id="ch4"] ';
+        const q = (sel) => document.querySelector(S + sel);
+        const DURATION = 68.5;
+        const tl = gsap.timeline({ paused: true });
+        const chips = ["#c1", "#c2", "#c3", "#c4", "#c5", "#c6", "#c7"];
+        const agents = ["#root", "#a-cat", "#a-cart", "#a-ord"];
+        gsap.set([...agents.map(q), ...chips.map(q), q("#code-chip")], { xPercent: -50, yPercent: -50 });
+        gsap.set([q("#a-cat"), q("#a-cart"), q("#a-ord"), q("#code-chip")], { opacity: 0 });
+
+        // ---- cue 4.1 (0.6) — frame 0 matches ch3's last frame; heading swaps, box calms and rises
+        tl.to([q("#k-old"), q("#h-old")], { opacity: 0, y: -30, filter: "blur(10px)", duration: 0.35, ease: "power2.in" }, 0.6);
+        tl.fromTo(q("#k-new"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 1.0);
+        tl.fromTo(q("#h-new"), { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "expo.out" }, 1.05);
+        tl.to(q("#badge"), { opacity: 0, scale: 0.4, duration: 0.25, ease: "power2.in" }, 0.8);
+        tl.to(q("#root"), { borderColor: "rgba(55,189,248,0.6)", boxShadow: "0 0 28px rgba(55,189,248,0.22)", background: "linear-gradient(180deg, #123a52 0%, #0c2638 100%)", duration: 0.6, ease: "power2.out" }, 0.9);
+        tl.to(S + ".chip", { borderColor: "rgba(55,189,248,0.55)", backgroundColor: "rgba(55,189,248,0.1)", duration: 0.6, ease: "power2.out" }, 0.9);
+        tl.to(q("#sub-old"), { opacity: 0, duration: 0.3, ease: "power2.in" }, 1.4);
+        tl.to(q("#sub-new"), { opacity: 1, duration: 0.4, ease: "power2.out" }, 2.0);
+        tl.to(q("#root"), { y: 285 - 540, scale: 0.85, duration: 1.0, ease: "power3.inOut" }, 1.6);
+        // tools ride up with the root, gathering beside it (clears the row the sub-agents land on)
+        const home0 = { "#c1": [520, 330], "#c2": [960, 300], "#c3": [1400, 330], "#c4": [400, 540], "#c5": [1520, 540], "#c6": [620, 750], "#c7": [1300, 750] };
+        const tray = { "#c1": [1390, 275], "#c2": [540, 250], "#c3": [540, 300], "#c4": [540, 350], "#c5": [540, 400], "#c6": [1390, 335], "#c7": [1390, 395] };
+        chips.forEach((id, i) => {
+          const [hx, hy] = home0[id]; const [tx, ty] = tray[id];
+          tl.to(q(id), { x: tx - hx, y: ty - hy, scale: 0.85, duration: 1.0, ease: "power3.inOut" }, 1.6 + i * 0.05);
+        });
+        tl.fromTo(q("#root-tag"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(2)" }, 2.6);
+
+        // "…and give it three sub-agents"
+        ["#ln-a", "#ln-b", "#ln-c"].forEach((id, i) => {
+          const p = q(id); const len = p.getTotalLength();
+          gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
+          tl.to(p, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 5.4 + i * 0.4);
+        });
+        tl.fromTo([q("#a-cat"), q("#a-cart"), q("#a-ord")], { opacity: 0, y: 60, scale: 0.6, filter: "blur(12px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "back.out(1.5)", stagger: 0.4 }, 5.9);
+
+        // ---- cue 4.2 (10.4) — each tool moves to the agent responsible for it
+        const home = { "#c1": [520, 330], "#c2": [960, 300], "#c3": [1400, 330], "#c4": [400, 540], "#c5": [1520, 540], "#c6": [620, 750], "#c7": [1300, 750] };
+        const dest = { "#c1": [1390, 285], "#c2": [480, 722], "#c3": [480, 780], "#c4": [960, 722], "#c5": [960, 780], "#c6": [960, 838], "#c7": [1440, 722] };
+        chips.forEach((id, i) => {
+          const [hx, hy] = home[id]; const [dx, dy] = dest[id];
+          tl.to(q(id), { x: dx - hx, y: dy - hy, scale: 0.9, duration: 0.8, ease: "power3.inOut" }, 10.6 + i * 0.5);
+        });
+
+        // ---- cue 4.3 (15.5) — the one line: sub_agents=[...]
+        tl.fromTo(q("#code-chip"), { opacity: 0, y: 50, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "expo.out" }, 16.3);
+        tl.fromTo(q("#code-chip .kw"), { textShadow: "0 0 0px rgba(55,189,248,0)" }, { textShadow: "0 0 18px rgba(55,189,248,0.95)", duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, 17.3);
+
+        // ---- cues 4.4–4.7 — responsibility spotlight, one agent at a time
+        const own = { "#root": ["#c1"], "#a-cat": ["#c2", "#c3"], "#a-cart": ["#c4", "#c5", "#c6"], "#a-ord": ["#c7"] };
+        const spot = (agent, role, t, prevRole) => {
+          agents.forEach((a) => {
+            const on = a === agent;
+            tl.to(q(a), { opacity: on ? 1 : 0.3, boxShadow: on ? "0 0 50px rgba(55,189,248,0.6)" : "0 0 0px rgba(55,189,248,0)", borderColor: on ? "#37bdf8" : "rgba(55,189,248,0.4)", duration: 0.4, ease: "power2.out" }, t);
+            tl.to(own[a].map(q), { opacity: on ? 1 : 0.3, duration: 0.4, ease: "power2.out" }, t);
+          });
+          if (prevRole) tl.to(q(prevRole), { opacity: 0, x: -60, duration: 0.3, ease: "power2.in" }, t - 0.1);
+          tl.fromTo(q(role), { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.55, ease: "expo.out" }, t + 0.25);
+          tl.from(q(role).querySelectorAll(".keys span"), { scale: 0.5, opacity: 0, duration: 0.4, ease: "back.out(2.2)", stagger: 0.25 }, t + 1.4);
+        };
+        tl.to(q("#code-chip"), { opacity: 0, y: 30, duration: 0.3, ease: "power2.in" }, 22.2);
+        spot("#root", "#role-root", 22.5, null);
+        spot("#a-cat", "#role-cat", 32.7, "#role-root");
+        spot("#a-cart", "#role-cart", 40.8, "#role-cat");
+        spot("#a-ord", "#role-ord", 51.0, "#role-cart");
+
+        // ---- cue 4.8 (59.77) — every agent adds its own piece to the state
+        agents.forEach((a) => tl.to(q(a), { opacity: 1, boxShadow: "0 0 28px rgba(55,189,248,0.22)", borderColor: "rgba(55,189,248,0.6)", duration: 0.5, ease: "power2.out" }, 60.0));
+        tl.to(chips.map(q), { opacity: 1, duration: 0.5, ease: "power2.out" }, 60.0);
+        tl.to(q("#role-ord"), { opacity: 0, x: -60, duration: 0.3, ease: "power2.in" }, 59.9);
+        tl.fromTo(q("#role-all"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 60.3);
+        tl.from(q("#role-all").querySelectorAll(".keys span"), { scale: 0.5, opacity: 0, duration: 0.35, ease: "back.out(2)", stagger: 0.12 }, 60.7);
+        ["#plus-root", "#plus-cat", "#plus-cart", "#plus-ord"].forEach((id, i) => {
+          tl.fromTo(q(id), { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2.5)" }, 61.8 + i * 0.4);
+        });
+
+        tl.to({}, { duration: DURATION }, 0); // Law #11 anchor
+        window.__timelines = window.__timelines || {};
+        /*WARP-BEGIN*/ // generated by scripts/voice_sync.py: plays the scripted timeline in step with the recorded voice
+        const WARP = [[0.0, 0.0], [9.59, 10.4], [13.77, 15.5], [20.53, 21.5], [20.69, 22.3], [30.29, 32.5], [39.62, 39.8], [40.28, 40.6], [49.68, 50.03], [49.93, 50.83], [58.05, 59.77], [64.02, 66.64], [66.605, 68.5]]; // [real, scripted] chapter-local seconds
+        const voiced = gsap.timeline({ paused: true });
+        for (let i = 0; i < WARP.length - 1; i++) {
+          const [r0, s0] = WARP[i], [r1, s1] = WARP[i + 1];
+          voiced.fromTo(tl, { time: s0 }, { time: s1, duration: r1 - r0, ease: "none", immediateRender: false }, r0);
+        }
+        voiced.to({}, { duration: 66.605 }, 0); // Law #11 anchor (recorded length)
+        window.__timelines["ch4"] = voiced; /*WARP-END*/
+      })();
+    </script>
+  </div>
+</template>

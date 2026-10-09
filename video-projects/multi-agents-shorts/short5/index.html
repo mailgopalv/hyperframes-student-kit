@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>Short 5: Run a multi-agent app in four commands</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=block" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #07121c; font-family: "Montserrat", sans-serif; color: #fff; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+.amb-base { position: absolute; inset: 0; background: radial-gradient(ellipse 90% 60% at 50% 35%, #10243a 0%, #0a1828 45%, #07121c 78%, #040a12 100%); }
+.amb-grid { position: absolute; inset: -96px; background-image: linear-gradient(rgba(55,189,248,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(55,189,248,0.055) 1px, transparent 1px); background-size: 96px 96px; }
+.amb-cross { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.55; }
+.amb-dot { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #37bdf8; box-shadow: 0 0 10px rgba(55,189,248,0.6); opacity: 0.5; }
+.amb-grain { position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0.5px, transparent 0.5px), radial-gradient(circle at 60% 70%, rgba(255,255,255,0.02) 0.5px, transparent 0.5px); background-size: 3px 3px, 5px 5px; }
+.amb-vig { position: absolute; inset: 0; background: radial-gradient(ellipse 100% 75% at 50% 45%, transparent 48%, rgba(4,10,18,0.6) 85%, rgba(4,10,18,0.9) 100%); }
+.chrome { background: linear-gradient(180deg, #ffffff 0%, #9aa3ad 60%, #d0d6dc 100%); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 0 22px rgba(255,255,255,0.5), 0 0 44px rgba(255,255,255,0.25); }
+.top { position: absolute; left: 60px; right: 60px; top: 120px; text-align: center; }
+.kicker { font-family: "JetBrains Mono", monospace; font-size: 26px; letter-spacing: 0.22em; color: #37bdf8; }
+.hook { margin-top: 18px; font-size: 76px; line-height: 1.05; font-weight: 900; letter-spacing: -0.02em; }
+.stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+.caps { position: absolute; left: 50px; right: 50px; top: 1350px; height: 220px; }
+.cap { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-size: 60px; font-weight: 900; line-height: 1.15; opacity: 0;
+  text-shadow: 0 4px 0 #04101b, 3px 0 0 #04101b, -3px 0 0 #04101b, 0 -3px 0 #04101b, 3px 3px 0 #04101b, -3px 3px 0 #04101b, 3px -3px 0 #04101b, -3px -3px 0 #04101b, 0 0 26px rgba(0,0,0,0.6); }
+.cap span { display: inline-block; color: #ffffff; margin: 0 0.2em; }
+.handle { position: absolute; left: 0; right: 0; bottom: 120px; text-align: center; font-family: "JetBrains Mono", monospace; font-size: 26px; letter-spacing: 0.16em; color: rgba(143,162,184,0.85); }
+.handle b { color: #37bdf8; font-weight: 700; }
+
+/* shared scene vocabulary */
+.box { position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; border-radius: 20px;
+  background: linear-gradient(180deg, #123a52 0%, #0c2638 100%); border: 2.5px solid rgba(55,189,248,0.65); box-shadow: 0 0 30px rgba(55,189,248,0.25); }
+.box .n { font-family: "JetBrains Mono", monospace; font-weight: 700; color: #fff; }
+.box .s { font-size: 24px; color: #b9c6d4; }
+.chip { position: absolute; white-space: nowrap; font-family: "JetBrains Mono", monospace; font-size: 27px; font-weight: 500; color: #e2f5ff; padding: 10px 18px; border-radius: 12px;
+  background: rgba(55,189,248,0.12); border: 2px solid rgba(55,189,248,0.6); }
+.tag { position: absolute; white-space: nowrap; font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 700; letter-spacing: 0.12em; padding: 5px 14px; border-radius: 8px; }
+.pill { display: inline-block; font-size: 30px; font-weight: 800; color: #b9c6d4; padding: 12px 28px; border-radius: 40px; background: rgba(143,162,184,0.1); border: 2px solid rgba(143,162,184,0.35); }
+.pills { position: absolute; left: 0; right: 0; top: 380px; display: flex; justify-content: center; gap: 22px; }
+.code { position: absolute; font-family: "JetBrains Mono", monospace; font-variant-ligatures: none; color: #fff; padding: 26px 32px; border-radius: 18px;
+  background: rgba(5,11,19,0.92); border: 2px solid rgba(143,162,184,0.35); box-shadow: 0 24px 60px rgba(0,0,0,0.5); white-space: pre; }
+.code .k { color: #37bdf8; font-weight: 700; } .code .s { color: #8fd8fb; } .code .a { color: #f5a623; font-weight: 700; }
+.card { position: absolute; border-radius: 22px; padding: 30px 34px; display: flex; flex-direction: column; gap: 14px; }
+.card.blue { background: rgba(55,189,248,0.09); border: 2.5px solid rgba(55,189,248,0.65); }
+.card.amber { background: rgba(245,166,35,0.09); border: 2.5px solid #f5a623; box-shadow: 0 0 40px rgba(245,166,35,0.2); }
+.card .h { font-size: 34px; font-weight: 900; }
+.card.blue .h { color: #37bdf8; } .card.amber .h { color: #f5a623; }
+.card .m { font-family: "JetBrains Mono", monospace; font-variant-ligatures: none; font-size: 28px; line-height: 1.6; color: #fff; white-space: pre; }
+.pulse { position: absolute; left: 0; top: 0; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; background: #fff; box-shadow: 0 0 22px #fff, 0 0 48px rgba(255,255,255,0.8); opacity: 0; z-index: 30; }
+.lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lines path { fill: none; }
+
+/* end card */
+.end { position: absolute; left: 70px; right: 70px; top: 470px; display: flex; flex-direction: column; align-items: center; gap: 34px; text-align: center; opacity: 0; z-index: 40; }
+.end .w { font-size: 84px; font-weight: 900; line-height: 1.05; }
+.end .vid { width: 100%; border-radius: 26px; padding: 36px 40px; background: linear-gradient(160deg, rgba(18,58,82,0.95), rgba(12,38,56,0.95)); border: 2.5px solid #37bdf8; box-shadow: 0 0 60px rgba(55,189,248,0.35);
+  display: flex; flex-direction: column; gap: 18px; align-items: center; }
+.end .vid .t { font-size: 44px; font-weight: 900; line-height: 1.2; color: #fff; }
+.end .vid .c { font-family: "JetBrains Mono", monospace; font-size: 26px; letter-spacing: 0.14em; color: #37bdf8; }
+.end .arrow { font-size: 120px; font-weight: 900; color: #37bdf8; text-shadow: 0 0 40px rgba(55,189,248,0.8); line-height: 1; }
+</style>
+</head>
+<body>
+<!-- GENERATED by scripts/build_shorts.py. Edit the generator, not this file. -->
+<div id="root" data-composition-id="short5" data-start="0" data-width="1080" data-height="1920" data-duration="43.56">
+
+  <div class="amb-base"></div><div class="amb-grid" id="amb-grid"></div>
+  <svg class="amb-cross" viewBox="0 0 1080 1920"><g stroke="rgba(55,189,248,0.4)" stroke-width="2">
+    <path d="M80,90 h24 M92,78 v24"/><path d="M1000,90 h-24 M988,78 v24"/><path d="M80,1830 h24 M92,1818 v24"/><path d="M1000,1830 h-24 M988,1818 v24"/></g></svg>
+  <div class="amb-dot" style="left:12%;top:20%"></div><div class="amb-dot" style="left:86%;top:16%"></div><div class="amb-dot" style="left:8%;top:58%"></div>
+  <div class="amb-dot" style="left:92%;top:62%"></div><div class="amb-dot" style="left:30%;top:88%"></div><div class="amb-dot" style="left:72%;top:84%"></div>
+  <div class="amb-grain"></div><div class="amb-vig"></div>
+
+  <div class="top"><div class="kicker">GOOGLE ADK · QUICK START</div><div class="hook chrome">4 Commands</div></div>
+  <div class="stage" id="scene">
+
+  <div class="steps" id="steps">
+    <div class="st" id="st1"><div class="num">1</div><div class="body"><div class="tt">Set up</div><div class="cmd" id="cmd1a">python -m venv .venv</div>
+      <div class="cmd sm" id="cmd1b">.venv\Scripts\activate <i>Windows</i></div><div class="cmd sm" id="cmd1c">source .venv/bin/activate <i>Mac / Linux</i></div></div></div>
+    <div class="st" id="st2"><div class="num">2</div><div class="body"><div class="tt">Install</div><div class="cmd" id="cmd2">pip install -r requirements.txt</div></div></div>
+    <div class="st" id="st3"><div class="num">3</div><div class="body"><div class="tt">Add your key</div><div class="cmd" id="cmd3">.env → GOOGLE_API_KEY=…</div></div></div>
+    <div class="st" id="st4"><div class="num">4</div><div class="body"><div class="tt">Run</div><div class="cmd" id="cmd4">adk web → localhost:8000</div></div></div>
+  </div>
+  <style>
+    .steps { position: absolute; left: 60px; right: 60px; top: 380px; display: flex; flex-direction: column; gap: 22px; }
+    .st { display: flex; gap: 26px; align-items: flex-start; padding: 26px 28px; border-radius: 20px; background: rgba(143,162,184,0.07); border: 2px solid rgba(143,162,184,0.3); opacity: 0.35; }
+    .num { flex: none; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 38px; font-weight: 900; color: #07121c; background: #8fa2b8; }
+    .body { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+    .tt { font-size: 38px; font-weight: 900; color: #fff; }
+    .cmd { font-family: "JetBrains Mono", monospace; font-variant-ligatures: none; font-size: 31px; color: #8fd8fb; white-space: nowrap; opacity: 0; }
+    .cmd.sm { font-size: 26px; color: #d0e6f2; } .cmd i { font-family: "Montserrat", sans-serif; font-style: normal; font-size: 19px; font-weight: 800; color: #07121c; background: #8fa2b8; padding: 2px 10px; border-radius: 6px; margin-left: 8px; }
+  </style>
+
+  </div>
+  <div class="pulse" id="pulse"></div>
+  <div class="end" id="end">
+    <div class="w chrome">Watch the full video</div>
+    <div class="vid"><div class="t">Stop Building One Giant AI Agent. Use Sub-Agents Instead</div><div class="c">EXPLORE AI WITH GOPAL</div></div>
+    <div class="arrow">↓</div>
+  </div>
+  <div class="caps">
+    <div class="cap" data-s="0.40" data-e="2.26"><span data-s="0.40" data-e="0.67">Run</span><span data-s="0.70" data-e="0.83">a</span><span data-s="0.85" data-e="1.67">multi-agent</span><span data-s="1.74" data-e="1.95">AI</span><span data-s="1.96" data-e="2.24">app</span></div>
+    <div class="cap" data-s="2.26" data-e="4.10"><span data-s="2.26" data-e="2.47">in</span><span data-s="2.48" data-e="2.83">four</span><span data-s="2.86" data-e="3.54">commands.</span></div>
+    <div class="cap" data-s="4.10" data-e="5.46"><span data-s="4.10" data-e="4.39">Set</span><span data-s="4.42" data-e="4.71">up,</span><span data-s="4.74" data-e="5.40">install,</span></div>
+    <div class="cap" data-s="5.46" data-e="6.58"><span data-s="5.46" data-e="5.75">add</span><span data-s="5.78" data-e="6.15">your</span><span data-s="6.18" data-e="6.55">key,</span></div>
+    <div class="cap" data-s="6.58" data-e="7.80"><span data-s="6.58" data-e="6.87">and</span><span data-s="6.90" data-e="7.27">run.</span></div>
+    <div class="cap" data-s="7.80" data-e="8.12"><span data-s="7.80" data-e="8.10">One:</span></div>
+    <div class="cap" data-s="8.12" data-e="9.98"><span data-s="8.12" data-e="9.95">python -m venv .venv.</span></div>
+    <div class="cap" data-s="9.98" data-e="11.07"><span data-s="9.98" data-e="10.39">That&#x27;s</span><span data-s="10.43" data-e="10.55">a</span><span data-s="10.56" data-e="11.03">virtual</span></div>
+    <div class="cap" data-s="11.07" data-e="11.91"><span data-s="11.07" data-e="11.84">environment,</span></div>
+    <div class="cap" data-s="11.91" data-e="13.06"><span data-s="11.91" data-e="12.08">so</span><span data-s="12.10" data-e="12.39">this</span><span data-s="12.42" data-e="13.01">project&#x27;s</span></div>
+    <div class="cap" data-s="13.06" data-e="15.10"><span data-s="13.06" data-e="13.59">packages</span><span data-s="13.64" data-e="13.93">stay</span><span data-s="13.96" data-e="14.55">separate.</span></div>
+    <div class="cap" data-s="15.10" data-e="16.00"><span data-s="15.10" data-e="15.68">Activate</span><span data-s="15.73" data-e="15.98">it:</span></div>
+    <div class="cap" data-s="16.00" data-e="17.95"><span data-s="16.00" data-e="17.90">.venv\Scripts\activate</span></div>
+    <div class="cap" data-s="17.95" data-e="18.79"><span data-s="17.95" data-e="18.14">on</span><span data-s="18.16" data-e="18.74">Windows,</span></div>
+    <div class="cap" data-s="18.79" data-e="19.00"><span data-s="18.79" data-e="18.98">or</span></div>
+    <div class="cap" data-s="19.00" data-e="21.85"><span data-s="19.00" data-e="21.80">source .venv/bin/activate</span></div>
+    <div class="cap" data-s="21.85" data-e="23.60"><span data-s="21.85" data-e="22.04">on</span><span data-s="22.06" data-e="22.31">Mac</span><span data-s="22.34" data-e="22.59">and</span><span data-s="22.61" data-e="23.06">Linux.</span></div>
+    <div class="cap" data-s="23.60" data-e="23.95"><span data-s="23.60" data-e="23.92">Two:</span></div>
+    <div class="cap" data-s="23.95" data-e="27.30"><span data-s="23.95" data-e="26.77">pip install -r requirements.txt.</span></div>
+    <div class="cap" data-s="27.30" data-e="29.32"><span data-s="27.30" data-e="27.87">Three:</span><span data-s="27.92" data-e="28.24">put</span><span data-s="28.27" data-e="28.67">your</span><span data-s="28.71" data-e="29.27">Gemini</span></div>
+    <div class="cap" data-s="29.32" data-e="32.20"><span data-s="29.32" data-e="29.65">API</span><span data-s="29.68" data-e="30.00">key</span><span data-s="30.03" data-e="30.27">in</span><span data-s="30.29" data-e="30.45">a</span><span data-s="30.47" data-e="31.14">.env</span><span data-s="31.17" data-e="31.66">file.</span></div>
+    <div class="cap" data-s="32.20" data-e="33.28"><span data-s="32.20" data-e="32.60">Four:</span><span data-s="32.63" data-e="33.25">adk web.</span></div>
+    <div class="cap" data-s="33.28" data-e="34.80"><span data-s="33.28" data-e="33.61">Open</span><span data-s="33.64" data-e="34.31">localhost</span><span data-s="34.36" data-e="34.76">8000,</span></div>
+    <div class="cap" data-s="34.80" data-e="37.10"><span data-s="34.80" data-e="35.06">and</span><span data-s="35.09" data-e="35.48">watch</span><span data-s="35.52" data-e="35.78">the</span><span data-s="35.81" data-e="36.20">State</span><span data-s="36.24" data-e="36.57">tab.</span></div>
+    <div class="cap" data-s="37.10" data-e="38.85"><span data-s="37.10" data-e="37.36">The</span><span data-s="37.38" data-e="37.70">full</span><span data-s="37.73" data-e="38.57">step-by-step</span><span data-s="38.64" data-e="38.84">is</span></div>
+    <div class="cap" data-s="38.85" data-e="40.12"><span data-s="38.85" data-e="39.05">in</span><span data-s="39.06" data-e="39.26">my</span><span data-s="39.27" data-e="39.60">full</span><span data-s="39.63" data-e="40.08">video,</span></div>
+    <div class="cap" data-s="40.12" data-e="41.46"><span data-s="40.12" data-e="40.57">linked</span><span data-s="40.61" data-e="41.06">below.</span></div>
+  </div>
+  <div class="handle">@ <b>Explore AI with Gopal</b></div>
+  <!-- no voiceover yet: assets/voiceover/short5.m4a -->
+</div>
+<script>
+(function () {
+
+  const q = (s) => document.querySelector(s);
+  const qa = (s) => Array.from(document.querySelectorAll(s));
+  const C = {"1": 0.4, "2": 4.1, "3": 7.8, "4": 15.1, "5": 23.6, "6": 27.3, "7": 32.2, "8": 37.1};            // line number → start (s)
+  const D = 43.56;
+  const END = 37.1;          // end-card time
+  const tl = gsap.timeline({ paused: true });
+  const center = (els) => els.forEach((e) => gsap.set(e, { xPercent: -50, yPercent: -50 }));
+  const pop = (sel, t, extra) => tl.fromTo(q(sel), { opacity: 0, y: 30, scale: 0.9 }, Object.assign({ opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, extra || {}), t);
+  const fadeOut = (sel, t, d) => tl.to(sel.startsWith ? qa(sel) : sel, { opacity: 0, duration: d || 0.3, ease: "power2.in" }, t);
+  const travel = (pathSel, t, dur, reverse) => {
+    const p = q(pathSel), len = p.getTotalLength(), pts = [];
+    for (let i = 0; i <= 60; i++) { const pt = p.getPointAtLength(len * i / 60); pts.push([pt.x, pt.y]); }
+    if (reverse) pts.reverse();
+    tl.set("#pulse", { opacity: 1, x: pts[0][0], y: pts[0][1] }, t);
+    tl.to("#pulse", { keyframes: { x: pts.map((p) => p[0]), y: pts.map((p) => p[1]), easeEach: "none" }, duration: dur, ease: "power2.inOut" }, t);
+    tl.set("#pulse", { opacity: 0 }, t + dur + 0.05);
+  };
+  const draw = (sel, t, d) => { const p = q(sel), len = p.getTotalLength(); gsap.set(p, { strokeDasharray: len, strokeDashoffset: len }); tl.to(p, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t); };
+  const lit = (sel, on, t) => tl.to(qa(sel), on
+      ? { opacity: 1, borderColor: "#ffffff", boxShadow: "0 0 50px rgba(255,255,255,0.45)", duration: 0.35, ease: "power2.out" }
+      : { opacity: 0.35, borderColor: "rgba(55,189,248,0.5)", boxShadow: "0 0 0px rgba(0,0,0,0)", duration: 0.35, ease: "power2.out" }, t);
+  const pillOn = (sel, t) => { tl.to(qa(".pill"), { color: "#b9c6d4", backgroundColor: "rgba(143,162,184,0.1)", borderColor: "rgba(143,162,184,0.35)", duration: 0.3 }, t);
+                                tl.to(q(sel), { color: "#07121c", backgroundColor: "#37bdf8", borderColor: "#37bdf8", duration: 0.3, ease: "power2.out" }, t); };
+
+  // ambient: grid drift, dot drift (finite repeats)
+  tl.to("#amb-grid", { x: -96, y: -96, duration: 12, ease: "none", repeat: Math.ceil(D / 12) }, 0);
+  qa(".amb-dot").forEach((d, i) => tl.to(d, { y: -30 - (i % 3) * 10, x: 14 * ((i % 2) ? 1 : -1), opacity: 0.85, duration: 4 + (i % 3), ease: "sine.inOut", yoyo: true, repeat: Math.ceil(D / (4 + (i % 3))) }, 0));
+
+  // top: kicker + hook slam
+  tl.from(".kicker", { y: -30, opacity: 0, duration: 0.4, ease: "power3.out" }, 0.05);
+  tl.fromTo(".hook", { scale: 1.6, opacity: 0, filter: "blur(18px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 0.1);
+  tl.from(".handle", { opacity: 0, duration: 0.6, ease: "power2.out" }, 0.6);
+
+  // captions
+  qa(".cap").forEach((c) => {
+    const s = +c.dataset.s, e = +c.dataset.e;
+    tl.set(c, { opacity: 1 }, s);
+    tl.from(c, { scale: 0.85, y: 24, duration: 0.18, ease: "back.out(2.5)" }, s);
+    tl.set(c, { opacity: 0 }, e);
+    c.querySelectorAll("span").forEach((w) => {
+      const ws = +w.dataset.s, we = +w.dataset.e;
+      tl.to(w, { color: "#37bdf8", scale: 1.04, duration: 0.08, ease: "power2.out" }, ws);
+      tl.to(w, { color: "#ffffff", scale: 1, duration: 0.1, ease: "power2.out" }, Math.max(we, ws + 0.12));
+    });
+  });
+
+  // end card (shared): scene clears, "watch the full video"
+  const endIn = () => {
+    tl.to("#scene", { opacity: 0, filter: "blur(10px)", duration: 0.4, ease: "power2.in" }, END - 0.1);
+    tl.to(".hook", { opacity: 0.25, duration: 0.4, ease: "power2.in" }, END - 0.1);
+    tl.set("#end", { opacity: 1 }, END + 0.25);
+    tl.from("#end .w", { scale: 1.5, opacity: 0, filter: "blur(16px)", duration: 0.5, ease: "expo.out" }, END + 0.25);
+    tl.from("#end .vid", { y: 80, opacity: 0, duration: 0.6, ease: "back.out(1.5)" }, END + 0.6);
+    tl.from("#end .arrow", { y: -40, opacity: 0, duration: 0.4, ease: "back.out(2)" }, END + 1.0);
+    tl.to("#end .arrow", { y: 22, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.floor((D - END - 1.4) / 0.45)) }, END + 1.4);
+  };
+
+
+  const stepOn = (i, t) => {
+    tl.to(qa(".st"), { opacity: 0.35, borderColor: "rgba(143,162,184,0.3)", boxShadow: "0 0 0px rgba(0,0,0,0)", duration: 0.3 }, t);
+    tl.to(qa(".num"), { backgroundColor: "#8fa2b8", duration: 0.3 }, t);
+    tl.to("#st" + i, { opacity: 1, borderColor: "#37bdf8", boxShadow: "0 0 40px rgba(55,189,248,0.35)", duration: 0.35, ease: "power2.out" }, t);
+    tl.to("#st" + i + " .num", { backgroundColor: "#37bdf8", scale: 1.15, duration: 0.25, yoyo: true, repeat: 1 }, t);
+  };
+  const type = (sel, t) => tl.fromTo(sel, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, t);
+  // 1 — hook: the four steps appear
+  tl.from(qa(".st"), { x: -80, opacity: 0, duration: 0.45, ease: "back.out(1.6)", stagger: 0.18 }, 0.3);
+  // 2 — set up, install, key, run: each title flashes as named
+  [1, 2, 3, 4].forEach((i) => tl.to("#st" + i + " .tt", { color: "#37bdf8", duration: 0.15, yoyo: true, repeat: 1 }, C[2] + 0.3 + (i - 1) * 0.6));
+  // 3 — python -m venv .venv
+  stepOn(1, C[3]); type("#cmd1a", C[3] + 0.3);
+  // 4 — activate (Windows, Mac/Linux)
+  type("#cmd1b", C[4] + 0.8); type("#cmd1c", C[4] + 3.2);
+  // 5 — pip install
+  stepOn(2, C[5]); type("#cmd2", C[5] + 0.4);
+  // 6 — .env key
+  stepOn(3, C[6]); type("#cmd3", C[6] + 0.6);
+  // 7 — adk web
+  stepOn(4, C[7]); type("#cmd4", C[7] + 0.5);
+  tl.to(qa(".st"), { opacity: 1, borderColor: "#37bdf8", duration: 0.4, stagger: 0.12 }, C[7] + 2.4);
+  tl.to(qa(".num"), { backgroundColor: "#37bdf8", duration: 0.3, stagger: 0.12 }, C[7] + 2.4);
+
+  endIn();
+  tl.to({}, { duration: D }, 0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["short5"] = tl;
+})();
+</script>
+</body>
+</html>

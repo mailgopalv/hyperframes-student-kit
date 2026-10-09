@@ -1,0 +1,224 @@
+<template id="ch5-template">
+  <div data-hf-id="hf-fz6s" data-composition-id="ch5" data-start="0" data-width="1920" data-height="1080" data-duration="54.6">
+
+    <div data-hf-id="hf-cbdn" class="kicker" id="kicker">CHAPTER 5 · HAND-OFFS</div>
+    <h2 data-hf-id="hf-ti92" class="heading chrome" id="heading">How control moves</h2>
+
+    <svg data-hf-id="hf-2myg" class="lines" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <path data-hf-id="hf-4lce" class="tree" id="ln-a" d="M960,330 V410 H480 V475" />
+      <path data-hf-id="hf-tahc" class="tree" id="ln-b" d="M960,330 V475" />
+      <path data-hf-id="hf-xye1" class="tree" id="ln-c" d="M960,330 V410 H1440 V475" />
+      <path data-hf-id="hf-0k9s" class="sib" id="sib-1" d="M645,530 H795" />
+      <path data-hf-id="hf-zsyv" class="sib" id="sib-2" d="M1125,530 H1275" />
+      <!-- motion paths for the hand-off pulse (invisible) -->
+      <path data-hf-id="hf-qxv3" class="mp" id="mp-down-cart" d="M960,330 V475" />
+      <path data-hf-id="hf-icv0" class="mp" id="mp-down-cat" d="M960,330 V410 H480 V475" />
+      <path data-hf-id="hf-c9ku" class="mp" id="mp-side" d="M645,530 H795" />
+      <path data-hf-id="hf-8l9b" class="mp" id="mp-up" d="M960,475 V330" />
+      <!-- links down to the shared session -->
+      <path data-hf-id="hf-dtbu" class="link" id="lk-root" d="M1740,300 V850" />
+      <path data-hf-id="hf-ireq" class="link" id="lk-cat" d="M480,700 V850" />
+      <path data-hf-id="hf-7rlb" class="link" id="lk-cart" d="M960,700 V850" />
+      <path data-hf-id="hf-faci" class="link" id="lk-ord" d="M1440,700 V850" />
+    </svg>
+
+    <div data-hf-id="hf-62sv" class="agent root" id="root"><div data-hf-id="hf-8fzh" class="ctl">IN CONTROL</div><div data-hf-id="hf-x7uz" class="a-name">ecommerce_agent</div><div data-hf-id="hf-dq2g" class="a-sub">root</div></div>
+    <div data-hf-id="hf-lya2" class="agent sub" id="cat" style="left:480px"><div data-hf-id="hf-2wtd" class="ctl">IN CONTROL</div><div data-hf-id="hf-rjn4" class="a-name">catalog_agent</div></div>
+    <div data-hf-id="hf-u209" class="agent sub" id="cart" style="left:960px"><div data-hf-id="hf-43qg" class="ctl">IN CONTROL</div><div data-hf-id="hf-gyez" class="a-name">cart_agent</div></div>
+    <div data-hf-id="hf-8nbo" class="agent sub" id="ord" style="left:1440px"><div data-hf-id="hf-3pff" class="ctl">IN CONTROL</div><div data-hf-id="hf-6wwr" class="a-name">order_agent</div></div>
+
+    <div data-hf-id="hf-2w4g" class="desc" id="d-root" style="left:1200px;top:228px;width:520px">"Collects customer details and routes to the right sub-agent."</div>
+    <div data-hf-id="hf-nswq" class="desc" id="d-cat" style="left:315px;top:604px;width:330px">"Shows the products and adds the ones the customer picks to the cart."</div>
+    <div data-hf-id="hf-udzr" class="desc" id="d-cart" style="left:795px;top:604px;width:330px">"Shows the cart, adds or removes items, and confirms the cart."</div>
+    <div data-hf-id="hf-ylca" class="desc" id="d-ord" style="left:1275px;top:604px;width:330px">"Confirms the customer's details and places the order."</div>
+
+    <div data-hf-id="hf-dmo6" class="dir" id="dir-down">↓ down</div>
+    <div data-hf-id="hf-4au1" class="dir" id="dir-side">→ sideways</div>
+    <div data-hf-id="hf-g3tl" class="dir" id="dir-up">↑ back up</div>
+
+    <div data-hf-id="hf-g6j3" class="msg" id="msg"><span data-hf-id="hf-eho4" class="who">user</span>"Remove the speakers from my cart"</div>
+    <div data-hf-id="hf-mkb1" class="xfer" id="xfer"><span data-hf-id="hf-qck8" class="fn">transfer_to_agent</span>(agent_name=<span data-hf-id="hf-gev8" class="s">"cart_agent"</span>)<div data-hf-id="hf-tlo8" class="xnote">added by ADK automatically</div></div>
+
+    <div data-hf-id="hf-kgfs" class="pulse" id="pulse"></div>
+
+    <div data-hf-id="hf-owha" class="slab" id="slab">
+      <div data-hf-id="hf-ejxx" class="sl-title">ONE SHARED SESSION</div>
+      <div data-hf-id="hf-j8zs" class="sl-part ev"><span data-hf-id="hf-nqst" class="k">events</span> [ every message, tool call and hand-off ]</div>
+      <div data-hf-id="hf-ktcb" class="sl-part st"><span data-hf-id="hf-m2bt" class="k">state</span> { user_name, cart, … }</div>
+    </div>
+
+    <style>
+      [data-composition-id="ch5"] { position: absolute; inset: 0; overflow: hidden; font-family: "Montserrat", sans-serif; }
+      [data-composition-id="ch5"] .chrome {
+        background: linear-gradient(180deg, #ffffff 0%, #999999 60%, #cccccc 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        text-shadow: 0 0 20px rgba(255,255,255,0.55), 0 0 40px rgba(255,255,255,0.28);
+      }
+      [data-composition-id="ch5"] .kicker { position: absolute; top: 72px; left: 140px; font-family: "JetBrains Mono", monospace; font-size: 22px; letter-spacing: 0.2em; color: #37bdf8; }
+      [data-composition-id="ch5"] .heading { position: absolute; top: 106px; left: 140px; margin: 0; font-size: 60px; font-weight: 900; letter-spacing: -0.02em; }
+      [data-composition-id="ch5"] .lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+      [data-composition-id="ch5"] .lines path { fill: none; }
+      [data-composition-id="ch5"] .tree { stroke: #37bdf8; stroke-width: 3; opacity: 0.7; }
+      [data-composition-id="ch5"] .sib { stroke: rgba(55,189,248,0.6); stroke-width: 3; stroke-dasharray: 8 8; }
+      [data-composition-id="ch5"] .mp { stroke: none; }
+      [data-composition-id="ch5"] .link { stroke: rgba(245,166,35,0.7); stroke-width: 2.5; stroke-dasharray: 6 8; opacity: 0; }
+
+      [data-composition-id="ch5"] .agent {
+        position: absolute; box-sizing: border-box; border-radius: 18px; text-align: center;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+        background: linear-gradient(180deg, #123a52 0%, #0c2638 100%);
+        border: 2px solid rgba(55,189,248,0.6); box-shadow: 0 0 28px rgba(55,189,248,0.22);
+      }
+      [data-composition-id="ch5"] .root { left: 960px; top: 270px; width: 400px; height: 120px; }
+      [data-composition-id="ch5"] .sub { top: 530px; width: 330px; height: 110px; }
+      [data-composition-id="ch5"] .a-name { font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 700; color: #ffffff; }
+      [data-composition-id="ch5"] .a-sub { font-size: 22px; color: #8fa2b8; }
+      [data-composition-id="ch5"] .ctl {
+        position: absolute; top: -18px; left: 0; right: 0; width: max-content; margin: 0 auto; opacity: 0; white-space: nowrap;
+        font-family: "JetBrains Mono", monospace; font-size: 18px; font-weight: 700; letter-spacing: 0.14em;
+        color: #07121c; background: #ffffff; padding: 3px 12px; border-radius: 6px; box-shadow: 0 0 18px rgba(255,255,255,0.7);
+      }
+      [data-composition-id="ch5"] .desc {
+        position: absolute; box-sizing: border-box; font-size: 21px; font-style: italic; line-height: 1.35; color: #b9c6d4;
+        padding-left: 14px; border-left: 3px solid rgba(55,189,248,0.6);
+      }
+      [data-composition-id="ch5"] .dir { position: absolute; font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 700; color: #ffffff; text-shadow: 0 0 14px rgba(255,255,255,0.7); white-space: nowrap; opacity: 0; }
+      [data-composition-id="ch5"] #dir-down { left: 520px; top: 368px; }
+      [data-composition-id="ch5"] #dir-side { left: 650px; top: 478px; }
+      [data-composition-id="ch5"] #dir-up { left: 982px; top: 348px; }
+
+      [data-composition-id="ch5"] .msg, [data-composition-id="ch5"] .xfer {
+        position: absolute; left: 960px; top: 770px; white-space: nowrap; opacity: 0;
+        font-family: "JetBrains Mono", monospace; font-size: 28px; color: #ffffff; padding: 14px 26px; border-radius: 12px;
+      }
+      [data-composition-id="ch5"] .msg { background: rgba(143,162,184,0.14); border: 1.5px solid rgba(143,162,184,0.5); font-family: "Montserrat", sans-serif; font-style: italic; font-weight: 600; }
+      [data-composition-id="ch5"] .msg .who { font-family: "JetBrains Mono", monospace; font-style: normal; font-size: 20px; color: #8fa2b8; margin-right: 16px; letter-spacing: 0.1em; }
+      [data-composition-id="ch5"] .xfer { background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.8); box-shadow: 0 0 30px rgba(255,255,255,0.2); }
+      [data-composition-id="ch5"] .xfer .fn { font-weight: 700; }
+      [data-composition-id="ch5"] .xfer .s { color: #8fd8fb; }
+      [data-composition-id="ch5"] .xnote { position: absolute; left: 0; right: 0; top: 100%; margin-top: 10px; text-align: center; font-size: 20px; color: #8fa2b8; letter-spacing: 0.06em; }
+
+      [data-composition-id="ch5"] .pulse {
+        position: absolute; left: 0; top: 0; width: 24px; height: 24px; margin: -12px 0 0 -12px; border-radius: 50%; opacity: 0; z-index: 20;
+        background: #ffffff; box-shadow: 0 0 18px #ffffff, 0 0 40px rgba(255,255,255,0.8);
+      }
+      [data-composition-id="ch5"] .slab {
+        position: absolute; left: 160px; width: 1600px; top: 850px; height: 150px; box-sizing: border-box; padding: 0 40px;
+        display: flex; align-items: center; gap: 40px; border-radius: 20px; opacity: 0;
+        background: linear-gradient(90deg, rgba(18,58,82,0.9) 0%, rgba(12,38,56,0.9) 100%);
+        border: 2px solid rgba(143,162,184,0.55); box-shadow: 0 20px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.12);
+      }
+      [data-composition-id="ch5"] .sl-title { font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 700; letter-spacing: 0.14em; color: #ffffff; width: 250px; line-height: 1.3; }
+      [data-composition-id="ch5"] .sl-part { font-family: "JetBrains Mono", monospace; font-size: 24px; color: #ffffff; padding: 16px 22px; border-radius: 12px; white-space: nowrap; }
+      [data-composition-id="ch5"] .sl-part .k { font-weight: 700; margin-right: 10px; }
+      [data-composition-id="ch5"] .sl-part.ev { background: rgba(55,189,248,0.1); border: 1.5px solid rgba(55,189,248,0.55); }
+      [data-composition-id="ch5"] .sl-part.ev .k { color: #37bdf8; }
+      [data-composition-id="ch5"] .sl-part.st { background: rgba(245,166,35,0.1); border: 1.5px solid #f5a623; }
+      [data-composition-id="ch5"] .sl-part.st .k { color: #f5a623; }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const S = '[data-composition-id="ch5"] ';
+        const q = (sel) => document.querySelector(S + sel);
+        const DURATION = 52;
+        const tl = gsap.timeline({ paused: true });
+        const boxes = ["#root", "#cat", "#cart", "#ord"];
+        gsap.set([...boxes.map(q), q("#msg"), q("#xfer")], { xPercent: -50, yPercent: -50 });
+
+        // "control" = glow + IN CONTROL tag on one box, others dim
+        const control = (id, t) => boxes.forEach((b) => {
+          const on = b === id;
+          tl.to(q(b), { opacity: on ? 1 : 0.35, borderColor: on ? "#ffffff" : "rgba(55,189,248,0.5)", boxShadow: on ? "0 0 50px rgba(255,255,255,0.45)" : "0 0 0px rgba(55,189,248,0)", duration: 0.4, ease: "power2.out" }, t);
+          tl.to(q(b + " .ctl"), { opacity: on ? 1 : 0, duration: 0.3, ease: "power2.out" }, t);
+        });
+        const allOn = (t) => boxes.forEach((b) => {
+          tl.to(q(b), { opacity: 1, borderColor: "rgba(55,189,248,0.6)", boxShadow: "0 0 28px rgba(55,189,248,0.22)", duration: 0.5, ease: "power2.out" }, t);
+          tl.to(q(b + " .ctl"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t);
+        });
+        // white hand-off pulse along a motion path (proxy → seek-safe)
+        // path points sampled once at build time (no DOM measurement inside tween callbacks)
+        const sample = (id) => { const p = q(id); const len = p.getTotalLength(); const out = [];
+          for (let i = 0; i <= 80; i++) { const pt = p.getPointAtLength(len * i / 80); out.push([pt.x, pt.y]); } return out; };
+        const travel = (pathId, t, dur, reverse) => {
+          let pts = sample(pathId); if (reverse) pts = pts.slice().reverse();
+          tl.set(q("#pulse"), { opacity: 1, x: pts[0][0], y: pts[0][1] }, t);
+          tl.to(q("#pulse"), { keyframes: { x: pts.map((p) => p[0]), y: pts.map((p) => p[1]), easeEach: "none" }, duration: dur, ease: "power2.inOut" }, t);
+          tl.set(q("#pulse"), { opacity: 0 }, t + dur + 0.05);
+        };
+
+        // cue 5.1 (0.6) — heading + the tree returns
+        tl.from(q("#kicker"), { x: -60, opacity: 0, filter: "blur(8px)", duration: 0.5, ease: "expo.out" }, 0.3);
+        tl.from(q("#heading"), { y: 60, opacity: 0, filter: "blur(16px)", duration: 0.8, ease: "expo.out" }, 0.5);
+        tl.from(q("#root"), { scale: 0.6, opacity: 0, filter: "blur(12px)", duration: 0.7, ease: "back.out(1.5)" }, 1.4);
+        ["#ln-a", "#ln-b", "#ln-c"].forEach((id, i) => {
+          const p = q(id); const len = p.getTotalLength();
+          gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
+          tl.to(p, { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" }, 2.0 + i * 0.2);
+        });
+        tl.from([q("#cat"), q("#cart"), q("#ord")], { y: 50, opacity: 0, scale: 0.7, duration: 0.55, ease: "back.out(1.6)", stagger: 0.2 }, 2.4);
+        tl.from([q("#sib-1"), q("#sib-2")], { opacity: 0, duration: 0.5, ease: "power2.out" }, 3.4);
+
+        // cue 5.2 (6.1) — every agent has a description; the LLM reads them to choose
+        [["#d-root", 8.0], ["#d-cat", 8.8], ["#d-cart", 9.6], ["#d-ord", 10.4]].forEach(([id, t]) => {
+          tl.from(q(id), { opacity: 0, y: 16, filter: "blur(6px)", duration: 0.5, ease: "power3.out" }, t);
+        });
+        tl.fromTo(q("#msg"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.5)" }, 11.4);
+        // scan: each description lights briefly, cart_agent's stays lit (best match)
+        ["#d-root", "#d-cat", "#d-cart", "#d-ord"].forEach((id, i) => {
+          tl.to(q(id), { color: "#ffffff", borderLeftColor: "#ffffff", duration: 0.2, ease: "none", yoyo: true, repeat: 1 }, 12.4 + i * 0.35);
+        });
+        tl.to(q("#d-cart"), { color: "#ffffff", borderLeftColor: "#ffffff", duration: 0.3, ease: "power2.out" }, 14.0);
+        tl.to(q("#cart"), { borderColor: "#ffffff", boxShadow: "0 0 40px rgba(255,255,255,0.35)", duration: 0.3, ease: "power2.out" }, 14.0);
+
+        // cue 5.3 (15.07) — transfer_to_agent hands control over
+        tl.to(q("#msg"), { opacity: 0, y: -20, duration: 0.3, ease: "power2.in" }, 15.1);
+        tl.fromTo(q("#xfer"), { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "expo.out" }, 15.5);
+        control("#root", 16.0);
+        travel("#mp-down-cart", 21.2, 0.9);
+        control("#cart", 22.05);
+
+        // cue 5.4 (25.7) — only one agent in control at a time
+        tl.to(q("#cart .ctl"), { scale: 1.2, duration: 0.25, ease: "power2.out", yoyo: true, repeat: 3 }, 26.6);
+        tl.to(q("#d-cart"), { color: "#b9c6d4", borderLeftColor: "rgba(55,189,248,0.6)", duration: 0.4, ease: "power2.out" }, 27.0);
+
+        // cue 5.5 (31.67) — down, sideways, back up
+        tl.to(q("#xfer"), { opacity: 0, y: 20, duration: 0.3, ease: "power2.in" }, 31.6);
+        control("#root", 32.0);
+        travel("#mp-down-cat", 33.3, 1.0);
+        tl.fromTo(q("#dir-down"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 33.4);
+        control("#cat", 34.3);
+        travel("#mp-side", 36.1, 0.7);
+        tl.fromTo(q("#dir-side"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 36.1);
+        control("#cart", 36.8);
+        travel("#mp-up", 38.5, 0.8);
+        tl.fromTo(q("#dir-up"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 38.5);
+        control("#root", 39.3);
+
+        // cue 5.6 (41.03) — they all share ONE session
+        tl.to([q("#dir-down"), q("#dir-side"), q("#dir-up")], { opacity: 0, duration: 0.3, ease: "power2.in" }, 41.0);
+        allOn(41.2);
+        tl.fromTo(q("#slab"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.7, ease: "expo.out" }, 41.6);
+        ["#lk-root", "#lk-cat", "#lk-cart", "#lk-ord"].forEach((id, i) => {
+          tl.fromTo(q(id), { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 42.6 + i * 0.2);
+        });
+        tl.from(q(".sl-part.ev"), { scale: 0.8, opacity: 0, duration: 0.45, ease: "back.out(2)" }, 45.2);
+        tl.from(q(".sl-part.st"), { scale: 0.8, opacity: 0, duration: 0.45, ease: "back.out(2)" }, 46.0);
+        tl.to(q("#slab"), { boxShadow: "0 0 60px rgba(245,166,35,0.35), inset 0 1px 0 rgba(255,255,255,0.12)", borderColor: "#f5a623", duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1 }, 47.6);
+
+        tl.to({}, { duration: DURATION }, 0); // Law #11 anchor
+        window.__timelines = window.__timelines || {};
+        /*WARP-BEGIN*/ // generated by scripts/voice_sync.py: plays the scripted timeline in step with the recorded voice
+        const WARP = [[0.0, 0.0], [0.6, 0.6], [6.76, 6.1], [15.76, 15.07], [29.3, 24.94], [29.36, 25.7], [33.04, 30.83], [34.12, 31.67], [40.9, 40.24], [43.04, 41.03], [53.28, 50.03], [54.6, 52.0]]; // [real, scripted] chapter-local seconds
+        const voiced = gsap.timeline({ paused: true });
+        for (let i = 0; i < WARP.length - 1; i++) {
+          const [r0, s0] = WARP[i], [r1, s1] = WARP[i + 1];
+          voiced.fromTo(tl, { time: s0 }, { time: s1, duration: r1 - r0, ease: "none", immediateRender: false }, r0);
+        }
+        voiced.to({}, { duration: 54.6 }, 0); // Law #11 anchor (recorded length)
+        window.__timelines["ch5"] = voiced; /*WARP-END*/
+      })();
+    </script>
+  </div>
+</template>

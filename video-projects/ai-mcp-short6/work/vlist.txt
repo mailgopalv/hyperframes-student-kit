@@ -1,0 +1,6 @@
+file 'seg-00-vo-a.mp4'
+file 'seg-01-c1.mp4'
+file 'seg-02-c2.mp4'
+file 'seg-03-c3.mp4'
+file 'seg-04-c4.mp4'
+file 'seg-05-vo-b.mp4'

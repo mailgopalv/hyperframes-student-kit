@@ -1,0 +1,284 @@
+[
+  {
+    "text": "My",
+    "start": 0.02,
+    "end": 0.36,
+    "id": "w0"
+  },
+  {
+    "text": "support",
+    "start": 0.36,
+    "end": 1.62,
+    "id": "w1"
+  },
+  {
+    "text": "agent",
+    "start": 1.63,
+    "end": 2.53,
+    "id": "w2"
+  },
+  {
+    "text": "only",
+    "start": 2.86,
+    "end": 3.15,
+    "id": "w3"
+  },
+  {
+    "text": "knew",
+    "start": 3.26,
+    "end": 3.91,
+    "id": "w4"
+  },
+  {
+    "text": "about",
+    "start": 4.2,
+    "end": 4.86,
+    "id": "w5"
+  },
+  {
+    "text": "orders",
+    "start": 4.87,
+    "end": 5.54,
+    "id": "w6"
+  },
+  {
+    "text": "so",
+    "start": 5.92,
+    "end": 6.21,
+    "id": "w7"
+  },
+  {
+    "text": "I",
+    "start": 6.21,
+    "end": 6.31,
+    "id": "w8"
+  },
+  {
+    "text": "plugged",
+    "start": 6.62,
+    "end": 6.85,
+    "id": "w9"
+  },
+  {
+    "text": "in",
+    "start": 7.25,
+    "end": 7.26,
+    "id": "w10"
+  },
+  {
+    "text": "a",
+    "start": 7.26,
+    "end": 7.36,
+    "id": "w11"
+  },
+  {
+    "text": "free",
+    "start": 7.48,
+    "end": 7.78,
+    "id": "w12"
+  },
+  {
+    "text": "web",
+    "start": 7.78,
+    "end": 8.09,
+    "id": "w13"
+  },
+  {
+    "text": "search",
+    "start": 8.09,
+    "end": 8.74,
+    "id": "w14"
+  },
+  {
+    "text": "mcp",
+    "start": 8.78,
+    "end": 9.36,
+    "id": "w15"
+  },
+  {
+    "text": "server.",
+    "start": 9.36,
+    "end": 14.68,
+    "id": "w16"
+  },
+  {
+    "text": "Orders",
+    "start": 14.7,
+    "end": 15.2,
+    "id": "w17"
+  },
+  {
+    "text": "policy",
+    "start": 15.2,
+    "end": 15.72,
+    "id": "w18"
+  },
+  {
+    "text": "docs",
+    "start": 15.72,
+    "end": 16.06,
+    "id": "w19"
+  },
+  {
+    "text": "and",
+    "start": 16.07,
+    "end": 16.33,
+    "id": "w20"
+  },
+  {
+    "text": "now",
+    "start": 16.33,
+    "end": 16.59,
+    "id": "w21"
+  },
+  {
+    "text": "the",
+    "start": 16.59,
+    "end": 16.85,
+    "id": "w22"
+  },
+  {
+    "text": "whole",
+    "start": 16.85,
+    "end": 17.28,
+    "id": "w23"
+  },
+  {
+    "text": "web",
+    "start": 17.53,
+    "end": 17.54,
+    "id": "w24"
+  },
+  {
+    "text": "and",
+    "start": 17.54,
+    "end": 17.8,
+    "id": "w25"
+  },
+  {
+    "text": "I",
+    "start": 17.8,
+    "end": 17.83,
+    "id": "w26"
+  },
+  {
+    "text": "didn't",
+    "start": 17.94,
+    "end": 18.4,
+    "id": "w27"
+  },
+  {
+    "text": "write",
+    "start": 18.4,
+    "end": 18.6,
+    "id": "w28"
+  },
+  {
+    "text": "a",
+    "start": 18.88,
+    "end": 18.91,
+    "id": "w29"
+  },
+  {
+    "text": "single",
+    "start": 18.91,
+    "end": 19.43,
+    "id": "w30"
+  },
+  {
+    "text": "search",
+    "start": 19.43,
+    "end": 19.95,
+    "id": "w31"
+  },
+  {
+    "text": "tool.",
+    "start": 19.95,
+    "end": 20.62,
+    "id": "w32"
+  },
+  {
+    "text": "Want",
+    "start": 20.68,
+    "end": 20.91,
+    "id": "w33"
+  },
+  {
+    "text": "to",
+    "start": 20.91,
+    "end": 21.03,
+    "id": "w34"
+  },
+  {
+    "text": "build",
+    "start": 21.03,
+    "end": 21.34,
+    "id": "w35"
+  },
+  {
+    "text": "it",
+    "start": 21.34,
+    "end": 21.46,
+    "id": "w36"
+  },
+  {
+    "text": "yourself?",
+    "start": 21.46,
+    "end": 22.16,
+    "id": "w37"
+  },
+  {
+    "text": "Hit",
+    "start": 22.18,
+    "end": 22.32,
+    "id": "w38"
+  },
+  {
+    "text": "the",
+    "start": 22.32,
+    "end": 22.48,
+    "id": "w39"
+  },
+  {
+    "text": "link",
+    "start": 22.48,
+    "end": 22.69,
+    "id": "w40"
+  },
+  {
+    "text": "below",
+    "start": 22.69,
+    "end": 22.95,
+    "id": "w41"
+  },
+  {
+    "text": "and",
+    "start": 22.95,
+    "end": 23.11,
+    "id": "w42"
+  },
+  {
+    "text": "watch",
+    "start": 23.11,
+    "end": 23.37,
+    "id": "w43"
+  },
+  {
+    "text": "the",
+    "start": 23.37,
+    "end": 23.52,
+    "id": "w44"
+  },
+  {
+    "text": "full",
+    "start": 23.53,
+    "end": 23.74,
+    "id": "w45"
+  },
+  {
+    "text": "walkthrough.",
+    "start": 23.74,
+    "end": 24.4,
+    "id": "w46"
+  }
+]

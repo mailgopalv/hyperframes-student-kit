@@ -1,0 +1,139 @@
+{
+ "beats": [
+  {
+   "t": 0.15,
+   "h": "Your AI agent <em class=\"red\">never sees your code</em>"
+  },
+  {
+   "t": "seg:c1",
+   "h": "It reads the <em class=\"amber\">description</em>"
+  },
+  {
+   "t": "seg:c2a",
+   "h": "Same text in <em class=\"cyan\">MCP Inspector</em>"
+  },
+  {
+   "t": "seg:vo-b",
+   "h": "Write it for a <em class=\"cyan\">new teammate</em>"
+  },
+  {
+   "t": "word:tap-0.3",
+   "h": "Full build <em class=\"cyan\">linked below</em>",
+   "sub": "▶ youtu.be/oicQkCXg8Vo"
+  }
+ ],
+ "chips": [
+  {
+   "text": "server.py",
+   "a": 0.5,
+   "b": "seg:c2a"
+  },
+  {
+   "text": "MCP Inspector",
+   "a": "seg:c2a",
+   "b": "seg:c2b"
+  },
+  {
+   "text": "server.py",
+   "a": "seg:c2b",
+   "b": "seg:c2c"
+  },
+  {
+   "text": "MCP Inspector",
+   "a": "seg:c2c",
+   "b": "seg:c2d"
+  },
+  {
+   "text": "server.py",
+   "a": "seg:c2d",
+   "b": "seg:c2e"
+  },
+  {
+   "text": "MCP Inspector",
+   "a": "seg:c2e",
+   "b": "end"
+  }
+ ],
+ "cuts": {
+  "c2b": "none",
+  "c2c": "none",
+  "c2d": "none",
+  "c2e": "none"
+ },
+ "boxes": [
+  {
+   "c": "amber",
+   "box": [
+    80,
+    300,
+    560,
+    125
+   ],
+   "a": "word:this",
+   "b": "seg:c2a"
+  },
+  {
+   "c": "cyan",
+   "box": [
+    505,
+    160,
+    520,
+    65
+   ],
+   "a": "seg:c2a+0.1",
+   "b": "seg:c2b"
+  },
+  {
+   "c": "amber",
+   "box": [
+    85,
+    225,
+    560,
+    135
+   ],
+   "a": "seg:c2b",
+   "b": "seg:c2c"
+  },
+  {
+   "c": "cyan",
+   "box": [
+    505,
+    160,
+    520,
+    65
+   ],
+   "a": "seg:c2c",
+   "b": "seg:c2d"
+  },
+  {
+   "c": "amber",
+   "box": [
+    85,
+    225,
+    560,
+    135
+   ],
+   "a": "seg:c2d",
+   "b": "seg:c2e"
+  },
+  {
+   "c": "cyan",
+   "box": [
+    505,
+    160,
+    520,
+    65
+   ],
+   "a": "seg:c2e",
+   "b": "end"
+  }
+ ],
+ "stamps": [
+  {
+   "c": "amber",
+   "text": "THE AGENT READS THIS",
+   "t": "word:descriptive",
+   "b": "seg:c2a"
+  }
+ ]
+}

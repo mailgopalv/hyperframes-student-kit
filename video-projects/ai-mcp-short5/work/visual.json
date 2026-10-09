@@ -1,0 +1,85 @@
+{
+ "beats": [
+  {
+   "t": 0.15,
+   "h": "My agent only knew about <em class=\"amber\">orders</em>"
+  },
+  {
+   "t": "seg:c1",
+   "h": "Add a free <em class=\"cyan\">web search MCP</em>"
+  },
+  {
+   "t": "seg:c2",
+   "h": "Ask something <em class=\"red\">off-topic</em>"
+  },
+  {
+   "t": "seg:c3",
+   "h": "It <em class=\"cyan\">searched the web</em>"
+  },
+  {
+   "t": "seg:vo-b",
+   "h": "Orders + docs + <em class=\"cyan\">the whole web</em>"
+  },
+  {
+   "t": "word:hit-0.3",
+   "h": "Full walkthrough <em class=\"cyan\">below</em>",
+   "sub": "▶ youtu.be/oicQkCXg8Vo"
+  }
+ ],
+ "chips": [
+  {
+   "text": "support_agent/agent.py",
+   "a": 0.5,
+   "b": "seg:c2"
+  },
+  {
+   "text": "ADK Web UI",
+   "a": "seg:c2+0.2",
+   "b": "end"
+  }
+ ],
+ "boxes": [
+  {
+   "c": "amber",
+   "box": [
+    95,
+    400,
+    560,
+    205
+   ],
+   "a": "word:plugged",
+   "b": "seg:c2"
+  },
+  {
+   "c": "amber",
+   "box": [
+    30,
+    462,
+    700,
+    120
+   ],
+   "a": "word:internet",
+   "b": "word:18"
+  },
+  {
+   "c": "cyan",
+   "box": [
+    30,
+    858,
+    1040,
+    80
+   ],
+   "a": "word:18",
+   "b": "end"
+  }
+ ],
+ "stamps": [
+  {
+   "c": "cyan",
+   "text": "SEARCHED THE WEB ✓",
+   "t": "word:awesome",
+   "b": "end",
+   "rot": 3
+  }
+ ]
+}

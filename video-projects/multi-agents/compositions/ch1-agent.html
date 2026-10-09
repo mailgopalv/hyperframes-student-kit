@@ -1,0 +1,170 @@
+<template id="ch1-template">
+  <div data-hf-id="hf-797c" data-composition-id="ch1" data-start="0" data-width="1920" data-height="1080" data-duration="48.92">
+
+    <div data-hf-id="hf-o6l1" class="kicker" id="kicker">CHAPTER 1 · THE BASICS</div>
+    <h2 data-hf-id="hf-uxoq" class="heading chrome" id="heading">What is an agent?</h2>
+
+    <!-- Anatomy -->
+    <div data-hf-id="hf-zj00" class="anatomy" id="anatomy">
+      <div data-hf-id="hf-3dpt" class="an-head"><span data-hf-id="hf-xsze" class="an-dot"></span>Agent</div>
+      <div data-hf-id="hf-ilt9" class="row" id="r1">
+        <div data-hf-id="hf-wjtu" class="r-num">01</div>
+        <div data-hf-id="hf-j97w" class="r-main"><div data-hf-id="hf-l7nk" class="r-label">Model</div><div data-hf-id="hf-w0vi" class="r-val">gemini-2.5-flash</div><div data-hf-id="hf-0oqz" class="r-desc">The LLM that does the thinking</div></div>
+      </div>
+      <div data-hf-id="hf-mjxa" class="row" id="r2">
+        <div data-hf-id="hf-wy4v" class="r-num">02</div>
+        <div data-hf-id="hf-7bic" class="r-main"><div data-hf-id="hf-fqa6" class="r-label">Instructions</div><div data-hf-id="hf-ybqz" class="r-val">"You help customers shop."</div><div data-hf-id="hf-yiik" class="r-desc">Its job, and how to behave</div></div>
+      </div>
+      <div data-hf-id="hf-qi1b" class="row" id="r3">
+        <div data-hf-id="hf-xcfw" class="r-num">03</div>
+        <div data-hf-id="hf-64l9" class="r-main"><div data-hf-id="hf-sosa" class="r-label">Tools</div><div data-hf-id="hf-5iaq" class="r-val">list_products()</div><div data-hf-id="hf-vqf6" class="r-desc">Python functions it can call</div></div>
+      </div>
+    </div>
+
+    <!-- The loop -->
+    <div data-hf-id="hf-aj2q" class="loop" id="loop">
+      <div data-hf-id="hf-1g3r" class="loop-rail"><div data-hf-id="hf-wcem" class="loop-fill" id="loop-fill"></div></div>
+      <div data-hf-id="hf-hqky" class="step" id="st1"><div data-hf-id="hf-nk3e" class="st-dot">1</div><div data-hf-id="hf-012m" class="st-body"><div data-hf-id="hf-jzbg" class="st-label">USER SENDS A MESSAGE</div><div data-hf-id="hf-5fnl" class="bubble user">Do you have headphones?</div></div></div>
+      <div data-hf-id="hf-dsgx" class="step" id="st2"><div data-hf-id="hf-nyef" class="st-dot">2</div><div data-hf-id="hf-5n5e" class="st-body"><div data-hf-id="hf-zooc" class="st-label">AGENT DECIDES</div><div data-hf-id="hf-7mg1" class="bubble think">I need the product list, so I'll use a tool.</div></div></div>
+      <div data-hf-id="hf-d0t4" class="step" id="st3"><div data-hf-id="hf-ocpg" class="st-dot">3</div><div data-hf-id="hf-61gf" class="st-body"><div data-hf-id="hf-huhs" class="st-label">CALLS THE TOOL</div><div data-hf-id="hf-wih1" class="bubble tool">list_products() → 5 products</div></div></div>
+      <div data-hf-id="hf-92p3" class="step" id="st4"><div data-hf-id="hf-or0h" class="st-dot">4</div><div data-hf-id="hf-6frg" class="st-body"><div data-hf-id="hf-ovcj" class="st-label">WRITES THE REPLY</div><div data-hf-id="hf-uftw" class="bubble reply">Yes! Aria Wireless Headphones, $79.99.</div></div></div>
+    </div>
+
+    <!-- The code -->
+    <div data-hf-id="hf-wnau" class="code" id="code">
+      <div data-hf-id="hf-qc5b" class="code-bar"><span data-hf-id="hf-uckh"></span><span data-hf-id="hf-l73p"></span><span data-hf-id="hf-me0s"></span><div data-hf-id="hf-8cq0" class="code-file">agent.py</div></div>
+      <div data-hf-id="hf-0pr0" class="code-body">
+        <div data-hf-id="hf-19fm" class="band" id="band"></div>
+        <pre data-hf-id="hf-uk5j" class="src" id="src">from google.adk.agents import Agent
+
+root_agent = Agent(
+    name="shop_agent",
+    model="gemini-2.5-flash",
+    instruction="You help customers shop.",
+    tools=[list_products],
+)</pre>
+      </div>
+    </div>
+
+    <style>
+      [data-composition-id="ch1"] { position: absolute; inset: 0; overflow: hidden; font-family: "Montserrat", sans-serif; }
+      [data-composition-id="ch1"] .chrome {
+        background: linear-gradient(180deg, #ffffff 0%, #999999 60%, #cccccc 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        text-shadow: 0 0 20px rgba(255,255,255,0.55), 0 0 40px rgba(255,255,255,0.28);
+      }
+      [data-composition-id="ch1"] .kicker { position: absolute; top: 72px; left: 140px; font-family: "JetBrains Mono", monospace; font-size: 22px; letter-spacing: 0.2em; color: #37bdf8; }
+      [data-composition-id="ch1"] .heading { position: absolute; top: 106px; left: 140px; margin: 0; font-size: 60px; font-weight: 900; letter-spacing: -0.02em; }
+
+      [data-composition-id="ch1"] .anatomy {
+        position: absolute; left: 140px; top: 250px; width: 680px; height: 700px; box-sizing: border-box;
+        padding: 30px 34px; border-radius: 24px; display: flex; flex-direction: column; gap: 18px;
+        background: linear-gradient(180deg, rgba(18,58,82,0.85) 0%, rgba(12,38,56,0.85) 100%);
+        border: 2px solid rgba(55,189,248,0.6); box-shadow: 0 0 40px rgba(55,189,248,0.2), inset 0 1px 0 rgba(255,255,255,0.12);
+      }
+      [data-composition-id="ch1"] .an-head { display: flex; align-items: center; gap: 14px; font-size: 40px; font-weight: 900; color: #ffffff; }
+      [data-composition-id="ch1"] .an-dot { width: 18px; height: 18px; border-radius: 50%; background: #37bdf8; box-shadow: 0 0 16px #37bdf8; }
+      [data-composition-id="ch1"] .row {
+        flex: 1; display: flex; gap: 22px; align-items: center; padding: 0 22px; border-radius: 16px;
+        background: rgba(7,18,28,0.55); border: 1.5px solid rgba(143,162,184,0.2);
+      }
+      [data-composition-id="ch1"] .r-num { font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 700; color: #37bdf8; }
+      [data-composition-id="ch1"] .r-main { display: flex; flex-direction: column; gap: 4px; }
+      [data-composition-id="ch1"] .r-label { font-size: 34px; font-weight: 900; color: #ffffff; }
+      [data-composition-id="ch1"] .r-val { font-family: "JetBrains Mono", monospace; font-size: 24px; color: #8fd8fb; }
+      [data-composition-id="ch1"] .r-desc { font-size: 24px; color: #b9c6d4; }
+
+      [data-composition-id="ch1"] .loop { position: absolute; left: 920px; top: 250px; width: 860px; height: 700px; }
+      [data-composition-id="ch1"] .loop-rail { position: absolute; left: 31px; top: 40px; bottom: 60px; width: 4px; background: rgba(55,189,248,0.2); border-radius: 2px; }
+      [data-composition-id="ch1"] .loop-fill { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #37bdf8; transform-origin: 50% 0%; box-shadow: 0 0 12px #37bdf8; }
+      [data-composition-id="ch1"] .step { position: absolute; left: 0; right: 0; display: flex; gap: 28px; align-items: flex-start; }
+      [data-composition-id="ch1"] #st1 { top: 0; } [data-composition-id="ch1"] #st2 { top: 175px; }
+      [data-composition-id="ch1"] #st3 { top: 350px; } [data-composition-id="ch1"] #st4 { top: 525px; }
+      [data-composition-id="ch1"] .st-dot {
+        flex: none; width: 66px; height: 66px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        font-family: "JetBrains Mono", monospace; font-size: 28px; font-weight: 700; color: #07121c; background: #37bdf8; box-shadow: 0 0 20px rgba(55,189,248,0.6);
+      }
+      [data-composition-id="ch1"] .st-body { display: flex; flex-direction: column; gap: 10px; }
+      [data-composition-id="ch1"] .st-label { font-family: "JetBrains Mono", monospace; font-size: 20px; letter-spacing: 0.14em; color: #8fa2b8; }
+      [data-composition-id="ch1"] .bubble { font-size: 28px; font-weight: 600; padding: 16px 24px; border-radius: 16px; color: #ffffff; white-space: nowrap; }
+      [data-composition-id="ch1"] .bubble.user { background: rgba(143,162,184,0.12); border: 1.5px solid rgba(143,162,184,0.4); font-style: italic; }
+      [data-composition-id="ch1"] .bubble.think { background: transparent; border: 1.5px dashed rgba(55,189,248,0.5); color: #b9c6d4; }
+      [data-composition-id="ch1"] .bubble.tool { font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 28px; background: rgba(55,189,248,0.12); border: 1.5px solid rgba(55,189,248,0.6); }
+      [data-composition-id="ch1"] .bubble.reply { background: rgba(55,189,248,0.2); border: 1.5px solid #37bdf8; }
+
+      [data-composition-id="ch1"] .code {
+        position: absolute; left: 920px; top: 250px; width: 860px; height: 500px; border-radius: 18px; overflow: hidden; opacity: 0;
+        background: rgba(5,11,19,0.92); border: 1.5px solid rgba(143,162,184,0.3); box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      }
+      [data-composition-id="ch1"] .code-bar { height: 52px; display: flex; align-items: center; gap: 10px; padding: 0 20px; background: rgba(143,162,184,0.08); border-bottom: 1px solid rgba(143,162,184,0.2); }
+      [data-composition-id="ch1"] .code-bar > span { width: 14px; height: 14px; border-radius: 50%; background: rgba(143,162,184,0.35); }
+      [data-composition-id="ch1"] .code-file { margin-left: 16px; font-family: "JetBrains Mono", monospace; font-size: 20px; color: #b9c6d4; }
+      [data-composition-id="ch1"] .code-body { position: relative; padding: 30px 34px; }
+      [data-composition-id="ch1"] .src { position: relative; margin: 0; font-family: "JetBrains Mono", monospace; font-size: 28px; line-height: 46px; color: #ffffff; white-space: pre; }
+      [data-composition-id="ch1"] .band { position: absolute; left: 0; right: 0; top: 30px; height: 46px; background: rgba(55,189,248,0.16); border-left: 5px solid #37bdf8; opacity: 0; }
+      [data-composition-id="ch1"] .kw { color: #37bdf8; font-weight: 700; }
+      [data-composition-id="ch1"] .str { color: #8fd8fb; }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        const S = '[data-composition-id="ch1"] ';
+        const q = (sel) => document.querySelector(S + sel);
+        const DURATION = 51.5;
+        const LH = 46, PAD = 30;
+        const tl = gsap.timeline({ paused: true });
+
+        // tiny syntax colouring (runs once, synchronously)
+        const src = q("#src");
+        src.innerHTML = src.textContent.replace(/("[^"]*")|\b(from|import)\b/g, (m, s, k) => s ? '<span class="str">' + s + '</span>' : '<span class="kw">' + k + '</span>');
+
+        // cue 1.1 (0.6) — "What is an agent?"
+        tl.from(q("#kicker"), { x: -60, opacity: 0, filter: "blur(8px)", duration: 0.5, ease: "expo.out" }, 0.3);
+        tl.from(q("#heading"), { y: 60, opacity: 0, filter: "blur(16px)", duration: 0.8, ease: "expo.out" }, 0.5);
+        tl.from(q("#anatomy"), { scale: 0.85, opacity: 0, filter: "blur(14px)", duration: 0.9, ease: "back.out(1.3)" }, 2.0);
+        tl.from(q(".an-head"), { x: -30, opacity: 0, duration: 0.5, ease: "power3.out" }, 2.5);
+
+        // cues 1.2 / 1.3 / 1.4 — Model, Instructions, Tools land one by one
+        [["#r1", 5.3], ["#r2", 12.9], ["#r3", 20.6]].forEach(([id, t]) => {
+          tl.from(q(id), { x: -80, opacity: 0, filter: "blur(10px)", duration: 0.7, ease: "power3.out" }, t);
+          tl.from(q(id + " .r-val"), { opacity: 0, y: 10, duration: 0.5, ease: "power2.out" }, t + 0.9);
+          tl.from(q(id + " .r-desc"), { opacity: 0, y: 10, duration: 0.5, ease: "power2.out" }, t + 1.3);
+          tl.fromTo(q(id), { borderColor: "rgba(143,162,184,0.2)" }, { borderColor: "#37bdf8", boxShadow: "0 0 24px rgba(55,189,248,0.45)", duration: 0.4, ease: "sine.out", yoyo: true, repeat: 1 }, t + 0.5);
+        });
+
+        // cue 1.5 (29.5) — the loop: message → decide → tool → reply
+        gsap.set(q("#loop-fill"), { scaleY: 0 });
+        [["#st1", 29.6], ["#st2", 31.9], ["#st3", 34.2], ["#st4", 36.8]].forEach(([id, t], i) => {
+          tl.from(q(id + " .st-dot"), { scale: 0, duration: 0.45, ease: "back.out(2.2)" }, t);
+          tl.from(q(id + " .st-label"), { opacity: 0, x: -20, duration: 0.4, ease: "power2.out" }, t + 0.1);
+          tl.from(q(id + " .bubble"), { opacity: 0, y: 24, scale: 0.92, transformOrigin: "0% 50%", duration: 0.55, ease: "power3.out" }, t + 0.25);
+          if (i > 0) tl.to(q("#loop-fill"), { scaleY: i / 3, duration: 0.5, ease: "power2.inOut" }, t - 0.4);
+        });
+        tl.to(q("#r3"), { borderColor: "#37bdf8", boxShadow: "0 0 24px rgba(55,189,248,0.45)", duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, 34.3);
+
+        // cue 1.6 (41.9) — the same thing as one Agent object (loop swaps out for code, in-scene)
+        tl.to(q("#loop"), { opacity: 0, x: 60, filter: "blur(10px)", duration: 0.4, ease: "power2.in" }, 41.6);
+        tl.fromTo(q("#code"), { opacity: 0, x: -60, filter: "blur(12px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.7, ease: "expo.out" }, 42.0);
+        // model ↔ row 1, instruction ↔ row 2, tools ↔ row 3
+        [[4, "#r1", 44.6], [5, "#r2", 46.1], [6, "#r3", 47.6]].forEach(([line, row, t], i) => {
+          if (i === 0) tl.to(q("#band"), { opacity: 1, y: line * LH, duration: 0.3, ease: "power2.out" }, t);
+          else tl.to(q("#band"), { y: line * LH, duration: 0.4, ease: "power2.inOut" }, t);
+          tl.to(q(row), { borderColor: "#37bdf8", boxShadow: "0 0 24px rgba(55,189,248,0.45)", duration: 0.3, ease: "sine.out", yoyo: true, repeat: 1 }, t);
+        });
+
+        tl.to({}, { duration: DURATION }, 0); // Law #11 anchor
+        window.__timelines = window.__timelines || {};
+        /*WARP-BEGIN*/ // generated by scripts/voice_sync.py: plays the scripted timeline in step with the recorded voice
+        const WARP = [[0.0, 0.0], [0.6, 0.6], [4.44, 5.27], [11.17, 12.9], [18.83, 20.57], [27.36, 28.7], [28.34, 29.5], [38.54, 41.9], [48.62, 49.6], [48.92, 51.5]]; // [real, scripted] chapter-local seconds
+        const voiced = gsap.timeline({ paused: true });
+        for (let i = 0; i < WARP.length - 1; i++) {
+          const [r0, s0] = WARP[i], [r1, s1] = WARP[i + 1];
+          voiced.fromTo(tl, { time: s0 }, { time: s1, duration: r1 - r0, ease: "none", immediateRender: false }, r0);
+        }
+        voiced.to({}, { duration: 48.92 }, 0); // Law #11 anchor (recorded length)
+        window.__timelines["ch1"] = voiced; /*WARP-END*/
+      })();
+    </script>
+  </div>
+</template>

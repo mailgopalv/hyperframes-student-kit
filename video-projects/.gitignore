@@ -1,0 +1,33 @@
+# Ignore all audio, video and image media inside projects.
+# Bracket patterns make each extension case-insensitive (.mp4, .MP4, .Mp4 ...).
+
+# Video
+*.[mM][pP]4
+*.[mM][oO][vV]
+*.[wW][eE][bB][mM]
+*.[mM][kK][vV]
+*.[aA][vV][iI]
+*.[mM]4[vV]
+
+# Audio
+*.[wW][aA][vV]
+*.[mM][pP]3
+*.[mM]4[aA]
+*.[aA][aA][cC]
+*.[fF][lL][aA][cC]
+*.[oO][gG][gG]
+*.[oO][pP][uU][sS]
+*.[aA][iI][fF][fF]
+
+# Images
+*.[jJ][pP][gG]
+*.[jJ][pP][eE][gG]
+*.[pP][nN][gG]
+*.[gG][iI][fF]
+*.[wW][eE][bB][pP]
+*.[aA][vV][iI][fF]
+*.[hH][eE][iI][cC]
+*.[bB][mM][pP]
+*.[tT][iI][fF]
+*.[tT][iI][fF][fF]
+*.[sS][vV][gG]

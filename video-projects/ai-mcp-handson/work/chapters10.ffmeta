@@ -1,0 +1,92 @@
+;FFMETADATA1
+title=Build Your First AI Agent with MCP (Hands-on)
+
+[CHAPTER]
+TIMEBASE=1/10
+START=0
+END=1271
+title=Intro
+
+[CHAPTER]
+TIMEBASE=1/10
+START=1271
+END=1408
+title=Prerequisites
+
+[CHAPTER]
+TIMEBASE=1/10
+START=1408
+END=3796
+title=Project setup & virtual environment
+
+[CHAPTER]
+TIMEBASE=1/10
+START=3796
+END=8358
+title=Building the MCP server
+
+[CHAPTER]
+TIMEBASE=1/10
+START=8358
+END=10086
+title=Testing with MCP Inspector
+
+[CHAPTER]
+TIMEBASE=1/10
+START=10086
+END=11854
+title=Adding more tools
+
+[CHAPTER]
+TIMEBASE=1/10
+START=11854
+END=16252
+title=Building the AI agent with Google ADK
+
+[CHAPTER]
+TIMEBASE=1/10
+START=16252
+END=17824
+title=Creating a Gemini API key
+
+[CHAPTER]
+TIMEBASE=1/10
+START=17824
+END=20496
+title=Running the agent in ADK Web
+
+[CHAPTER]
+TIMEBASE=1/10
+START=20496
+END=22771
+title=Exploring the ADK Web UI
+
+[CHAPTER]
+TIMEBASE=1/10
+START=22771
+END=25394
+title=Public MCP servers: filesystem
+
+[CHAPTER]
+TIMEBASE=1/10
+START=25394
+END=26796
+title=Web search with DuckDuckGo MCP
+
+[CHAPTER]
+TIMEBASE=1/10
+START=26796
+END=28659
+title=Testing the upgraded agent
+
+[CHAPTER]
+TIMEBASE=1/10
+START=28659
+END=31383
+title=Streamable HTTP MCP server
+
+[CHAPTER]
+TIMEBASE=1/10
+START=31383
+END=31692
+title=Wrap-up

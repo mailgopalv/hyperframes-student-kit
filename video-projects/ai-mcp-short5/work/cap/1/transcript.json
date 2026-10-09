@@ -1,0 +1,140 @@
+[
+  {
+    "text": "I",
+    "start": 0,
+    "end": 0.06,
+    "id": "w0"
+  },
+  {
+    "text": "don't",
+    "start": 0.06,
+    "end": 0.3,
+    "id": "w1"
+  },
+  {
+    "text": "have",
+    "start": 0.47,
+    "end": 0.65,
+    "id": "w2"
+  },
+  {
+    "text": "to",
+    "start": 0.65,
+    "end": 0.77,
+    "id": "w3"
+  },
+  {
+    "text": "build",
+    "start": 0.77,
+    "end": 1.11,
+    "id": "w4"
+  },
+  {
+    "text": "anything",
+    "start": 1.11,
+    "end": 1.61,
+    "id": "w5"
+  },
+  {
+    "text": "from",
+    "start": 1.69,
+    "end": 1.8,
+    "id": "w6"
+  },
+  {
+    "text": "scratch",
+    "start": 1.92,
+    "end": 2.4,
+    "id": "w7"
+  },
+  {
+    "text": "to",
+    "start": 2.4,
+    "end": 2.6,
+    "id": "w8"
+  },
+  {
+    "text": "do",
+    "start": 3.09,
+    "end": 3.2,
+    "id": "w9"
+  },
+  {
+    "text": "this",
+    "start": 3.2,
+    "end": 3.86,
+    "id": "w10"
+  },
+  {
+    "text": "and",
+    "start": 4.02,
+    "end": 4.19,
+    "id": "w11"
+  },
+  {
+    "text": "we",
+    "start": 4.19,
+    "end": 4.28,
+    "id": "w12"
+  },
+  {
+    "text": "are",
+    "start": 4.34,
+    "end": 4.5,
+    "id": "w13"
+  },
+  {
+    "text": "lucky",
+    "start": 4.5,
+    "end": 4.84,
+    "id": "w14"
+  },
+  {
+    "text": "we",
+    "start": 4.84,
+    "end": 5.1,
+    "id": "w15"
+  },
+  {
+    "text": "have",
+    "start": 5.1,
+    "end": 5.34,
+    "id": "w16"
+  },
+  {
+    "text": "this",
+    "start": 5.34,
+    "end": 5.52,
+    "id": "w17"
+  },
+  {
+    "text": "duck",
+    "start": 5.52,
+    "end": 5.9,
+    "id": "w18"
+  },
+  {
+    "text": "duck",
+    "start": 5.99,
+    "end": 6.24,
+    "id": "w19"
+  },
+  {
+    "text": "go",
+    "start": 6.4,
+    "end": 6.54,
+    "id": "w20"
+  },
+  {
+    "text": "mcp",
+    "start": 6.56,
+    "end": 6.87,
+    "id": "w21"
+  },
+  {
+    "text": "server",
+    "start": 6.87,
+    "end": 7.54,
+    "id": "w22"
+  }
+]

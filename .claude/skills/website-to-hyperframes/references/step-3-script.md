@@ -49,6 +49,16 @@ For product videos from a website capture:
 
 Not every video needs all four. A 15-second social ad might be Hook + Proof + CTA. A 60-second product tour uses all four with more Story.
 
+## Explainers and tutorials: open with a roadmap
+
+If the video is an explainer, tutorial or walkthrough (anything with chapters, usually over ~90s), the intro must, before chapter 1:
+
+1. Say what we're doing and why.
+2. Name every chapter in order ("first the architecture, then the design, then the code"), matching the on-screen chapter titles.
+3. If code is involved, say the code is on GitHub, linked in the description.
+
+Full rule + checklist: `../../make-a-video/references/script-roadmap-intro.md`. Short promo spots (hook → proof → CTA) skip the chapter list, but still mention GitHub if there's code.
+
 ## The Opening Line
 
 The most important sentence in the video. It must create tension, curiosity, or surprise in the first 3 seconds.

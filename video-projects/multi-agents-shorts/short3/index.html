@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>Short 3: The parameter your AI never sees</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=block" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #07121c; font-family: "Montserrat", sans-serif; color: #fff; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+.amb-base { position: absolute; inset: 0; background: radial-gradient(ellipse 90% 60% at 50% 35%, #10243a 0%, #0a1828 45%, #07121c 78%, #040a12 100%); }
+.amb-grid { position: absolute; inset: -96px; background-image: linear-gradient(rgba(55,189,248,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(55,189,248,0.055) 1px, transparent 1px); background-size: 96px 96px; }
+.amb-cross { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.55; }
+.amb-dot { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #37bdf8; box-shadow: 0 0 10px rgba(55,189,248,0.6); opacity: 0.5; }
+.amb-grain { position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0.5px, transparent 0.5px), radial-gradient(circle at 60% 70%, rgba(255,255,255,0.02) 0.5px, transparent 0.5px); background-size: 3px 3px, 5px 5px; }
+.amb-vig { position: absolute; inset: 0; background: radial-gradient(ellipse 100% 75% at 50% 45%, transparent 48%, rgba(4,10,18,0.6) 85%, rgba(4,10,18,0.9) 100%); }
+.chrome { background: linear-gradient(180deg, #ffffff 0%, #9aa3ad 60%, #d0d6dc 100%); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 0 22px rgba(255,255,255,0.5), 0 0 44px rgba(255,255,255,0.25); }
+.top { position: absolute; left: 60px; right: 60px; top: 120px; text-align: center; }
+.kicker { font-family: "JetBrains Mono", monospace; font-size: 26px; letter-spacing: 0.22em; color: #37bdf8; }
+.hook { margin-top: 18px; font-size: 76px; line-height: 1.05; font-weight: 900; letter-spacing: -0.02em; }
+.stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+.caps { position: absolute; left: 50px; right: 50px; top: 1350px; height: 220px; }
+.cap { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-size: 60px; font-weight: 900; line-height: 1.15; opacity: 0;
+  text-shadow: 0 4px 0 #04101b, 3px 0 0 #04101b, -3px 0 0 #04101b, 0 -3px 0 #04101b, 3px 3px 0 #04101b, -3px 3px 0 #04101b, 3px -3px 0 #04101b, -3px -3px 0 #04101b, 0 0 26px rgba(0,0,0,0.6); }
+.cap span { display: inline-block; color: #ffffff; margin: 0 0.2em; }
+.handle { position: absolute; left: 0; right: 0; bottom: 120px; text-align: center; font-family: "JetBrains Mono", monospace; font-size: 26px; letter-spacing: 0.16em; color: rgba(143,162,184,0.85); }
+.handle b { color: #37bdf8; font-weight: 700; }
+
+/* shared scene vocabulary */
+.box { position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; border-radius: 20px;
+  background: linear-gradient(180deg, #123a52 0%, #0c2638 100%); border: 2.5px solid rgba(55,189,248,0.65); box-shadow: 0 0 30px rgba(55,189,248,0.25); }
+.box .n { font-family: "JetBrains Mono", monospace; font-weight: 700; color: #fff; }
+.box .s { font-size: 24px; color: #b9c6d4; }
+.chip { position: absolute; white-space: nowrap; font-family: "JetBrains Mono", monospace; font-size: 27px; font-weight: 500; color: #e2f5ff; padding: 10px 18px; border-radius: 12px;
+  background: rgba(55,189,248,0.12); border: 2px solid rgba(55,189,248,0.6); }
+.tag { position: absolute; white-space: nowrap; font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 700; letter-spacing: 0.12em; padding: 5px 14px; border-radius: 8px; }
+.pill { display: inline-block; font-size: 30px; font-weight: 800; color: #b9c6d4; padding: 12px 28px; border-radius: 40px; background: rgba(143,162,184,0.1); border: 2px solid rgba(143,162,184,0.35); }
+.pills { position: absolute; left: 0; right: 0; top: 380px; display: flex; justify-content: center; gap: 22px; }
+.code { position: absolute; font-family: "JetBrains Mono", monospace; font-variant-ligatures: none; color: #fff; padding: 26px 32px; border-radius: 18px;
+  background: rgba(5,11,19,0.92); border: 2px solid rgba(143,162,184,0.35); box-shadow: 0 24px 60px rgba(0,0,0,0.5); white-space: pre; }
+.code .k { color: #37bdf8; font-weight: 700; } .code .s { color: #8fd8fb; } .code .a { color: #f5a623; font-weight: 700; }
+.card { position: absolute; border-radius: 22px; padding: 30px 34px; display: flex; flex-direction: column; gap: 14px; }
+.card.blue { background: rgba(55,189,248,0.09); border: 2.5px solid rgba(55,189,248,0.65); }
+.card.amber { background: rgba(245,166,35,0.09); border: 2.5px solid #f5a623; box-shadow: 0 0 40px rgba(245,166,35,0.2); }
+.card .h { font-size: 34px; font-weight: 900; }
+.card.blue .h { color: #37bdf8; } .card.amber .h { color: #f5a623; }
+.card .m { font-family: "JetBrains Mono", monospace; font-variant-ligatures: none; font-size: 28px; line-height: 1.6; color: #fff; white-space: pre; }
+.pulse { position: absolute; left: 0; top: 0; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; background: #fff; box-shadow: 0 0 22px #fff, 0 0 48px rgba(255,255,255,0.8); opacity: 0; z-index: 30; }
+.lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lines path { fill: none; }
+
+/* end card */
+.end { position: absolute; left: 70px; right: 70px; top: 470px; display: flex; flex-direction: column; align-items: center; gap: 34px; text-align: center; opacity: 0; z-index: 40; }
+.end .w { font-size: 84px; font-weight: 900; line-height: 1.05; }
+.end .vid { width: 100%; border-radius: 26px; padding: 36px 40px; background: linear-gradient(160deg, rgba(18,58,82,0.95), rgba(12,38,56,0.95)); border: 2.5px solid #37bdf8; box-shadow: 0 0 60px rgba(55,189,248,0.35);
+  display: flex; flex-direction: column; gap: 18px; align-items: center; }
+.end .vid .t { font-size: 44px; font-weight: 900; line-height: 1.2; color: #fff; }
+.end .vid .c { font-family: "JetBrains Mono", monospace; font-size: 26px; letter-spacing: 0.14em; color: #37bdf8; }
+.end .arrow { font-size: 120px; font-weight: 900; color: #37bdf8; text-shadow: 0 0 40px rgba(55,189,248,0.8); line-height: 1; }
+</style>
+</head>
+<body>
+<!-- GENERATED by scripts/build_shorts.py. Edit the generator, not this file. -->
+<div id="root" data-composition-id="short3" data-start="0" data-width="1080" data-height="1920" data-duration="53.16">
+
+  <div class="amb-base"></div><div class="amb-grid" id="amb-grid"></div>
+  <svg class="amb-cross" viewBox="0 0 1080 1920"><g stroke="rgba(55,189,248,0.4)" stroke-width="2">
+    <path d="M80,90 h24 M92,78 v24"/><path d="M1000,90 h-24 M988,78 v24"/><path d="M80,1830 h24 M92,1818 v24"/><path d="M1000,1830 h-24 M988,1818 v24"/></g></svg>
+  <div class="amb-dot" style="left:12%;top:20%"></div><div class="amb-dot" style="left:86%;top:16%"></div><div class="amb-dot" style="left:8%;top:58%"></div>
+  <div class="amb-dot" style="left:92%;top:62%"></div><div class="amb-dot" style="left:30%;top:88%"></div><div class="amb-dot" style="left:72%;top:84%"></div>
+  <div class="amb-grain"></div><div class="amb-vig"></div>
+
+  <div class="top"><div class="kicker">GOOGLE ADK · TOOLCONTEXT</div><div class="hook chrome">The Parameter AI Never Sees</div></div>
+  <div class="stage" id="scene">
+
+  <div class="pills" id="pills"><span class="pill" id="p1">What</span><span class="pill" id="p2">Why</span><span class="pill" id="p3">The mistake</span></div>
+  <div class="code" id="sig" style="left:540px;top:600px;font-size:32px;line-height:1.55"><span class="k">def</span> save_customer_details(
+    name, email, phone,
+    <span class="a" id="tc">tool_context: ToolContext</span>)</div>
+  <div class="card blue" id="llm" style="left:60px;width:465px;top:780px;height:330px"><div class="h">What the LLM sees</div><div class="m">name
+email
+phone</div></div>
+  <div class="card amber" id="fn" style="left:555px;width:465px;top:780px;height:330px"><div class="h">Your function gets</div><div class="m">name
+email
+phone
+<b style="color:#f5a623">tool_context</b> ← ADK</div></div>
+  <div class="card blue" id="rd" style="left:60px;right:60px;top:780px;flex-direction:row;align-items:center;gap:24px"><span class="tag" style="position:static;background:#37bdf8;color:#07121c;font-size:26px">READ</span><div class="m" style="font-size:31px">state.get(<span style="color:#f5a623">"cart"</span>, {})</div></div>
+  <div class="card amber" id="wr" style="left:60px;right:60px;top:920px;flex-direction:row;align-items:center;gap:24px"><span class="tag" style="position:static;background:#f5a623;color:#07121c;font-size:26px">WRITE</span><div class="m" style="font-size:31px">state[<span style="color:#f5a623">"cart"</span>] = cart</div></div>
+  <div class="card amber" id="sess" style="left:270px;right:270px;top:1080px;align-items:center;padding:22px"><div class="h" style="font-family:'JetBrains Mono',monospace;font-size:32px">session.state</div><div style="font-size:24px;color:#b9c6d4">saved by ADK ✓</div></div>
+  <div class="card" id="bad" style="left:60px;right:60px;top:780px;flex-direction:row;align-items:center;gap:24px;background:rgba(225,11,31,.1);border:2.5px solid #e10b1f"><span style="font-size:46px;color:#e10b1f;font-weight:900">✕</span><div><div class="m" style="font-size:30px">cart["P-101"] = 1</div><div style="font-size:24px;color:#ffb3ba;margin-top:6px">changed in place: not saved</div></div></div>
+  <div class="card amber" id="good" style="left:60px;right:60px;top:960px;flex-direction:row;align-items:center;gap:24px"><span style="font-size:46px;color:#f5a623;font-weight:900">✓</span><div><div class="m" style="font-size:30px">tool_context.state["cart"] = cart</div><div style="font-size:24px;color:#ffd08a;margin-top:6px">always assign it back</div></div></div>
+
+  </div>
+  <div class="pulse" id="pulse"></div>
+  <div class="end" id="end">
+    <div class="w chrome">Watch the full video</div>
+    <div class="vid"><div class="t">Stop Building One Giant AI Agent. Use Sub-Agents Instead</div><div class="c">EXPLORE AI WITH GOPAL</div></div>
+    <div class="arrow">↓</div>
+  </div>
+  <div class="caps">
+    <div class="cap" data-s="0.40" data-e="2.18"><span data-s="0.40" data-e="0.97">There&#x27;s</span><span data-s="1.02" data-e="1.16">a</span><span data-s="1.17" data-e="1.89">parameter</span><span data-s="1.95" data-e="2.16">in</span></div>
+    <div class="cap" data-s="2.18" data-e="4.04"><span data-s="2.18" data-e="2.54">your</span><span data-s="2.57" data-e="2.85">ADK</span><span data-s="2.88" data-e="3.31">tools</span><span data-s="3.34" data-e="3.70">that</span><span data-s="3.73" data-e="4.01">the</span></div>
+    <div class="cap" data-s="4.04" data-e="5.70"><span data-s="4.04" data-e="4.25">AI</span><span data-s="4.27" data-e="4.70">never</span><span data-s="4.74" data-e="5.16">sees.</span></div>
+    <div class="cap" data-s="5.70" data-e="6.69"><span data-s="5.70" data-e="6.08">What</span><span data-s="6.11" data-e="6.34">it</span><span data-s="6.36" data-e="6.67">is,</span></div>
+    <div class="cap" data-s="6.69" data-e="8.02"><span data-s="6.69" data-e="7.00">why</span><span data-s="7.02" data-e="7.41">it&#x27;s</span><span data-s="7.44" data-e="7.97">there,</span></div>
+    <div class="cap" data-s="8.02" data-e="9.92"><span data-s="8.02" data-e="8.32">and</span><span data-s="8.35" data-e="8.65">the</span><span data-s="8.68" data-e="8.98">one</span><span data-s="9.01" data-e="9.62">mistake</span><span data-s="9.67" data-e="9.90">to</span></div>
+    <div class="cap" data-s="9.92" data-e="11.00"><span data-s="9.92" data-e="10.45">avoid.</span></div>
+    <div class="cap" data-s="11.00" data-e="11.79"><span data-s="11.00" data-e="11.30">It&#x27;s</span><span data-s="11.33" data-e="11.75">called</span></div>
+    <div class="cap" data-s="11.79" data-e="12.70"><span data-s="11.79" data-e="12.63">tool_context.</span></div>
+    <div class="cap" data-s="12.70" data-e="13.94"><span data-s="12.70" data-e="13.00">When</span><span data-s="13.03" data-e="13.27">the</span><span data-s="13.29" data-e="13.53">LLM</span><span data-s="13.55" data-e="13.91">calls</span></div>
+    <div class="cap" data-s="13.94" data-e="15.45"><span data-s="13.94" data-e="15.40">save_customer_details,</span></div>
+    <div class="cap" data-s="15.45" data-e="16.69"><span data-s="15.45" data-e="15.63">it</span><span data-s="15.64" data-e="15.94">only</span><span data-s="15.97" data-e="16.27">sees</span><span data-s="16.30" data-e="16.66">name,</span></div>
+    <div class="cap" data-s="16.69" data-e="18.30"><span data-s="16.69" data-e="17.05">email</span><span data-s="17.08" data-e="17.32">and</span><span data-s="17.34" data-e="17.76">phone.</span></div>
+    <div class="cap" data-s="18.30" data-e="19.99"><span data-s="18.30" data-e="18.57">ADK</span><span data-s="18.59" data-e="19.00">hides</span><span data-s="19.03" data-e="19.91">tool_context</span></div>
+    <div class="cap" data-s="19.99" data-e="21.16"><span data-s="19.99" data-e="20.32">from</span><span data-s="20.35" data-e="20.62">the</span><span data-s="20.65" data-e="21.12">model,</span></div>
+    <div class="cap" data-s="21.16" data-e="22.85"><span data-s="21.16" data-e="21.50">then</span><span data-s="21.53" data-e="22.00">passes</span><span data-s="22.04" data-e="22.24">it</span><span data-s="22.26" data-e="22.46">in</span><span data-s="22.48" data-e="22.82">when</span></div>
+    <div class="cap" data-s="22.85" data-e="23.95"><span data-s="22.85" data-e="23.12">the</span><span data-s="23.14" data-e="23.48">tool</span><span data-s="23.51" data-e="23.91">runs.</span></div>
+    <div class="cap" data-s="23.95" data-e="25.71"><span data-s="23.95" data-e="24.15">It</span><span data-s="24.17" data-e="24.57">spots</span><span data-s="24.61" data-e="24.81">it</span><span data-s="24.83" data-e="25.03">by</span><span data-s="25.05" data-e="25.32">its</span><span data-s="25.34" data-e="25.68">type</span></div>
+    <div class="cap" data-s="25.71" data-e="27.60"><span data-s="25.71" data-e="26.11">hint,</span><span data-s="26.15" data-e="27.02">ToolContext.</span></div>
+    <div class="cap" data-s="27.60" data-e="28.44"><span data-s="27.60" data-e="28.12">Through</span><span data-s="28.16" data-e="28.42">it,</span></div>
+    <div class="cap" data-s="28.44" data-e="29.98"><span data-s="28.44" data-e="28.76">your</span><span data-s="28.79" data-e="29.11">tool</span><span data-s="29.14" data-e="29.66">reaches</span><span data-s="29.70" data-e="29.96">the</span></div>
+    <div class="cap" data-s="29.98" data-e="31.73"><span data-s="29.98" data-e="30.56">session.</span><span data-s="30.61" data-e="30.93">Read</span><span data-s="30.96" data-e="31.35">state</span><span data-s="31.38" data-e="31.71">like</span></div>
+    <div class="cap" data-s="31.73" data-e="33.77"><span data-s="31.73" data-e="31.86">a</span><span data-s="31.87" data-e="32.65">dictionary:</span><span data-s="32.72" data-e="33.74">state.get.</span></div>
+    <div class="cap" data-s="33.77" data-e="35.38"><span data-s="33.77" data-e="34.15">Write</span><span data-s="34.19" data-e="34.38">it</span><span data-s="34.40" data-e="34.66">the</span><span data-s="34.68" data-e="35.00">same</span><span data-s="35.03" data-e="35.35">way:</span></div>
+    <div class="cap" data-s="35.38" data-e="36.22"><span data-s="35.38" data-e="35.83">state,</span><span data-s="35.87" data-e="36.19">key,</span></div>
+    <div class="cap" data-s="36.22" data-e="37.70"><span data-s="36.22" data-e="36.67">equals</span><span data-s="36.71" data-e="37.16">value.</span></div>
+    <div class="cap" data-s="37.70" data-e="39.54"><span data-s="37.70" data-e="37.97">ADK</span><span data-s="37.99" data-e="38.40">saves</span><span data-s="38.44" data-e="38.84">every</span><span data-s="38.88" data-e="39.29">write</span><span data-s="39.32" data-e="39.52">to</span></div>
+    <div class="cap" data-s="39.54" data-e="41.00"><span data-s="39.54" data-e="39.81">the</span><span data-s="39.84" data-e="40.45">session.</span></div>
+    <div class="cap" data-s="41.00" data-e="41.84"><span data-s="41.00" data-e="41.24">The</span><span data-s="41.26" data-e="41.80">mistake?</span></div>
+    <div class="cap" data-s="41.84" data-e="43.47"><span data-s="41.84" data-e="42.38">Changing</span><span data-s="42.43" data-e="42.55">a</span><span data-s="42.56" data-e="43.22">dictionary</span><span data-s="43.27" data-e="43.45">in</span></div>
+    <div class="cap" data-s="43.47" data-e="44.70"><span data-s="43.47" data-e="43.83">place</span><span data-s="43.86" data-e="44.22">isn&#x27;t</span><span data-s="44.25" data-e="44.67">saved.</span></div>
+    <div class="cap" data-s="44.70" data-e="46.70"><span data-s="44.70" data-e="45.12">Always</span><span data-s="45.16" data-e="45.58">assign</span><span data-s="45.62" data-e="45.79">it</span><span data-s="45.81" data-e="46.17">back.</span></div>
+    <div class="cap" data-s="46.70" data-e="48.41"><span data-s="46.70" data-e="46.96">The</span><span data-s="46.99" data-e="47.31">full</span><span data-s="47.34" data-e="48.13">walkthrough</span><span data-s="48.20" data-e="48.40">is</span></div>
+    <div class="cap" data-s="48.41" data-e="49.70"><span data-s="48.41" data-e="48.61">in</span><span data-s="48.63" data-e="48.83">my</span><span data-s="48.84" data-e="49.17">full</span><span data-s="49.20" data-e="49.66">video,</span></div>
+    <div class="cap" data-s="49.70" data-e="51.06"><span data-s="49.70" data-e="50.16">linked</span><span data-s="50.20" data-e="50.66">below.</span></div>
+  </div>
+  <div class="handle">@ <b>Explore AI with Gopal</b></div>
+  <!-- no voiceover yet: assets/voiceover/short3.m4a -->
+</div>
+<script>
+(function () {
+
+  const q = (s) => document.querySelector(s);
+  const qa = (s) => Array.from(document.querySelectorAll(s));
+  const C = {"1": 0.4, "2": 5.7, "3": 11.0, "4": 18.3, "5": 27.6, "6": 37.7, "7": 41.0, "8": 46.7};            // line number → start (s)
+  const D = 53.16;
+  const END = 46.7;          // end-card time
+  const tl = gsap.timeline({ paused: true });
+  const center = (els) => els.forEach((e) => gsap.set(e, { xPercent: -50, yPercent: -50 }));
+  const pop = (sel, t, extra) => tl.fromTo(q(sel), { opacity: 0, y: 30, scale: 0.9 }, Object.assign({ opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, extra || {}), t);
+  const fadeOut = (sel, t, d) => tl.to(sel.startsWith ? qa(sel) : sel, { opacity: 0, duration: d || 0.3, ease: "power2.in" }, t);
+  const travel = (pathSel, t, dur, reverse) => {
+    const p = q(pathSel), len = p.getTotalLength(), pts = [];
+    for (let i = 0; i <= 60; i++) { const pt = p.getPointAtLength(len * i / 60); pts.push([pt.x, pt.y]); }
+    if (reverse) pts.reverse();
+    tl.set("#pulse", { opacity: 1, x: pts[0][0], y: pts[0][1] }, t);
+    tl.to("#pulse", { keyframes: { x: pts.map((p) => p[0]), y: pts.map((p) => p[1]), easeEach: "none" }, duration: dur, ease: "power2.inOut" }, t);
+    tl.set("#pulse", { opacity: 0 }, t + dur + 0.05);
+  };
+  const draw = (sel, t, d) => { const p = q(sel), len = p.getTotalLength(); gsap.set(p, { strokeDasharray: len, strokeDashoffset: len }); tl.to(p, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t); };
+  const lit = (sel, on, t) => tl.to(qa(sel), on
+      ? { opacity: 1, borderColor: "#ffffff", boxShadow: "0 0 50px rgba(255,255,255,0.45)", duration: 0.35, ease: "power2.out" }
+      : { opacity: 0.35, borderColor: "rgba(55,189,248,0.5)", boxShadow: "0 0 0px rgba(0,0,0,0)", duration: 0.35, ease: "power2.out" }, t);
+  const pillOn = (sel, t) => { tl.to(qa(".pill"), { color: "#b9c6d4", backgroundColor: "rgba(143,162,184,0.1)", borderColor: "rgba(143,162,184,0.35)", duration: 0.3 }, t);
+                                tl.to(q(sel), { color: "#07121c", backgroundColor: "#37bdf8", borderColor: "#37bdf8", duration: 0.3, ease: "power2.out" }, t); };
+
+  // ambient: grid drift, dot drift (finite repeats)
+  tl.to("#amb-grid", { x: -96, y: -96, duration: 12, ease: "none", repeat: Math.ceil(D / 12) }, 0);
+  qa(".amb-dot").forEach((d, i) => tl.to(d, { y: -30 - (i % 3) * 10, x: 14 * ((i % 2) ? 1 : -1), opacity: 0.85, duration: 4 + (i % 3), ease: "sine.inOut", yoyo: true, repeat: Math.ceil(D / (4 + (i % 3))) }, 0));
+
+  // top: kicker + hook slam
+  tl.from(".kicker", { y: -30, opacity: 0, duration: 0.4, ease: "power3.out" }, 0.05);
+  tl.fromTo(".hook", { scale: 1.6, opacity: 0, filter: "blur(18px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 0.1);
+  tl.from(".handle", { opacity: 0, duration: 0.6, ease: "power2.out" }, 0.6);
+
+  // captions
+  qa(".cap").forEach((c) => {
+    const s = +c.dataset.s, e = +c.dataset.e;
+    tl.set(c, { opacity: 1 }, s);
+    tl.from(c, { scale: 0.85, y: 24, duration: 0.18, ease: "back.out(2.5)" }, s);
+    tl.set(c, { opacity: 0 }, e);
+    c.querySelectorAll("span").forEach((w) => {
+      const ws = +w.dataset.s, we = +w.dataset.e;
+      tl.to(w, { color: "#37bdf8", scale: 1.04, duration: 0.08, ease: "power2.out" }, ws);
+      tl.to(w, { color: "#ffffff", scale: 1, duration: 0.1, ease: "power2.out" }, Math.max(we, ws + 0.12));
+    });
+  });
+
+  // end card (shared): scene clears, "watch the full video"
+  const endIn = () => {
+    tl.to("#scene", { opacity: 0, filter: "blur(10px)", duration: 0.4, ease: "power2.in" }, END - 0.1);
+    tl.to(".hook", { opacity: 0.25, duration: 0.4, ease: "power2.in" }, END - 0.1);
+    tl.set("#end", { opacity: 1 }, END + 0.25);
+    tl.from("#end .w", { scale: 1.5, opacity: 0, filter: "blur(16px)", duration: 0.5, ease: "expo.out" }, END + 0.25);
+    tl.from("#end .vid", { y: 80, opacity: 0, duration: 0.6, ease: "back.out(1.5)" }, END + 0.6);
+    tl.from("#end .arrow", { y: -40, opacity: 0, duration: 0.4, ease: "back.out(2)" }, END + 1.0);
+    tl.to("#end .arrow", { y: 22, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.floor((D - END - 1.4) / 0.45)) }, END + 1.4);
+  };
+
+
+  center([q("#sig")]);
+  gsap.set([q("#pills"), q("#llm"), q("#fn"), q("#rd"), q("#wr"), q("#sess"), q("#bad"), q("#good")], { opacity: 0 });
+  // 1 — hook: the hidden parameter
+  tl.from("#sig", { y: 60, opacity: 0, duration: 0.6, ease: "expo.out" }, 0.25);
+  tl.fromTo("#tc", { filter: "blur(12px)", opacity: 0.35 }, { filter: "blur(0px)", opacity: 1, duration: 0.6, ease: "power2.out" }, C[1] + 1.8);
+  tl.to("#tc", { textShadow: "0 0 24px rgba(245,166,35,1)", duration: 0.4, yoyo: true, repeat: 3 }, C[1] + 2.3);
+  // 2 — preview
+  tl.to("#pills", { opacity: 1, duration: 0.01 }, C[2]);
+  tl.from(qa(".pill"), { y: 30, opacity: 0, scale: 0.8, duration: 0.4, ease: "back.out(2)", stagger: 0.4 }, C[2] + 0.2);
+  // 3 — what the LLM sees
+  pillOn("#p1", C[3]);
+  tl.to("#sig", { y: 460 - 600, scale: 0.85, duration: 0.6, ease: "power3.inOut" }, C[3]);
+  tl.to("#pills", { y: -40, opacity: 0, duration: 0.3 }, C[3]);
+  tl.fromTo("#llm", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, C[3] + 1.4);
+  // 4 — what your function gets
+  tl.fromTo("#fn", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, C[4] + 0.4);
+  tl.fromTo("#fn b", { textShadow: "0 0 0px rgba(245,166,35,0)" }, { textShadow: "0 0 20px rgba(245,166,35,1)", duration: 0.4, yoyo: true, repeat: 3 }, C[4] + 2.0);
+  // 5 — read / write
+  tl.to([q("#llm"), q("#fn")], { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" }, C[5]);
+  tl.fromTo("#rd", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" }, C[5] + 1.6);
+  tl.fromTo("#wr", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" }, C[5] + 3.8);
+  // 6 — ADK saves every write
+  tl.fromTo("#sess", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, C[6] + 0.3);
+  tl.to("#sess", { boxShadow: "0 0 70px rgba(245,166,35,0.55)", duration: 0.5, yoyo: true, repeat: 3 }, C[6] + 0.9);
+  // 7 — the mistake
+  pillOn("#p3", C[7]);
+  tl.to("#pills", { y: 0, opacity: 1, duration: 0.3 }, C[7]);
+  tl.to("#sig", { opacity: 0, duration: 0.3 }, C[7]);
+  tl.to([q("#rd"), q("#wr"), q("#sess")], { opacity: 0, duration: 0.3 }, C[7]);
+  tl.fromTo("#bad", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, C[7] + 0.5);
+  tl.to("#bad", { keyframes: { x: [0, -8, 8, -8, 8, -4, 4, 0] }, duration: 0.4, ease: "none" }, C[7] + 1.2);
+  tl.fromTo("#good", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.45, ease: "back.out(1.6)" }, C[7] + 2.6);
+  tl.to("#good", { boxShadow: "0 0 60px rgba(245,166,35,0.5)", duration: 0.5, yoyo: true, repeat: 3 }, C[7] + 3.2);
+
+  endIn();
+  tl.to({}, { duration: D }, 0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["short3"] = tl;
+})();
+</script>
+</body>
+</html>

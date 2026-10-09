@@ -1,0 +1,236 @@
+[
+  {
+    "text": "Your",
+    "start": 0.02,
+    "end": 1.08,
+    "id": "w0"
+  },
+  {
+    "text": "AI",
+    "start": 1.08,
+    "end": 1.62,
+    "id": "w1"
+  },
+  {
+    "text": "agent",
+    "start": 2.75,
+    "end": 2.97,
+    "id": "w2"
+  },
+  {
+    "text": "never",
+    "start": 2.97,
+    "end": 4.06,
+    "id": "w3"
+  },
+  {
+    "text": "sees",
+    "start": 4.31,
+    "end": 5.36,
+    "id": "w4"
+  },
+  {
+    "text": "your",
+    "start": 5.72,
+    "end": 6.48,
+    "id": "w5"
+  },
+  {
+    "text": "code,",
+    "start": 6.48,
+    "end": 8.1,
+    "id": "w6"
+  },
+  {
+    "text": "it",
+    "start": 8.1,
+    "end": 8.64,
+    "id": "w7"
+  },
+  {
+    "text": "sees",
+    "start": 8.64,
+    "end": 9.72,
+    "id": "w8"
+  },
+  {
+    "text": "this.",
+    "start": 10.75,
+    "end": 10.84,
+    "id": "w9"
+  },
+  {
+    "text": "So",
+    "start": 10.86,
+    "end": 11,
+    "id": "w10"
+  },
+  {
+    "text": "write",
+    "start": 11,
+    "end": 11.4,
+    "id": "w11"
+  },
+  {
+    "text": "your",
+    "start": 11.4,
+    "end": 11.72,
+    "id": "w12"
+  },
+  {
+    "text": "descriptions",
+    "start": 11.72,
+    "end": 12.68,
+    "id": "w13"
+  },
+  {
+    "text": "like",
+    "start": 12.68,
+    "end": 13,
+    "id": "w14"
+  },
+  {
+    "text": "you",
+    "start": 13,
+    "end": 13.24,
+    "id": "w15"
+  },
+  {
+    "text": "are",
+    "start": 13.24,
+    "end": 13.47,
+    "id": "w16"
+  },
+  {
+    "text": "explaining",
+    "start": 13.6,
+    "end": 14.28,
+    "id": "w17"
+  },
+  {
+    "text": "the",
+    "start": 14.28,
+    "end": 14.52,
+    "id": "w18"
+  },
+  {
+    "text": "tool",
+    "start": 14.52,
+    "end": 14.84,
+    "id": "w19"
+  },
+  {
+    "text": "to",
+    "start": 14.84,
+    "end": 14.97,
+    "id": "w20"
+  },
+  {
+    "text": "a",
+    "start": 14.99,
+    "end": 15,
+    "id": "w21"
+  },
+  {
+    "text": "new",
+    "start": 15.13,
+    "end": 15.32,
+    "id": "w22"
+  },
+  {
+    "text": "teammate.",
+    "start": 15.32,
+    "end": 16.2,
+    "id": "w23"
+  },
+  {
+    "text": "Want",
+    "start": 16.22,
+    "end": 16.46,
+    "id": "w24"
+  },
+  {
+    "text": "to",
+    "start": 16.46,
+    "end": 16.59,
+    "id": "w25"
+  },
+  {
+    "text": "see",
+    "start": 16.59,
+    "end": 16.78,
+    "id": "w26"
+  },
+  {
+    "text": "me",
+    "start": 16.78,
+    "end": 16.91,
+    "id": "w27"
+  },
+  {
+    "text": "build",
+    "start": 16.91,
+    "end": 17.23,
+    "id": "w28"
+  },
+  {
+    "text": "the",
+    "start": 17.23,
+    "end": 17.42,
+    "id": "w29"
+  },
+  {
+    "text": "whole",
+    "start": 17.42,
+    "end": 17.74,
+    "id": "w30"
+  },
+  {
+    "text": "server",
+    "start": 17.74,
+    "end": 18.13,
+    "id": "w31"
+  },
+  {
+    "text": "from",
+    "start": 18.13,
+    "end": 18.39,
+    "id": "w32"
+  },
+  {
+    "text": "scratch?",
+    "start": 18.39,
+    "end": 19.08,
+    "id": "w33"
+  },
+  {
+    "text": "Tap",
+    "start": 19.1,
+    "end": 19.26,
+    "id": "w34"
+  },
+  {
+    "text": "the",
+    "start": 19.26,
+    "end": 19.44,
+    "id": "w35"
+  },
+  {
+    "text": "video",
+    "start": 19.44,
+    "end": 19.74,
+    "id": "w36"
+  },
+  {
+    "text": "link",
+    "start": 19.74,
+    "end": 19.98,
+    "id": "w37"
+  },
+  {
+    "text": "below.",
+    "start": 19.98,
+    "end": 20.36,
+    "id": "w38"
+  }
+]

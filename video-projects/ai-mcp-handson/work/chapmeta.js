@@ -1,0 +1,11 @@
+const fs=require('fs'),K=require('./keep.json');
+const map=t=>{let o=0;for(const[s,e]of K){if(t<s)return o;if(t<=e)return o+(t-s);o+=e-s;}return o;};
+const C=require('./chapters.json');C[11][1]=2978.16;C[11][2]=map(2978.16);
+const END=3169.233;
+const starts=C.map(c=>Math.max(0,c[2]-0.3));starts[0]=0;
+let meta=';FFMETADATA1\ntitle=Build Your First AI Agent with MCP (Hands-on)\n';
+C.forEach((c,i)=>{meta+=`\n[CHAPTER]\nTIMEBASE=1/1000\nSTART=${Math.round(starts[i]*1000)}\nEND=${Math.round((starts[i+1]??END)*1000)}\ntitle=${c[0]}\n`;});
+fs.writeFileSync('chapters.ffmeta',meta);
+const f=s=>{s=Math.floor(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+const yt=C.map((c,i)=>`${i==0?'0:00':f(starts[i])} ${c[0]}`).join('\n');
+fs.writeFileSync('../renders/0927-tight-chapters.txt',yt+'\n');console.log(yt);

@@ -1,0 +1,128 @@
+[
+  {
+    "text": "I'm",
+    "start": 0,
+    "end": 0.1,
+    "id": "w0"
+  },
+  {
+    "text": "setting",
+    "start": 0.26,
+    "end": 0.65,
+    "id": "w1"
+  },
+  {
+    "text": "it",
+    "start": 0.65,
+    "end": 0.78,
+    "id": "w2"
+  },
+  {
+    "text": "up",
+    "start": 0.78,
+    "end": 0.91,
+    "id": "w3"
+  },
+  {
+    "text": "as",
+    "start": 0.91,
+    "end": 0.93,
+    "id": "w4"
+  },
+  {
+    "text": "streamable",
+    "start": 1.1,
+    "end": 1.68,
+    "id": "w5"
+  },
+  {
+    "text": "HTTP,",
+    "start": 1.69,
+    "end": 2.07,
+    "id": "w6"
+  },
+  {
+    "text": "which",
+    "start": 2.07,
+    "end": 2.25,
+    "id": "w7"
+  },
+  {
+    "text": "means",
+    "start": 2.3,
+    "end": 2.48,
+    "id": "w8"
+  },
+  {
+    "text": "I",
+    "start": 2.48,
+    "end": 2.53,
+    "id": "w9"
+  },
+  {
+    "text": "can",
+    "start": 2.58,
+    "end": 2.8,
+    "id": "w10"
+  },
+  {
+    "text": "deploy",
+    "start": 2.8,
+    "end": 3.28,
+    "id": "w11"
+  },
+  {
+    "text": "this",
+    "start": 3.28,
+    "end": 3.69,
+    "id": "w12"
+  },
+  {
+    "text": "MCP",
+    "start": 3.69,
+    "end": 4,
+    "id": "w13"
+  },
+  {
+    "text": "server",
+    "start": 4,
+    "end": 4.4,
+    "id": "w14"
+  },
+  {
+    "text": "on",
+    "start": 4.4,
+    "end": 4.64,
+    "id": "w15"
+  },
+  {
+    "text": "its",
+    "start": 4.64,
+    "end": 4.74,
+    "id": "w16"
+  },
+  {
+    "text": "own",
+    "start": 4.8,
+    "end": 5.15,
+    "id": "w17"
+  },
+  {
+    "text": "into",
+    "start": 5.6,
+    "end": 5.71,
+    "id": "w18"
+  },
+  {
+    "text": "a",
+    "start": 5.76,
+    "end": 5.84,
+    "id": "w19"
+  },
+  {
+    "text": "server.",
+    "start": 5.84,
+    "end": 6.24,
+    "id": "w20"
+  }
+]
