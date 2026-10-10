@@ -56,7 +56,7 @@
   .ln.cur { opacity: 1; border-left-color: var(--blue); }
   .ln.cur .note { display: block; }
   .ln.done .t { color: var(--dim); }
-  .focus-band { position: absolute; left: 0; right: 0; top: 30%; height: 2px; background: linear-gradient(90deg, transparent, rgba(59,130,246,0.4), transparent); pointer-events: none; }
+  .focus-band { position: absolute; left: 0; right: 0; top: var(--focus, 15%); height: 2px; background: linear-gradient(90deg, transparent, rgba(59,130,246,0.4), transparent); pointer-events: none; }
 
   /* side panel */
   aside { width: 360px; border-left: 1px solid var(--line); background: var(--panel); padding: 16px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; }
@@ -131,6 +131,8 @@
     <h3>Reading</h3>
     <label class="chk"><input type="radio" name="mode" value="clock" checked> Follow the clock (script timing)</label>
     <label class="chk"><input type="radio" name="mode" value="manual"> Advance on Space (my own pace)</label>
+    <div class="hint">Current line position (lower = closer to the top of the screen, nearer a laptop camera)</div>
+    <input type="range" id="focus" min="5" max="50" value="15">
     <div class="hint">Text size</div>
     <input type="range" id="size" min="30" max="96" value="54">
     <label class="chk"><input type="checkbox" id="mirror"> Mirror (for teleprompter glass)</label>
@@ -152,7 +154,7 @@
       <div><b>Space</b> mark / next line</div>
       <div><b>R</b> record · stop</div>
       <div><b>P</b> pause · resume</div>
-      <div><b>← →</b> previous / next line (not while recording)</div>
+      <div><b>← →</b> previous / next line (while recording: "Advance on Space" mode only)</div>
       <div><b>+ −</b> text size</div>
       <div><b>M</b> mirror</div>
     </div>
@@ -182,6 +184,7 @@
   let running = false, lastTick = 0;
   let cur = -1;                 // current line index
   let manualIdx = 0;            // manual mode pointer
+  let focusFrac = 0.15;         // where the current line sits, as a fraction of the prompter height
   let scopeStart = 0, scopeEnd = 0, scopeName = "full", scopeFirst = 0;
   let recording = false, paused = false, rehearsing = false;
   let recorder = null, chunks = [], stream = null, analyser = null, levelBuf = null, audioCtx = null, streamKey = "";
@@ -272,7 +275,7 @@
         el.classList.toggle("done", i < idx);
       });
       const el = $("ln" + idx);
-      if (el) $("track").style.transform = `translateY(${$("prompter").clientHeight * 0.3 - el.offsetTop}px)` + ($("prompter").classList.contains("mirror") ? " scaleX(-1)" : "");
+      if (el) $("track").style.transform = `translateY(${$("prompter").clientHeight * focusFrac - el.offsetTop}px)` + ($("prompter").classList.contains("mirror") ? " scaleX(-1)" : "");
       lastRendered = idx; cur = idx;
     }
     const l = lines[idx];
@@ -470,12 +473,14 @@
   $("resetBtn").onclick = () => { running = false; marks = []; setPace(null); applyScope(); updateButtons(); };
   const setSize = (v) => { v = Math.min(96, Math.max(30, v)); $("size").value = v; document.documentElement.style.setProperty("--read", v + "px"); store.set("size", v); lastRendered = -2; };
   $("size").oninput = (e) => setSize(+e.target.value);
+  const setFocus = (v) => { v = Math.min(50, Math.max(5, v)); $("focus").value = v; focusFrac = v / 100; document.documentElement.style.setProperty("--focus", v + "%"); store.set("focus", v); lastRendered = -2; };
+  $("focus").oninput = (e) => setFocus(+e.target.value);
   const setMirror = (on) => { $("mirror").checked = on; $("prompter").classList.toggle("mirror", on); store.set("mirror", on); lastRendered = -2; };
   $("mirror").onchange = (e) => setMirror(e.target.checked);
   const setNotes = (on) => { $("notes").checked = on; document.querySelectorAll(".note").forEach((n) => n.style.visibility = on ? "visible" : "hidden"); store.set("notes", on); };
   $("notes").onchange = (e) => setNotes(e.target.checked);
   document.querySelectorAll('input[name="mode"]').forEach((r) => r.onchange = () => { store.set("mode", mode()); manualIdx = Math.max(0, lineAt(t)); lastRendered = -2; });
-  setSize(store.get("size", 54)); setMirror(store.get("mirror", false));
+  setSize(store.get("size", 54)); setFocus(store.get("focus", 15)); setMirror(store.get("mirror", false));
   const savedMode = store.get("mode", "clock"); const mr = document.querySelector(`input[name="mode"][value="${savedMode}"]`); if (mr) mr.checked = true;
   setTimeout(() => setNotes(store.get("notes", true)), 300);
 
@@ -502,6 +507,14 @@
     else if (e.key === "m" || e.key === "M") setMirror(!$("mirror").checked);
     else if (e.key === "+" || e.key === "=") setSize(+$("size").value + 4);
     else if (e.key === "-") setSize(+$("size").value - 4);
+    else if (busy && mode() === "manual" && (e.key === "ArrowRight" || e.key === "ArrowLeft")) {
+      // Fix a mis-press mid-take: move the highlight only. The clock and recording keep running;
+      // the next Space re-marks whichever line you're on.
+      e.preventDefault();
+      manualIdx = Math.min(Math.max(manualIdx + (e.key === "ArrowRight" ? 1 : -1), scopeFirst), lines.length - 1);
+      marks = marks.filter((m) => m.id !== lines[manualIdx].id);
+      lastRendered = -2; render();
+    }
     else if (!busy && (e.key === "ArrowRight" || e.key === "ArrowLeft")) {
       e.preventDefault();
       const i = Math.min(Math.max((mode() === "manual" ? manualIdx : Math.max(0, lineAt(t))) + (e.key === "ArrowRight" ? 1 : -1), 0), lines.length - 1);

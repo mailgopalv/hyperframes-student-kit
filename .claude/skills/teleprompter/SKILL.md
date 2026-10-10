@@ -94,7 +94,9 @@ Open **http://localhost:8090/teleprompter/**. If 8090 is taken, use another port
 - **Reading modes:**
   - **Follow the clock**: lines advance on the script's timing.
   - **Advance on Space**: each Space press moves to the next line, and the pace pill still compares against the script.
-- **Other keys:** ←/→ jump lines (when not recording), +/− text size, **M** mirror mode for teleprompter glass. Clicking the chapter bar seeks.
+- **Current line position:** a slider in *Reading* sets how far down the screen the current line sits (default 15%). Keep it near the top so the user's eyes stay close to a laptop or webcam lens.
+- **Controlling lines while recording:** use **Advance on Space**. Each Space press marks the line being started and moves on. **←/→** fix a mis-press mid-take: they move the highlight only (clock and recording keep running), and the next Space re-marks that line. In *Follow the clock* mode, arrows work only when not recording.
+- **Other keys:** +/− text size, **M** mirror mode for teleprompter glass. Clicking the chapter bar seeks.
 - Browser: Chrome or Edge recommended. Allow microphone access when asked. Text size, mirror and mode are remembered per browser.
 
 ### 5. After recording: retime the video to the real voiceover
