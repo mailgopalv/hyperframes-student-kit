@@ -18,6 +18,13 @@ mkdirSync(join(dest, 'assets'), { recursive: true });
 mkdirSync(join(dest, 'compositions'), { recursive: true });
 mkdirSync(join(dest, 'renders'), { recursive: true });
 copyFileSync(gsap, join(dest, 'assets/gsap.min.js'));
+// ExploreAI brand kit: tokens, logo, background, and the brand DESIGN file.
+const brand = ['brand-token.css', 'exploreai-logo.png', 'exploreai-background.png'];
+const missing = brand.filter((file) => !existsSync(join(root, 'assets', file)));
+for (const file of brand) if (!missing.includes(file)) copyFileSync(join(root, 'assets', file), join(dest, 'assets', file));
+if (existsSync(join(root, 'assets/fonts'))) cpSync(join(root, 'assets/fonts'), join(dest, 'assets/fonts'), { recursive: true });
+copyFileSync(join(root, 'DESIGN.exploreai.md'), join(dest, 'DESIGN.md'));
+if (missing.length) console.warn(`Brand assets not found in assets/: ${missing.join(', ')}`);
 const meta = JSON.parse(readFileSync(join(dest, 'meta.json'), 'utf8'));
 meta.name = slug;
 writeFileSync(join(dest, 'meta.json'), JSON.stringify(meta, null, 2) + '\n');

@@ -124,7 +124,7 @@
       /* Pin fill + glow drop-shadow applied via GSAP */
       #t2-lt-loc .pin-path {
         fill: var(--accent);
-        filter: drop-shadow(0 0 5px rgba(55,189,248,0.80)) drop-shadow(0 0 12px rgba(55,189,248,0.45));
+        filter: drop-shadow(0 0 5px rgba(59, 130, 246,0.80)) drop-shadow(0 0 12px rgba(59, 130, 246,0.45));
       }
 
       #t2-lt-loc .location-text {
@@ -158,7 +158,7 @@
             <svg viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path class="pin-path"
                 d="M9 0C5.134 0 2 3.134 2 7c0 5.25 7 15 7 15s7-9.75 7-15c0-3.866-3.134-7-7-7Z"
-                fill="rgba(55,189,248,0.90)" />
+                fill="rgba(59, 130, 246,0.90)" />
               <circle cx="9" cy="7" r="2.5" fill="rgba(7,18,28,0.80)" />
             </svg>
           </div>
@@ -205,13 +205,13 @@
 
       /* pin glow pulse — finite */
       tl.to("#t2-lt-loc .pin-wrap",
-        { filter: "drop-shadow(0 0 10px rgba(55,189,248,0.90)) drop-shadow(0 0 22px rgba(55,189,248,0.50))",
+        { filter: "drop-shadow(0 0 10px rgba(59, 130, 246,0.90)) drop-shadow(0 0 22px rgba(59, 130, 246,0.50))",
           duration: 0.95, ease: "sine.inOut", repeat: 3, yoyo: true }, 1.55);
 
       /* card rim pulse — finite */
       tl.to("#t2-lt-loc .card",
         { boxShadow:
-            "0 24px 70px rgba(0,0,0,0.50), 0 0 0 1.5px rgba(55,189,248,0.88), 0 0 34px rgba(55,189,248,0.36), inset 0 1px 0 rgba(255,255,255,0.22)",
+            "0 24px 70px rgba(0,0,0,0.50), 0 0 0 1.5px rgba(59, 130, 246,0.88), 0 0 34px rgba(59, 130, 246,0.36), inset 0 1px 0 rgba(255,255,255,0.22)",
           duration: 1.2, ease: "sine.inOut", repeat: 3, yoyo: true }, 1.7);
 
       tl.set({}, {}, 7);

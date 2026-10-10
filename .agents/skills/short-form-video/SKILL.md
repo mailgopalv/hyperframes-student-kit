@@ -110,6 +110,10 @@ A navy→transparent gradient band (60–100px) at y=960 plus a 2px accent scan 
 
 Then the face-mode array, then any internal-offset changes, then frame-verification list.
 
+## Script intro (when you write or plan the script)
+
+Shorts get a **one-sentence preview** of what's coming right after the hook (e.g. "Here's the setup, the one line of code, and the result."). **Shorts cut from a long video point to that full video** ("Watch the full video, linked below"), not GitHub; set the long video as the short's *Related video* on upload. Standalone shorts with code say it's on GitHub. Full rule for longer videos: `.agents/skills/make-a-video/references/script-roadmap-intro.md`.
+
 ## Scene authoring
 
 One scene = one sub-composition file. Scenes sit on the same `data-track-index` back-to-back (no gaps). Inside each scene:
@@ -128,15 +132,15 @@ One scene = one sub-composition file. Scenes sit on the same `data-track-index` 
 
 ## Captions (karaoke style)
 
-- Montserrat 900, 46–58px (for 1080 width), 100% white base
-- Active word: scale-1.08 pop + color change to accent (`#37bdf8` for AIS, adapt to brand)
+- Poppins 700–800 (ExploreAI heading font), 46–58px (for 1080 width), 100% white base
+- Active word: scale-1.08 pop + color change to accent (`#3B82F6` ExploreAI Primary Blue; brand gradient for the hero word)
 - Stroke via layered `text-shadow`, NEVER `-webkit-text-stroke` (renders inconsistently in Chromium render)
 - Drop the rgba background pill — let the stroke hold readability. Captions should feel like graffiti on the frame, not a subtitle track.
 - For retimes, use a `shift()` function inside `captions.html` to map transcript word timestamps → edited-time. This keeps the transcript JSON untouched and makes retimes mechanical.
 
 See `references/captions.md` under `/hyperframes` for the full karaoke implementation. TL;DR: per-word `<span>` elements with `data-word-start`, GSAP tweens scoped to each span, tight 0.08–0.12s pop durations.
 
-## Ambient background (never ship flat navy)
+## Ambient background (never ship a flat plate)
 
 Minimum viable background stack:
 
@@ -145,7 +149,7 @@ Minimum viable background stack:
 3. **4–8 drifting particle dots** or grid traces
 4. **Subtle vignette**
 
-`background: #07121c` alone is a placeholder, not a design. For techy/control-room aesthetic, use the 6-layer stack from `feedback_techy_background_layers.md` (HUD grid masked to vignette + circuit traces + pulse nodes + scan beam + telemetry ticker + corner mono labels).
+A flat fill alone is a placeholder, not a design. For ExploreAI work, start from `assets/exploreai-background.png` (or `--gradient-brand-soft` plus blue/violet radial blooms) and add slow drift; for a dark techy/control-room look (`.theme-dark` canvas `#0B1220`), use the 6-layer stack from `feedback_techy_background_layers.md` (HUD grid masked to vignette + circuit traces + pulse nodes + scan beam + telemetry ticker + corner mono labels).
 
 ## Audio reactivity
 
@@ -238,7 +242,7 @@ video-projects/<slug>/
 │   ├── <name>.mp4               (original recording)
 │   ├── <name>-edit.mp4          (edited — cuts removed — this is what the comp uses)
 │   ├── transcript.json          (whisper output)
-│   └── brand assets (logo, brand-tokens.css, background music)
+│   └── brand assets (exploreai-logo.png, exploreai-background.png, brand-token.css, background music)
 └── renders/
     ├── <slug>-v1-draft.mp4
     ├── frames-v1/
@@ -262,7 +266,7 @@ video-projects/<slug>/
 - Don't use `<br>` inside captions — natural wrapping + `<br>` produces extra unwanted breaks.
 - Don't skip the frame verification gate. Lint exit code is not visual truth.
 - Don't author in original-time if the audio is edited. Edited-time or nothing.
-- Don't leave `background: #07121c` flat. Layer it.
+- Don't leave the background a flat fill. Layer it.
 - Don't hard-cut between scenes. Rotate transition flavors.
 - Don't polite-caption. Pop them.
 - Don't let the face sit still. Grade + Ken Burns always.
@@ -327,4 +331,4 @@ For scenes 3–5 of a 15–20s short (the "middle grind" where attention drops t
 - `feedback_contrast_technique.md` — glow localization + text-shadow halos + brightening dim text
 - `feedback_techy_background_layers.md` — 6-layer control-room background stack
 - `feedback_visual_verification.md` — the verification gate
-- `project_ais_brand_specs.md` — if the short is AIS-branded (hex codes, fonts, logo glow)
+- `DESIGN.exploreai.md` (kit root) — ExploreAI brand specs: hex codes, fonts, logo, background, clearspace

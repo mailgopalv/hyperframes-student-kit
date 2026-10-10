@@ -48,7 +48,10 @@ transcripts, compositions, and renders together under `video-projects/<slug>/`.
 Run HyperFrames from that project's directory. The root `scripts/` utilities
 accept paths from the working directory. `style-library/registry.json` indexes
 cards; each style has a DESIGN.md, CSS tokens, and named text slots.
-See `style-templates/README.md` for whole-scene templates.
+See `style-templates/README.md` for whole-scene templates. The house brand is
+ExploreAI with Gopal: `DESIGN.exploreai.md` plus `assets/brand-token.css`,
+`assets/exploreai-logo.png`, and `assets/exploreai-background.png`; new-video
+copies them into each project. `assets/old/` holds the retired AIS brand.
 
 Preserve raw files. Use a new output filename for each editing stage. Archive
 obsolete work. Video projects, personal footage, transcripts, credentials, and

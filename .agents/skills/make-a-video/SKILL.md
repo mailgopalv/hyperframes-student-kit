@@ -50,7 +50,9 @@ Full question bank: `Read: references/interview-questions.md`
 3. If face-cam: recording path · full-screen or corner placement · need transcription? (`npx hyperframes transcribe <file> --model small.en --json`)
 4. Captions? (off · hype · corporate · karaoke-word-by-word · minimal)
 
-**Gate:** script captured (or drafted), audio plan captured, caption plan captured.
+**Script rule, always:** whenever you draft, outline or plan the script, it must **open with a roadmap**: what we're doing and why, then every chapter named in order (e.g. "first the architecture, then the design, then the code"), matching the on-screen chapter titles. **If the video involves code, the intro must say the code is on GitHub, linked in the description.** Read `references/script-roadmap-intro.md` for the full rule, how to scale it for shorts and ads, and the checklist.
+
+**Gate:** script captured (or drafted, with the roadmap intro), audio plan captured, caption plan captured.
 
 ---
 
@@ -85,7 +87,7 @@ Full style flow + MOTION_PHILOSOPHY defaults: `Read: references/style-intake.md`
    - Otherwise → ask the user
 3. **Write `<project-folder>/BRIEF.md`**:
    - slug · intent · audience · dimensions · fps · duration
-   - script (full or outline)
+   - script (full or outline), **starting with the roadmap intro** (chapter list; GitHub mention if there's code)
    - voice choice · caption plan · face-cam plan
    - style profile: palette (hex), fonts, logo path, reference videos
    - pacing
