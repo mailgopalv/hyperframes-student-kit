@@ -34,6 +34,17 @@ Thumbs.db
 .codex/sessions/
 .codex/history.jsonl
 
+# ExploreAI brand kit (copied into each project by new-video) and the retired
+# AIS brand archive. Root assets/ only; project assets stay ignored.
+!/assets/
+/assets/*
+!/assets/brand-token.css
+!/assets/exploreai-logo.png
+!/assets/exploreai-background.png
+!/assets/exploreai-brand-guidelines.png
+!/assets/fonts/
+!/assets/old/
+
 # Deliberately public synthetic timing data, without media.
 !examples/short-form/assets/
 !examples/short-form/assets/*.json

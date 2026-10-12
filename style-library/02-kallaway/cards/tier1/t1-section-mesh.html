@@ -123,9 +123,9 @@
               </filter>
               <!-- Gradient fades lines toward far edge (perspective fade) -->
               <linearGradient id="meshFade" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%"   stop-color="rgba(55,189,248,0.75)"/>
-                <stop offset="60%"  stop-color="rgba(55,189,248,0.28)"/>
-                <stop offset="100%" stop-color="rgba(55,189,248,0.04)"/>
+                <stop offset="0%"   stop-color="rgba(59, 130, 246,0.75)"/>
+                <stop offset="60%"  stop-color="rgba(59, 130, 246,0.28)"/>
+                <stop offset="100%" stop-color="rgba(59, 130, 246,0.04)"/>
               </linearGradient>
             </defs>
 
@@ -149,7 +149,7 @@
             </g>
 
             <!-- Horizontal lines with a constant stroke (not perspective-faded) -->
-            <g filter="url(#meshGlow)" stroke="rgba(55,189,248,0.55)" stroke-width="1.2" fill="none">
+            <g filter="url(#meshGlow)" stroke="rgba(59, 130, 246,0.55)" stroke-width="1.2" fill="none">
               <line x1="0" y1="0"   x2="2120" y2="0"/>
               <line x1="0" y1="100" x2="2120" y2="100"/>
               <line x1="0" y1="200" x2="2120" y2="200"/>
@@ -213,7 +213,7 @@
 
       /* Horizon line breathing */
       tl.to("#t1-sec-mesh .mesh-horizon", {
-        boxShadow: "0 0 18px rgba(255,255,255,0.95), 0 0 55px rgba(55,189,248,0.70), 0 0 110px rgba(55,189,248,0.30)",
+        boxShadow: "0 0 18px rgba(255,255,255,0.95), 0 0 55px rgba(59, 130, 246,0.70), 0 0 110px rgba(59, 130, 246,0.30)",
         duration: 1.5, ease: "sine.inOut", repeat: 2, yoyo: true
       }, 2.2);
 

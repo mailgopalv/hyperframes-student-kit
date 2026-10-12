@@ -58,7 +58,7 @@
         stroke-width: 3;
         stroke-linecap: round;
         stroke-linejoin: round;
-        filter: drop-shadow(0 0 12px rgba(55,189,248,0.55));
+        filter: drop-shadow(0 0 12px rgba(59, 130, 246,0.55));
       }
       /* Ghost / backdrop path (thicker, darker — depth) */
       .journey-path-ghost {
@@ -129,7 +129,7 @@
       /* Start / end arrow markers */
       .journey-start-cap, .journey-end-arrow {
         fill: rgba(var(--accent-rgb), 0.90);
-        filter: drop-shadow(0 0 6px rgba(55,189,248,0.60));
+        filter: drop-shadow(0 0 6px rgba(59, 130, 246,0.60));
       }
 
       #t1-ov-journey .vignette {
@@ -171,7 +171,7 @@
           </filter>
           <!-- Arrowhead marker for path end -->
           <marker id="jrn-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M 0 0 L 6 3 L 0 6 Z" fill="rgba(55,189,248,0.90)"/>
+            <path d="M 0 0 L 6 3 L 0 6 Z" fill="rgba(59, 130, 246,0.90)"/>
           </marker>
         </defs>
 
@@ -290,11 +290,11 @@
 
         /* breathing glow on final stop node — finite */
         .to("#jrn-s4 .stop-dot", {
-          boxShadow: "0 0 36px rgba(55,189,248,0.90), 0 0 80px rgba(55,189,248,0.45)",
+          boxShadow: "0 0 36px rgba(59, 130, 246,0.90), 0 0 80px rgba(59, 130, 246,0.45)",
           duration: 1.2, ease: "sine.inOut", repeat: 2, yoyo: true }, 4.3)
 
         /* subtle path glow pulse — finite */
-        .to("#jrn-path", { attr: { stroke: "rgba(55,189,248,0.90)" },
+        .to("#jrn-path", { attr: { stroke: "rgba(59, 130, 246,0.90)" },
           duration: 1.0, ease: "sine.inOut", repeat: 1, yoyo: true }, 4.6)
 
         .set({}, {}, 7);

@@ -154,7 +154,7 @@
         /* box glows bright on completion */
         .to(`${COMP} .hbox-rect`, {
             attr: { "stroke-width": 2.5 },
-            filter: "drop-shadow(0 0 16px rgba(55,189,248,0.90))",
+            filter: "drop-shadow(0 0 16px rgba(59, 130, 246,0.90))",
             duration: 0.30, ease: "power2.out" }, 1.40)
 
         /* detail fades up */
@@ -165,7 +165,7 @@
         /* finite glow pulse on the box */
         .to(`${COMP} .hbox-rect`, {
             attr: { "stroke-width": 2 },
-            filter: "drop-shadow(0 0 7px rgba(55,189,248,0.45))",
+            filter: "drop-shadow(0 0 7px rgba(59, 130, 246,0.45))",
             duration: 1.2, ease: "sine.inOut", repeat: 2, yoyo: true }, 1.90)
 
         .set({}, {}, 7);

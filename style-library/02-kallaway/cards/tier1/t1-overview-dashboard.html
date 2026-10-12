@@ -217,7 +217,7 @@
                   fill="none" transform="rotate(-90 80 80)"/>
                 <defs>
                   <linearGradient id="dashRingGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#37BDF8" stop-opacity="1"/>
+                    <stop offset="0%" stop-color="#3B82F6" stop-opacity="1"/>
                     <stop offset="100%" stop-color="#ffffff" stop-opacity="0.9"/>
                   </linearGradient>
                 </defs>
@@ -240,8 +240,8 @@
                  viewBox="0 0 700 120" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="rgba(55,189,248,0.35)"/>
-                  <stop offset="100%" stop-color="rgba(55,189,248,0.00)"/>
+                  <stop offset="0%" stop-color="rgba(59, 130, 246,0.35)"/>
+                  <stop offset="100%" stop-color="rgba(59, 130, 246,0.00)"/>
                 </linearGradient>
               </defs>
               <!-- area fill + line injected by JS -->
@@ -299,11 +299,11 @@
         const line = document.createElementNS("http://www.w3.org/2000/svg", "path");
         line.setAttribute("d", lineCoords);
         line.setAttribute("fill", "none");
-        line.setAttribute("stroke", "#37BDF8");
+        line.setAttribute("stroke", "#3B82F6");
         line.setAttribute("stroke-width", "3");
         line.setAttribute("stroke-linecap", "round");
         line.setAttribute("stroke-linejoin", "round");
-        line.style.filter = "drop-shadow(0 0 6px rgba(55,189,248,0.70))";
+        line.style.filter = "drop-shadow(0 0 6px rgba(59, 130, 246,0.70))";
         svgEl.appendChild(line);
 
         /* animate stroke-dasharray draw */

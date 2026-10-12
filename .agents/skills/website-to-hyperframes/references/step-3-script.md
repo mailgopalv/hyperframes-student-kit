@@ -49,6 +49,18 @@ For product videos from a website capture:
 
 Not every video needs all four. A 15-second social ad might be Hook + Proof + CTA. A 60-second product tour uses all four with more Story.
 
+## Explainers and tutorials: hook first
+
+If the video is an explainer, tutorial or walkthrough (anything with chapters, usually over ~90s), the first 30 seconds are the hook, with nothing before it (no greeting, channel intro or "in the last video"):
+
+1. 0–10s: a pain the viewer already has.
+2. 10–20s: a ~5-second preview of the finished result.
+3. 20–30s: the promise and the proof ("full working code on GitHub, linked in the description"), then straight into the content.
+
+Then, optionally, a one-sentence roadmap naming the chapters as the on-screen cards do. Put the demo in the first third and match the depth to the title.
+
+Full rule + checklist: `../../make-a-video/references/script-roadmap-intro.md`. For YouTube uploads, also hand over titles, thumbnail briefs and Shorts ideas from `../../youtube-packaging/SKILL.md`. Short promo spots (hook → proof → CTA) skip the roadmap, but still mention GitHub if there's code.
+
 ## The Opening Line
 
 The most important sentence in the video. It must create tension, curiosity, or surprise in the first 3 seconds.

@@ -66,7 +66,7 @@
 
 For every new scene, name the one color carrying the beat. If you can't, you haven't earned it.
 
-Reference palette (Infinite-spot specific — AIS or other briefs override): Chrome white→gray `#fff → #999` (premium/brand voice) · Red `#e10b1f` (problem/broken) · Teal `#33d4c8`/`#5ee2d9` (solution/core) · Magenta/purple `#a155ff`/`#7e42d8` (speed/energy/API) · Blue `#3b82f6`/`#5db4ff` (connection/global) · Neon orange/yellow `#ff9430`/`#ffd84a` (value/affordability).
+Reference palette (Infinite-spot specific — the ExploreAI brand in `DESIGN.exploreai.md` or other briefs override): Chrome white→gray `#fff → #999` (premium/brand voice) · Red `#e10b1f` (problem/broken) · Teal `#33d4c8`/`#5ee2d9` (solution/core) · Magenta/purple `#a155ff`/`#7e42d8` (speed/energy/API) · Blue `#3b82f6`/`#5db4ff` (connection/global) · Neon orange/yellow `#ff9430`/`#ffd84a` (value/affordability).
 
 **Palette cap: 5 active hues, each with a meaning.** Over that, you're decorating.
 

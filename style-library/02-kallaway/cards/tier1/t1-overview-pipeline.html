@@ -224,18 +224,18 @@
         .from("#pseg4", { autoAlpha: 0, x: -50, filter: "blur(10px)", duration: 0.72, ease: "power3.out" }, 2.54)
 
         /* Sequential accent glow sweep — each segment glows bright then settles */
-        .to("#pglow1", { background: "radial-gradient(ellipse at 50% 50%, rgba(55,189,248,0.18) 0%, transparent 70%)",
+        .to("#pglow1", { background: "radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246,0.18) 0%, transparent 70%)",
           duration: 0.55, ease: "power2.out" }, 2.00)
-        .to("#pglow2", { background: "radial-gradient(ellipse at 50% 50%, rgba(55,189,248,0.18) 0%, transparent 70%)",
+        .to("#pglow2", { background: "radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246,0.18) 0%, transparent 70%)",
           duration: 0.55, ease: "power2.out" }, 2.33)
-        .to("#pglow3", { background: "radial-gradient(ellipse at 50% 50%, rgba(55,189,248,0.18) 0%, transparent 70%)",
+        .to("#pglow3", { background: "radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246,0.18) 0%, transparent 70%)",
           duration: 0.55, ease: "power2.out" }, 2.66)
-        .to("#pglow4", { background: "radial-gradient(ellipse at 50% 50%, rgba(55,189,248,0.22) 0%, transparent 70%)",
+        .to("#pglow4", { background: "radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246,0.22) 0%, transparent 70%)",
           duration: 0.55, ease: "power2.out" }, 2.99)
 
         /* Breathing glow on labels — finite */
         .to("#pseg1 .seg-num, #pseg2 .seg-num, #pseg3 .seg-num, #pseg4 .seg-num", {
-          textShadow: "0 0 22px rgba(55,189,248,0.90), 0 0 56px rgba(55,189,248,0.50)",
+          textShadow: "0 0 22px rgba(59, 130, 246,0.90), 0 0 56px rgba(59, 130, 246,0.50)",
           duration: 1.0, ease: "sine.inOut", repeat: 2, yoyo: true, stagger: 0.22
         }, 3.8)
 

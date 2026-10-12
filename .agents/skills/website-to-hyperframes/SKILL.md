@@ -42,7 +42,7 @@ Write a simple brand reference for the captured website. 6 sections, ~90 lines. 
 
 **Read:** [references/step-3-script.md](references/step-3-script.md)
 
-Write the narration script. The story backbone. Scene durations come from the narration, not from guessing.
+Write the narration script. The story backbone. Scene durations come from the narration, not from guessing. **Explainers and tutorials open with a roadmap** (every chapter named in order; GitHub mention if there's code). See the reference.
 
 **Gate:** `SCRIPT.md` exists in the project directory.
 

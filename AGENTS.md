@@ -29,6 +29,7 @@ For one stage, load the matching local skill:
 | Silence removal | `cut-silences` |
 | Retakes, false starts, or stutters | `cut-mistakes` |
 | Narrative arc, persistent world, and visual callbacks | `video-storytelling` |
+| YouTube hooks, titles, thumbnails, Shorts plan, post-publish lessons | `youtube-packaging` |
 | Overlay beats, paper takeovers, and glass cards | `hyperframes-video-beats` |
 | Select or extend styles and templates | `style-library` |
 | HTML compositions and media timing | `hyperframes` |
@@ -37,6 +38,8 @@ For one stage, load the matching local skill:
 | Install HyperFrames catalog blocks | `hyperframes-registry` |
 
 Before a creative session read `MOTION_PHILOSOPHY.md` and the project's DESIGN.md.
+Before writing a script, titles or thumbnails, read `youtube-packaging` and its
+lessons log; every hand-off passes its pre-publish checklist.
 The philosophy's fast sizzle pacing is a style reference. Give educational speech
 room to breathe. The project brief controls pacing, palette, and typography.
 Framework skill contracts override historical code recipes in the style guide.
@@ -48,7 +51,10 @@ transcripts, compositions, and renders together under `video-projects/<slug>/`.
 Run HyperFrames from that project's directory. The root `scripts/` utilities
 accept paths from the working directory. `style-library/registry.json` indexes
 cards; each style has a DESIGN.md, CSS tokens, and named text slots.
-See `style-templates/README.md` for whole-scene templates.
+See `style-templates/README.md` for whole-scene templates. The house brand is
+ExploreAI with Gopal: `DESIGN.exploreai.md` plus `assets/brand-token.css`,
+`assets/exploreai-logo.png`, and `assets/exploreai-background.png`; new-video
+copies them into each project. `assets/old/` holds the retired AIS brand.
 
 Preserve raw files. Use a new output filename for each editing stage. Archive
 obsolete work. Video projects, personal footage, transcripts, credentials, and
@@ -67,6 +73,9 @@ and needs a configured integration and credits. Reuse existing transcripts and
 assets; make any unapproved uploads or paid calls concrete before asking.
 
 Cut silences first; use its edited video AND retimed transcript for cut-mistakes.
+With Whisper timestamps, cut on the audio (`cut-silences-audio.mjs`), never on
+word gaps, and re-transcribe the cut. Lessons from shipped edits live in
+`.claude/skills/edit-video/references/production-lessons.md`.
 Review each mistake in context. Intentional repetition is not a mistake. Record
 the reviewed decisions before applying them. If no cuts are needed, preserve the
 input or use an empty cuts list. Never mix original timestamps with edited footage.
@@ -96,6 +105,9 @@ Use a Range-capable preview server for MP4 scrubbing (for example `npx serve`).
 Honor approvals already provided. When review approval is missing, prepare the
 concrete preview or cut proposal first. Never claim a lint result proves visual
 quality. Only publish or upload a finished video when the user authorizes it.
+Each render (draft or final) needs the user's go-ahead. When QA of a draft finds
+issues, prepare the fixes, report them, and stop; never start the next render
+without explicit approval.
 Automated browser checks must be headless, with Pointer Lock and cursor capture
 disabled; synthetic input must remain inside the virtual browser.
 

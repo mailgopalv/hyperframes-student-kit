@@ -1,7 +1,10 @@
 # Starter design
 
-Dark technical canvas (#080c12), warm white type (#f0f3f7), and pale green
-(#b9f27c) for progress. Arial/system sans-serif; Consolas/system monospace for
-labels. A subtle grid supports three fixed workflow stages. Large left-aligned
-title, generous margins, one progressive reveal per stage, and a quiet final hold.
-No external images, footage, or audio. HyperFrames may resolve Arial to its cached Inter font at compile time. No flashing transitions.
+ExploreAI with Gopal brand (see the kit's `DESIGN.exploreai.md`). Light canvas
+using `assets/exploreai-background.png`, with a soft teal → blue → lavender
+gradient fallback when the image is absent. Navy type (#0F172A), slate
+supporting text (#475569), and the brand gradient (#06B6D4 → #3B82F6 → #8B5CF6)
+for step numbers. Poppins Bold headings, Inter body. Three white rounded cards
+with soft shadows, one progressive reveal per card, and a quiet final hold.
+Content stays clear of the background's top-right wordmark. No footage or audio.
+No flashing transitions.

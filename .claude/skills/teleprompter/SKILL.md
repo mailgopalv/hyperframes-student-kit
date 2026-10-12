@@ -37,7 +37,7 @@ The page reads `../scripts/cues.json` relative to itself (override with `?cues=<
 ### 1. Get a `cues.json`
 
 - **The project already generates one** (e.g. `video-projects/multi-agents/scripts/cues.py`): run it (`python scripts/cues.py`).
-- **Writing a new script?** It must **open with a roadmap**: what we're doing and why, every chapter named in order (matching the chapter headings), and, if there's code, a line saying the code is on GitHub, linked in the description. Full rule: `.claude/skills/make-a-video/references/script-roadmap-intro.md`.
+- **Writing a new script?** It must **open with a 30-second hook**: a pain the viewer has, a ~5s preview of the result, then the promise and (if there's code) "the code is on GitHub, linked in the description". No greeting, channel intro or "in the last video" first. A one-sentence chapter roadmap can follow. Full rule: `.claude/skills/make-a-video/references/script-roadmap-intro.md`; titles, thumbnails and the pre-publish checklist: `.claude/skills/youtube-packaging/SKILL.md`.
 - **Otherwise**, write or reuse a Markdown script and convert it:
 
   ```markdown
@@ -94,7 +94,9 @@ Open **http://localhost:8090/teleprompter/**. If 8090 is taken, use another port
 - **Reading modes:**
   - **Follow the clock**: lines advance on the script's timing.
   - **Advance on Space**: each Space press moves to the next line, and the pace pill still compares against the script.
-- **Other keys:** ←/→ jump lines (when not recording), +/− text size, **M** mirror mode for teleprompter glass. Clicking the chapter bar seeks.
+- **Current line position:** a slider in *Reading* sets how far down the screen the current line sits (default 15%). Keep it near the top so the user's eyes stay close to a laptop or webcam lens.
+- **Controlling lines while recording:** use **Advance on Space**. Each Space press marks the line being started and moves on. **←/→** fix a mis-press mid-take: they move the highlight only (clock and recording keep running), and the next Space re-marks that line. In *Follow the clock* mode, arrows work only when not recording.
+- **Other keys:** +/− text size, **M** mirror mode for teleprompter glass. Clicking the chapter bar seeks.
 - Browser: Chrome or Edge recommended. Allow microphone access when asked. Text size, mirror and mode are remembered per browser.
 
 ### 5. After recording: retime the video to the real voiceover
@@ -126,6 +128,10 @@ Open **http://localhost:8090/teleprompter/**. If 8090 is taken, use another port
 
 - `file://` won't work (no mic or camera, and `fetch` of cues.json is blocked). Always serve it.
 - Browser recordings are variable frame rate. Always re-encode camera takes with `-r 30` (above) before using them in a composition.
+- **Check the first camera take before the user records the rest.** In a dim room the webcam dropped to ~15 fps at 720p for every take of a 10-minute video, which reads as choppy and cannot be fixed in the edit. Count frames against duration (`ffprobe -count_packets -select_streams v:0 -show_entries stream=nb_read_packets`); below ~25 fps, suggest more front light, then re-check.
+- Browser takes are quiet (one session measured -36 LUFS, speech median about -48 dBFS). That's fine for recording; normalize loudness in the edit, and never use a fixed -45 dB silence threshold on these takes.
+- Windows Studio Effects (background blur, eye contact) apply at the driver level, so they work in this page, but only on the built-in camera. Pick that camera in *Camera & mic*. Eye contact helps when reading.
+- For code demos, read in **Advance on Space** mode: the script clock doesn't know how long code takes to run.
 - Only one app can usually hold the camera. Close Zoom, Teams or OBS if the preview stays black.
 - Don't use Python's `http.server` if the user wants to scrub the synced video. Use `npx serve` (it supports range requests).
 - The take counter lives in the browser's localStorage, so it resets in a new browser profile. Filenames include the chapter id, so nothing gets overwritten silently: the browser adds `(1)` to duplicate names.

@@ -37,7 +37,7 @@ Use a paper takeover when the narration reaches a major thesis, list, section ma
 
 Good uses:
 
-- Hook payoff or "in this video" overview
+- Hook payoff, or the one-line chapter roadmap after the hook (never a spoken "in this video I'll…" opener; see `../make-a-video/references/script-roadmap-intro.md`)
 - Major section transition
 - Big stat or study result
 - Memorable thesis line
@@ -72,6 +72,7 @@ Rules:
 - Avoid covering the face.
 - Use concise text: one headline plus optional short subline, or a 2-4 item list.
 - Prefer one card per topic span over many tiny flashes.
+- **Never show an empty card.** The card and its headline enter together; only follow-up lines wait for their spoken words. A card that sits blank for a few seconds while the speaker reaches the anchor word reads as a malfunction (user-reported three times on one edit). If the key word comes late, give the card a kicker or headline that is already true, or start the beat later.
 - Preserve the existing glass-card style unless the user asks for a design change.
 
 ## Pacing Heuristics
