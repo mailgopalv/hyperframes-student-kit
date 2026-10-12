@@ -37,7 +37,7 @@ The page reads `../scripts/cues.json` relative to itself (override with `?cues=<
 ### 1. Get a `cues.json`
 
 - **The project already generates one** (e.g. `video-projects/multi-agents/scripts/cues.py`): run it (`python scripts/cues.py`).
-- **Writing a new script?** It must **open with a roadmap**: what we're doing and why, every chapter named in order (matching the chapter headings), and, if there's code, a line saying the code is on GitHub, linked in the description. Full rule: `.claude/skills/make-a-video/references/script-roadmap-intro.md`.
+- **Writing a new script?** It must **open with a 30-second hook**: a pain the viewer has, a ~5s preview of the result, then the promise and (if there's code) "the code is on GitHub, linked in the description". No greeting, channel intro or "in the last video" first. A one-sentence chapter roadmap can follow. Full rule: `.claude/skills/make-a-video/references/script-roadmap-intro.md`; titles, thumbnails and the pre-publish checklist: `.claude/skills/youtube-packaging/SKILL.md`.
 - **Otherwise**, write or reuse a Markdown script and convert it:
 
   ```markdown

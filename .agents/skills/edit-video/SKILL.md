@@ -26,7 +26,12 @@ missing, propose a style from `style-library/registry.json` based on the footage
 4. Read `../cut-mistakes/SKILL.md`. Inspect candidates in context and preserve
    intentional emphasis. Record the reviewed cuts. If no mistakes need cutting,
    carry forward the silence output. Match every transcript to its actual video.
-5. Read `../video-storytelling/SKILL.md` for the visual arc and
+5. Review the first 30 seconds against
+   `../make-a-video/references/script-roadmap-intro.md`: the hook comes first,
+   with no greeting, logo sting or "in the last video". Propose cuts or a
+   reorder, and a ~5s preview of the demo pulled into the 10–20s slot when the
+   footage allows; flag a demo that lands after the first third.
+   Read `../video-storytelling/SKILL.md` for the visual arc and
    `../hyperframes-video-beats/SKILL.md` for overlays. Write a beat sheet with
    transcript anchors, one visual idea per beat, and deliberate callbacks.
 6. Read `MOTION_PHILOSOPHY.md`, `../hyperframes/SKILL.md`, and relevant GSAP
@@ -47,4 +52,7 @@ loudness, render settings and draft QA all come from a shipped edit.
 
 Deliver the final MP4 path, edit decisions, retimed transcript, composition,
 and `VERIFY.md` describing what was checked and any remaining limitations.
+For a YouTube upload, prepare `publish/YOUTUBE.md` (3 titles, 2–3 thumbnail
+briefs, chapters from the final render, Shorts ideas) with
+`../youtube-packaging/SKILL.md` and its pre-publish checklist.
 An automated detector proposes edits; editorial judgment remains necessary.

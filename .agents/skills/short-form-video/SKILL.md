@@ -112,7 +112,7 @@ Then the face-mode array, then any internal-offset changes, then frame-verificat
 
 ## Script intro (when you write or plan the script)
 
-Shorts get a **one-sentence preview** of what's coming right after the hook (e.g. "Here's the setup, the one line of code, and the result."). **Shorts cut from a long video point to that full video** ("Watch the full video, linked below"), not GitHub; set the long video as the short's *Related video* on upload. Standalone shorts with code say it's on GitHub. Full rule for longer videos: `.agents/skills/make-a-video/references/script-roadmap-intro.md`.
+Shorts get a **one-sentence preview** of what's coming right after the hook (e.g. "Here's the setup, the one line of code, and the result."). **Shorts cut from a long video point to that full video** ("Watch the full video, linked below"), not GitHub; set the long video as the short's *Related video* on upload. Standalone shorts with code say it's on GitHub. Full rule for longer videos: `.agents/skills/make-a-video/references/script-roadmap-intro.md`. Shorts spun off a long video are planned in `.agents/skills/youtube-packaging/SKILL.md` (one insight each).
 
 ## Scene authoring
 

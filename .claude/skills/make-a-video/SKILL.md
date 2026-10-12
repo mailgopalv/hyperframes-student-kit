@@ -87,7 +87,8 @@ Full style flow + MOTION_PHILOSOPHY defaults: `Read: references/style-intake.md`
    - Otherwise → ask the user
 3. **Write `<project-folder>/BRIEF.md`**:
    - slug · intent · audience · dimensions · fps · duration
-   - script (full or outline), **starting with the roadmap intro** (chapter list; GitHub mention if there's code)
+   - script (full or outline), **starting with the 30-second hook** (pain → result preview → promise, GitHub mention if there's code; no greeting or previous-video reference), then a one-line roadmap. Rules: `references/script-roadmap-intro.md`
+   - for YouTube long-form: 3 title options, 2–3 thumbnail briefs, chapter list, 2–3 Shorts ideas, and the ticked pre-publish checklist from `../youtube-packaging/SKILL.md`
    - voice choice · caption plan · face-cam plan
    - style profile: palette (hex), fonts, logo path, reference videos
    - pacing

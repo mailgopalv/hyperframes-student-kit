@@ -37,7 +37,7 @@ Use a paper takeover when the narration reaches a major thesis, list, section ma
 
 Good uses:
 
-- Hook payoff or "in this video" overview
+- Hook payoff, or the one-line chapter roadmap after the hook (never a spoken "in this video I'll…" opener; see `../make-a-video/references/script-roadmap-intro.md`)
 - Major section transition
 - Big stat or study result
 - Memorable thesis line

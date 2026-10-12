@@ -29,6 +29,7 @@ For one stage, load the matching local skill:
 | Silence removal | `cut-silences` |
 | Retakes, false starts, or stutters | `cut-mistakes` |
 | Narrative arc, persistent world, and visual callbacks | `video-storytelling` |
+| YouTube hooks, titles, thumbnails, Shorts plan, post-publish lessons | `youtube-packaging` |
 | Overlay beats, paper takeovers, and glass cards | `hyperframes-video-beats` |
 | Select or extend styles and templates | `style-library` |
 | HTML compositions and media timing | `hyperframes` |
@@ -37,6 +38,8 @@ For one stage, load the matching local skill:
 | Install HyperFrames catalog blocks | `hyperframes-registry` |
 
 Before a creative session read `MOTION_PHILOSOPHY.md` and the project's DESIGN.md.
+Before writing a script, titles or thumbnails, read `youtube-packaging` and its
+lessons log; every hand-off passes its pre-publish checklist.
 The philosophy's fast sizzle pacing is a style reference. Give educational speech
 room to breathe. The project brief controls pacing, palette, and typography.
 Framework skill contracts override historical code recipes in the style guide.
