@@ -54,6 +54,30 @@ node .agents/skills/cut-silences/scripts/cut-silences.mjs <transcript.json> \
 | `--tail-pad <s>` | `0.34` | Silence kept after the last word |
 | `--apply` | off | Actually run ffmpeg to render the cut |
 
+## Audio mode: cut on the waveform (use this with Whisper transcripts)
+
+Whisper-family timestamps (local Whisper, `hyperframes transcribe`) can show gaps
+**inside** real speech and stretch a word's end over a long pause. The transcript
+mode above trusts those gaps, so it can delete syllables ("AI learns patterns"
+lost half of "learns") and keep multi-second silences. On the "AI Basics" edit it
+cut three phrases mid-word. Cut on the audio instead:
+
+```bash
+node .agents/skills/cut-silences/scripts/cut-silences-audio.mjs video-projects/<slug>/assets/raw.mp4 \
+  --out-dir video-projects/<slug>/assets/edit --apply
+```
+
+- Pauses come from ffmpeg `silencedetect`; every cut lands on true silence, keeps
+  0.20s after speech and 0.14s before it, with 10-12 ms fades at each join.
+- The threshold is automatic: between the noise floor and the median level
+  (`--noise -62` to force one). Browser recordings had speech at -48 dBFS median,
+  so a fixed -45 dB threshold would treat speech as silence.
+- `--transcript words.json` re-times a transcript onto the cut, but **re-transcribe
+  the cut video** before timing graphics; Whisper timing on the cut is what the
+  beats must match.
+- Prefer the transcript mode only with timestamps you trust (ElevenLabs Scribe),
+  and spot-check its largest deletes by ear.
+
 ## How it decides (the silence rules)
 
 - Pauses below `--gap` (0.55s) are left alone — natural speech rhythm.

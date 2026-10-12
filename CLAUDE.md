@@ -70,6 +70,9 @@ and needs a configured integration and credits. Reuse existing transcripts and
 assets; make any unapproved uploads or paid calls concrete before asking.
 
 Cut silences first; use its edited video AND retimed transcript for cut-mistakes.
+With Whisper timestamps, cut on the audio (`cut-silences-audio.mjs`), never on
+word gaps, and re-transcribe the cut. Lessons from shipped edits live in
+`.claude/skills/edit-video/references/production-lessons.md`.
 Review each mistake in context. Intentional repetition is not a mistake. Record
 the reviewed decisions before applying them. If no cuts are needed, preserve the
 input or use an empty cuts list. Never mix original timestamps with edited footage.
@@ -99,6 +102,9 @@ Use a Range-capable preview server for MP4 scrubbing (for example `npx serve`).
 Honor approvals already provided. When review approval is missing, prepare the
 concrete preview or cut proposal first. Never claim a lint result proves visual
 quality. Only publish or upload a finished video when the user authorizes it.
+Each render (draft or final) needs the user's go-ahead. When QA of a draft finds
+issues, prepare the fixes, report them, and stop; never start the next render
+without explicit approval.
 Automated browser checks must be headless, with Pointer Lock and cursor capture
 disabled; synthetic input must remain inside the virtual browser.
 

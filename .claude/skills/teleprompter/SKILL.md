@@ -128,6 +128,10 @@ Open **http://localhost:8090/teleprompter/**. If 8090 is taken, use another port
 
 - `file://` won't work (no mic or camera, and `fetch` of cues.json is blocked). Always serve it.
 - Browser recordings are variable frame rate. Always re-encode camera takes with `-r 30` (above) before using them in a composition.
+- **Check the first camera take before the user records the rest.** In a dim room the webcam dropped to ~15 fps at 720p for every take of a 10-minute video, which reads as choppy and cannot be fixed in the edit. Count frames against duration (`ffprobe -count_packets -select_streams v:0 -show_entries stream=nb_read_packets`); below ~25 fps, suggest more front light, then re-check.
+- Browser takes are quiet (one session measured -36 LUFS, speech median about -48 dBFS). That's fine for recording; normalize loudness in the edit, and never use a fixed -45 dB silence threshold on these takes.
+- Windows Studio Effects (background blur, eye contact) apply at the driver level, so they work in this page, but only on the built-in camera. Pick that camera in *Camera & mic*. Eye contact helps when reading.
+- For code demos, read in **Advance on Space** mode: the script clock doesn't know how long code takes to run.
 - Only one app can usually hold the camera. Close Zoom, Teams or OBS if the preview stays black.
 - Don't use Python's `http.server` if the user wants to scrub the synced video. Use `npx serve` (it supports range requests).
 - The take counter lives in the browser's localStorage, so it resets in a new browser profile. Filenames include the chapter id, so nothing gets overwritten silently: the browser adds `(1)` to duplicate names.

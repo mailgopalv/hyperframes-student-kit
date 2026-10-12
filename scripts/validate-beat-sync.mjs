@@ -109,9 +109,10 @@ function readAnchor(srcRelative) {
   }
   // Root div: the inner div immediately inside <template id="..."> â€” its data-composition-id
   // matches the outer wiring. Match data-anchor on ANY div within the file (first occurrence).
-  const m = html.match(/data-anchor\s*=\s*["']([^"']*)["']/);
+  // Match the opening quote, so a double-quoted anchor may contain apostrophes ("Let's go").
+  const m = html.match(/data-anchor\s*=\s*(["'])(.*?)\1/);
   if (!m) return { anchor: null };
-  return { anchor: m[1].trim() };
+  return { anchor: m[2].replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&amp;/g, "&").trim() };
 }
 
 /** Find the earliest word in transcript at or after minStart whose joined text contains phrase. */

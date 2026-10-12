@@ -19,6 +19,28 @@
 
 Keep the whole intro to **about 20–40 seconds** of narration for long-form.
 
+## Point to videos that already exist, without breaking the flow
+
+Continuity comes first. A viewer who gets pulled toward another video mid-explanation loses the thread.
+
+- **Keep the intro focused.** Besides the roadmap and GitHub, mention only the previous part of a series, as the bridge into this one (e.g. "Part 2 picks up where Part 1 left off"). Don't list other videos in the intro.
+- **Mid-video plugs: one short sentence, then straight back to the topic.** For example: "I show the full Gemini setup step by step in my agent-from-scratch video, link in the description." The next line returns to the current point.
+- **Collect the "go deeper" references in the outro.** That's where to name the related videos or a playlist's parts, and to say once that all the links are in the description.
+- Never write "in the next video" or "coming soon" for a topic the channel already covers. Check what's published, say the video exists, and point to the description. Put a matching "link in description" card on screen.
+
+## Code demos: cue every step
+
+When the speaker demos code live while reading the script, every demo step needs a stage-direction note under the line it goes with, so the teleprompter shows what to do:
+
+- `> [VS Code] DEMO 1 START. Open demos/<file>.py` at the hand-off line ("I'm switching over to VS Code").
+- `> [VS Code] Highlight lines 26-33: <what they are>` for each part of the code the narration explains, with **exact line numbers** checked against the file.
+- `> [Terminal] Run: python <file>.py` for each run, plus what to point at in the output (`[Claude asks] ...`).
+- `> ... DEMO 1 END` and a cue for returning to camera.
+
+**Camera-only recording (code shown as graphics).** When the speaker records only camera and voice and the code is built as motion graphics afterwards, write no keyboard actions. Narration goes to camera ("Let's try it. Here's the code." rather than "I'm switching to VS Code. This is live."), and each step becomes a `> SCREEN:` note for the editor: the file, exact lines to highlight, the terminal command and which output line to highlight. Build the editor and terminal from the real source files and real run output, not screenshots or invented output.
+
+Write the narration as a walk-through of the code itself (what this line does, why it matters), not "look at the code". When a later chapter explains something the demo already showed (e.g. "this loop is the harness"), add a short code callback with its own cues. Re-check the line numbers whenever the demo files change, and give the user a run sheet: each demo's file, lines, commands, and where it sits in the script.
+
 ## Pair it with a visual
 
 Put an **agenda / roadmap card** on screen while the roadmap is spoken: every chapter listed, each lighting up as it's named, plus a small "code on GitHub · link in description" badge when there's code. Later chapter cards can call back to it (the current chapter highlighted), which gives viewers a sense of progress.
@@ -31,6 +53,10 @@ Put an **agenda / roadmap card** on screen while the roadmap is spoken: every ch
   - [ ] Every chapter is named in order, matching the on-screen chapter titles
   - [ ] If code is involved: GitHub + "link in the description" is mentioned in the intro
   - [ ] The roadmap has a matching on-screen agenda beat
+  - [ ] The intro mentions no other videos (except the previous part of a series)
+  - [ ] Mid-video plugs are one sentence and return to the topic; related videos are collected in the outro
+  - [ ] Follow-up topics that already have videos are referenced as "link in the description", not "next video"
+  - [ ] Every live code step has a `[VS Code]` / `[Terminal]` cue with exact file, lines, and command
 
 ## Example (from "Agent with Sub-Agents")
 
